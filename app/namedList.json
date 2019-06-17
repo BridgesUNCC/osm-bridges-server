@@ -1,0 +1,174 @@
+{
+"named": [
+    {
+    "city": "New York City",
+    "country": "United States",
+    "minLon": "-74.3031",
+    "minLat": "40.4987",
+    "maxLon": "-73.4922",
+    "maxLat": "40.956402"
+    },
+    {
+    "city": "Los Angeles",
+    "country": "United States",
+    "minLon": "-118.5836",
+    "minLat": "33.52307",
+    "maxLon": "-117.7075",
+    "maxLat": "34.3162"
+    },
+    {
+    "city": "Chicago",
+    "country": "United States",
+    "minLon": "-88.19927",
+    "minLat": "41.42401",
+    "maxLon": "-87.18029",
+    "maxLat": "42.2303"
+    },
+    {
+    "city": "Houston",
+    "country": "United States",
+    "minLon": "-95.72903",
+    "minLat": "29.50382",
+    "maxLon": "-94.88583",
+    "maxLat": "30.13291"
+    },
+    {
+    "city": "Phoenix",
+    "country": "United States",
+    "minLon": "-112.35473",
+    "minLat": "33.26239",
+    "maxLon": "-111.46347",
+    "maxLat": "33.77531"
+    },
+    {
+    "city": "Philadelphia",
+    "country": "United States",
+    "minLon": "-75.36466",
+    "minLat": "39.76215",
+    "maxLon": "-74.8359",
+    "maxLat": "40.17053"
+    },
+    {
+    "city": "San Antonio",
+    "country": "United States",
+    "minLon": "-98.71840",
+    "minLat": "29.19170",
+    "maxLon": "-98.25011",
+    "maxLat": "29.63193"
+    },
+    {
+    "city": "San Diego",
+    "country": "United States",
+    "minLon": "-117.24358",
+    "minLat": "32.5738",
+    "maxLon": "-116.95279",
+    "maxLat": "32.94944"
+    },
+    {
+    "city": "Dallas",
+    "country": "United States",
+    "minLon": "-97.0573",
+    "minLat": "32.61960",
+    "maxLon": "-96.5396",
+    "maxLat": "33.05345"
+    },
+    {
+    "city": "San Jose",
+    "country": "United States",
+    "minLon": "-122.05638",
+    "minLat": "37.20632",
+    "maxLon": "-121.7631",
+    "maxLat": "37.44547"
+    },
+    {
+    "city": "Austin",
+    "country": "United States",
+    "minLon": "-97.91839",
+    "minLat": "30.11519",
+    "maxLon": "-97.51053",
+    "maxLat": "30.46856"
+    },
+    {
+    "city": "Jacksonville",
+    "country": "United States",
+    "minLon": "-81.78578",
+    "minLat": "30.18358",
+    "maxLon": "-81.50655",
+    "maxLat": "30.45541"
+    },
+    {
+    "city": "Fort Worth",
+    "country": "United States",
+    "minLon": "-97.5048",
+    "minLat": "32.60870",
+    "maxLon": "-97.08603",
+    "maxLat": "32.99194"
+    },
+    {
+    "city": "Columbus",
+    "country": "United States",
+    "minLon": "-83.14137",
+    "minLat": "39.87414",
+    "maxLon": "-82.84337",
+    "maxLat": "40.13082"
+    },
+    {
+    "city": "San Francisco",
+    "country": "United States",
+    "minLon": "-122.5143",
+    "minLat": "37.58080",
+    "maxLon": "-122.2080",
+    "maxLat": "37.93908"
+    },
+    {
+    "city": "Charlotte",
+    "country": "United States",
+    "minLon": "-81.0023",
+    "minLat": "35.05963",
+    "maxLon": "-80.65301",
+    "maxLat": "35.38034"
+    },
+    {
+    "city": "Indianapolis",
+    "country": "United States",
+    "minLon": "-86.2893",
+    "minLat": "39.6767",
+    "maxLon": "-86.01655",
+    "maxLat": "39.95115"
+    },
+    {
+    "city": "Seattle",
+    "country": "United States",
+    "minLon": "-122.41975",
+    "minLat": "47.2706",
+    "maxLon": "-122.00532",
+    "maxLat": "47.7999"
+    },
+    {
+    "city": "Denver",
+    "country": "United States",
+    "minLon": "-105.2371",
+    "minLat": "39.53650",
+    "maxLon": "-104.7125",
+    "maxLat": "39.9799"
+    },
+    {
+    "city": "Washington",
+    "country": "United States",
+    "minLon": "-77.2496",
+    "minLat": "38.7187",
+    "maxLon": "-76.8335",
+    "maxLat": "39.05010"
+    },
+    {
+    "city": "Boston",
+    "country": "United States",
+    "minLon": "-71.18310",
+    "minLat": "42.2564",
+    "maxLon": "-70.9764",
+    "maxLat": "42.45532"
+    }
+
+
+]
+}

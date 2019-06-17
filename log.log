@@ -1,0 +1,2858 @@
+2019-06-10 16:04:20,984 Script started with run parameters
+2019-06-10 16:04:20,984 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 215, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 64, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:04:20,987 127.0.0.1 - - [10/Jun/2019 16:04:20] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:05:33,757 Script started with hghghg parameters
+2019-06-10 16:05:33,758 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 215, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 64, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:05:33,759 127.0.0.1 - - [10/Jun/2019 16:05:33] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:05:35,217 Script started with hghghg parameters
+2019-06-10 16:05:35,217 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 215, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 64, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:05:35,218 127.0.0.1 - - [10/Jun/2019 16:05:35] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:06:09,840 Script started with hghghg parameters
+2019-06-10 16:06:09,841 127.0.0.1 - - [10/Jun/2019 16:06:09] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:06:51,840 Script started with hghghg parameters
+2019-06-10 16:06:51,841 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 216, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:06:51,843 127.0.0.1 - - [10/Jun/2019 16:06:51] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:07:32,904 Script started with hghghg parameters
+2019-06-10 16:07:32,904 127.0.0.1 - - [10/Jun/2019 16:07:32] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:08:22,016 Script started with hghghg parameters
+2019-06-10 16:08:22,017 127.0.0.1 - - [10/Jun/2019 16:08:22] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:08:54,633 Script started with hghghg parameters
+2019-06-10 16:08:54,634 127.0.0.1 - - [10/Jun/2019 16:08:54] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:09:55,320 Script started with hghghg parameters
+2019-06-10 16:09:55,321 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 216, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:09:55,322 127.0.0.1 - - [10/Jun/2019 16:09:55] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:12:20,777 Script started with hghghg parameters
+2019-06-10 16:12:20,778 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 220, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:12:20,779 127.0.0.1 - - [10/Jun/2019 16:12:20] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:12:22,096 Script started with hghghg parameters
+2019-06-10 16:12:22,097 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 220, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:12:22,097 127.0.0.1 - - [10/Jun/2019 16:12:22] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:12:22,251 Script started with hghghg parameters
+2019-06-10 16:12:22,252 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 220, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:12:22,252 127.0.0.1 - - [10/Jun/2019 16:12:22] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:12:22,404 Script started with hghghg parameters
+2019-06-10 16:12:22,404 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 220, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:12:22,405 127.0.0.1 - - [10/Jun/2019 16:12:22] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:12:22,570 Script started with hghghg parameters
+2019-06-10 16:12:22,571 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 220, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:12:22,571 127.0.0.1 - - [10/Jun/2019 16:12:22] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:12:22,715 Script started with hghghg parameters
+2019-06-10 16:12:22,715 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 220, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:12:22,716 127.0.0.1 - - [10/Jun/2019 16:12:22] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:12:59,726 Script started with hghghg parameters
+2019-06-10 16:12:59,727 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:12:59,728 127.0.0.1 - - [10/Jun/2019 16:12:59] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:01,619 Script started with hghghg parameters
+2019-06-10 16:13:01,620 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:13:01,620 127.0.0.1 - - [10/Jun/2019 16:13:01] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:01,790 Script started with hghghg parameters
+2019-06-10 16:13:01,790 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:13:01,791 127.0.0.1 - - [10/Jun/2019 16:13:01] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:01,982 Script started with hghghg parameters
+2019-06-10 16:13:01,982 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:13:01,983 127.0.0.1 - - [10/Jun/2019 16:13:01] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:02,155 Script started with hghghg parameters
+2019-06-10 16:13:02,155 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:13:02,156 127.0.0.1 - - [10/Jun/2019 16:13:02] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:32,061 Script started with hghghg parameters
+2019-06-10 16:13:32,062 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:13:32,063 127.0.0.1 - - [10/Jun/2019 16:13:32] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:33,520 Script started with hghghg parameters
+2019-06-10 16:13:33,520 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:13:33,521 127.0.0.1 - - [10/Jun/2019 16:13:33] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:33,687 Script started with hghghg parameters
+2019-06-10 16:13:33,687 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:13:33,688 127.0.0.1 - - [10/Jun/2019 16:13:33] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:33,839 Script started with hghghg parameters
+2019-06-10 16:13:33,839 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:13:33,840 127.0.0.1 - - [10/Jun/2019 16:13:33] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:34,004 Script started with hghghg parameters
+2019-06-10 16:13:34,004 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 221, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 65, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:13:34,005 127.0.0.1 - - [10/Jun/2019 16:13:34] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:13:46,659 Script started with hghghg parameters
+2019-06-10 16:13:46,660 127.0.0.1 - - [10/Jun/2019 16:13:46] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:15:34,077 Script started with hghghg parameters
+2019-06-10 16:15:34,082 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 252, in pipeline
+    osm_to_adj.main(filename, 0)
+NameError: name 'osm_to_adj' is not defined
+2019-06-10 16:15:34,085 127.0.0.1 - - [10/Jun/2019 16:15:34] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:16:03,012 Script started with hghghg parameters
+2019-06-10 16:16:03,013 127.0.0.1 - - [10/Jun/2019 16:16:03] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:16:24,495 Script started with hghghg parameters
+2019-06-10 16:16:24,495 Exception on /hghghg [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 46, in index
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 224, in pipeline
+    o5m = call_convert(str(filename))
+  File "/home/nightt/flask_test/app/routes.py", line 67, in call_convert
+    bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+IndexError: list index out of range
+2019-06-10 16:16:24,496 127.0.0.1 - - [10/Jun/2019 16:16:24] "GET /hghghg HTTP/1.1" 500 -
+2019-06-10 16:17:40,773 Script started with hghghg parameters
+2019-06-10 16:17:40,774 127.0.0.1 - - [10/Jun/2019 16:17:40] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:18:28,838 Script started with hghghg parameters
+2019-06-10 16:18:28,839 127.0.0.1 - - [10/Jun/2019 16:18:28] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:19:00,511 Script started with hghghg parameters
+2019-06-10 16:19:00,515 127.0.0.1 - - [10/Jun/2019 16:19:00] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:19:32,195 Script started with hghghg parameters
+2019-06-10 16:19:32,199 127.0.0.1 - - [10/Jun/2019 16:19:32] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:19:33,488 Script started with hghghg parameters
+2019-06-10 16:19:33,493 127.0.0.1 - - [10/Jun/2019 16:19:33] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:20:52,178 Script started with hghghg parameters
+2019-06-10 16:20:52,183 127.0.0.1 - - [10/Jun/2019 16:20:52] "GET /hghghg HTTP/1.1" 200 -
+2019-06-10 16:22:46,740 Script started with -84.21235,34.6485,-75.752708,36.53104 parameters
+2019-06-10 16:22:46,747 127.0.0.1 - - [10/Jun/2019 16:22:46] "GET /-84.21235,34.6485,-75.752708,36.53104 HTTP/1.1" 200 -
+2019-06-10 16:23:39,591 Script started with -84.21235,34.6485,-75.752708,36.53104 parameters
+2019-06-10 16:23:39,596 127.0.0.1 - - [10/Jun/2019 16:23:39] "GET /-84.21235,34.6485,-75.752708,36.53104 HTTP/1.1" 200 -
+2019-06-10 16:26:17,763 Script started with -84.21235,34.6485,-75.752708,36.53104 parameters
+2019-06-10 16:26:17,767 127.0.0.1 - - [10/Jun/2019 16:26:17] "GET /-84.21235,34.6485,-75.752708,36.53104 HTTP/1.1" 200 -
+2019-06-10 16:26:55,410 Script started with -84.21235,34.6485,-75.752708,36.53104 parameters
+2019-06-10 16:26:55,417 127.0.0.1 - - [10/Jun/2019 16:26:55] "GET /-84.21235,34.6485,-75.752708,36.53104 HTTP/1.1" 200 -
+2019-06-10 16:27:45,888 Script started with -84.21235,34.6485,-75.752708,36.53104 parameters
+2019-06-10 16:27:57,120 127.0.0.1 - - [10/Jun/2019 16:27:57] "GET /-84.21235,34.6485,-75.752708,36.53104 HTTP/1.1" 200 -
+2019-06-10 16:31:21,407 Script started with -77.055,39.121,-76.305,39.508 parameters
+2019-06-10 16:31:32,130 127.0.0.1 - - [10/Jun/2019 16:31:32] "GET /-77.055,39.121,-76.305,39.508 HTTP/1.1" 200 -
+2019-06-11 09:30:23,280 Script started with favicon.ico parameters
+2019-06-11 09:30:50,030 127.0.0.1 - - [11/Jun/2019 09:30:50] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-11 09:31:15,508 Script started with dfgjhdfgjhdf parameters
+2019-06-11 09:31:34,660 127.0.0.1 - - [11/Jun/2019 09:31:34] "GET /dfgjhdfgjhdf HTTP/1.1" 200 -
+2019-06-11 09:31:34,685 Script started with favicon.ico parameters
+2019-06-11 09:31:57,645 127.0.0.1 - - [11/Jun/2019 09:31:57] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-11 11:00:46,179 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 23, in coordsInput
+    logging.info(f"Script started with {request.args['minLon']} parameters")
+NameError: name 'request' is not defined
+2019-06-11 11:00:46,181 127.0.0.1 - - [11/Jun/2019 11:00:46] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:01:53,833 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 23, in coordsInput
+    logging.info(f"Script started with {request.args['minLon']} parameters")
+NameError: name 'request' is not defined
+2019-06-11 11:01:53,835 127.0.0.1 - - [11/Jun/2019 11:01:53] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:01:56,770 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 23, in coordsInput
+    logging.info(f"Script started with {request.args['minLon']} parameters")
+NameError: name 'request' is not defined
+2019-06-11 11:01:56,781 127.0.0.1 - - [11/Jun/2019 11:01:56] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:10:03,379 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 23, in coordsInput
+    logging.info(f"Script started with {request.args['minLon']} parameters")
+NameError: name 'request' is not defined
+2019-06-11 11:10:03,381 127.0.0.1 - - [11/Jun/2019 11:10:03] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:10:35,664 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 43, in coordsInput
+    return pipeline(input_Value)
+UnboundLocalError: local variable 'input_Value' referenced before assignment
+2019-06-11 11:10:35,666 127.0.0.1 - - [11/Jun/2019 11:10:35] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:12:27,803 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 26, in coordsInput
+    print (request.args['minLon'])
+NameError: name 'request' is not defined
+2019-06-11 11:12:27,805 127.0.0.1 - - [11/Jun/2019 11:12:27] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:13:21,813 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 26, in coordsInput
+    print (request.args['minLon'])
+NameError: name 'request' is not defined
+2019-06-11 11:13:21,815 127.0.0.1 - - [11/Jun/2019 11:13:21] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:16:01,566 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 47, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 253, in pipeline
+    osm_to_adj.main(filename, 0)
+NameError: name 'osm_to_adj' is not defined
+2019-06-11 11:16:01,568 127.0.0.1 - - [11/Jun/2019 11:16:01] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:18:30,358 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 47, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 253, in pipeline
+    main(filename, 0)
+NameError: name 'main' is not defined
+2019-06-11 11:18:30,361 127.0.0.1 - - [11/Jun/2019 11:18:30] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:22:26,228 Script started with -79.19235 parameters
+2019-06-11 11:22:37,724 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 44, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 250, in pipeline
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'xml_Temp.xml'
+2019-06-11 11:22:37,725 127.0.0.1 - - [11/Jun/2019 11:22:37] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:25:04,179 Script started with -79.19235 parameters
+2019-06-11 11:25:19,436 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 44, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 270, in pipeline
+    logging.info(f"Map file created with bounds: {inputs}")
+NameError: name 'inputs' is not defined
+2019-06-11 11:25:19,438 127.0.0.1 - - [11/Jun/2019 11:25:19] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:26:07,301 Script started with -79.19235 parameters
+2019-06-11 11:26:07,302 127.0.0.1 - - [11/Jun/2019 11:26:07] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 11:27:47,420 Script started with -79.19235 parameters
+2019-06-11 11:27:47,420 127.0.0.1 - - [11/Jun/2019 11:27:47] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 11:27:48,826 Script started with -79.19235 parameters
+2019-06-11 11:27:48,826 127.0.0.1 - - [11/Jun/2019 11:27:48] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 11:34:57,294 Script started with -79.19235 parameters
+2019-06-11 11:34:57,296 127.0.0.1 - - [11/Jun/2019 11:34:57] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 11:35:59,331 Script started with -79.19235 parameters
+2019-06-11 11:35:59,332 127.0.0.1 - - [11/Jun/2019 11:35:59] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 11:37:03,901 Script started with -79.19235 parameters
+2019-06-11 11:37:24,453 Map file created with bounds: [-79.19235, 35.6085, -78.731208, 36.08304]
+2019-06-11 11:37:24,454 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 44, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 271, in pipeline
+    response = json.dumps(response.text, sort_keys = False, indent = 2)
+UnboundLocalError: local variable 'response' referenced before assignment
+2019-06-11 11:37:24,457 127.0.0.1 - - [11/Jun/2019 11:37:24] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 11:43:53,592 Script started with -79.19235 parameters
+2019-06-11 11:44:11,745 Map file created with bounds: [-79.19235, 35.6085, -78.731208, 36.08304]
+2019-06-11 11:44:11,746 127.0.0.1 - - [11/Jun/2019 11:44:11] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 11:46:17,659 Script started with -79.19235 parameters
+2019-06-11 11:46:17,660 127.0.0.1 - - [11/Jun/2019 11:46:17] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 11:46:41,403 Script started with -79.19235 parameters
+2019-06-11 11:46:57,640 Map file created with bounds: [-79.19235, 35.6085, -78.731208, 36.08304]
+2019-06-11 11:46:57,650 127.0.0.1 - - [11/Jun/2019 11:46:57] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 11:59:16,731 Script started with -79.19235 parameters
+2019-06-11 11:59:32,587 Map file created with bounds: [-79.19235, 35.6085, -78.731208, 36.08304]
+2019-06-11 11:59:32,595 127.0.0.1 - - [11/Jun/2019 11:59:32] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 12:06:57,241 Script started with -79.19235 parameters
+2019-06-11 12:06:57,242 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 44, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 240, in pipeline
+    response = json.dumps(test2, sort_keys = False, indent = 2)
+UnboundLocalError: local variable 'test2' referenced before assignment
+2019-06-11 12:06:57,244 127.0.0.1 - - [11/Jun/2019 12:06:57] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-11 12:12:44,756 Script started with -79.19235 parameters
+2019-06-11 12:13:02,458 Map file created with bounds: [-79.19235, 35.6085, -78.731208, 36.08304]
+2019-06-11 12:13:02,467 127.0.0.1 - - [11/Jun/2019 12:13:02] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 12:17:12,159 Script started with -79.19235 parameters
+2019-06-11 12:17:30,122 Map file created with bounds: [-79.19235, 35.6085, -78.731208, 36.08304]
+2019-06-11 12:17:30,131 127.0.0.1 - - [11/Jun/2019 12:17:30] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 12:17:30,135 Script started with -79.19235 parameters
+2019-06-11 12:17:30,137 127.0.0.1 - - [11/Jun/2019 12:17:30] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-11 13:48:43,586 127.0.0.1 - - [11/Jun/2019 13:48:43] "GET /location?location=greensboro HTTP/1.1" 400 -
+2019-06-11 13:51:36,961 127.0.0.1 - - [11/Jun/2019 13:51:36] "GET /loc?location=greensboro HTTP/1.1" 400 -
+2019-06-11 14:00:10,701 Script started with greensboro parameters
+2019-06-11 14:00:10,720 127.0.0.1 - - [11/Jun/2019 14:00:10] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-11 14:00:18,931 Script started with sdfsdf parameters
+2019-06-11 14:00:18,932 127.0.0.1 - - [11/Jun/2019 14:00:18] "GET /loc?location=sdfsdf HTTP/1.1" 200 -
+2019-06-11 14:04:09,410 127.0.0.1 - - [11/Jun/2019 14:04:09] "GET / HTTP/1.1" 200 -
+2019-06-11 14:04:13,175 127.0.0.1 - - [11/Jun/2019 14:04:13] "GET /fhfghfghgf HTTP/1.1" 404 -
+2019-06-11 14:23:00,893 Script started with sdfsdf parameters
+2019-06-11 14:23:00,894 127.0.0.1 - - [11/Jun/2019 14:23:00] "GET /loc?location=sdfsdf HTTP/1.1" 200 -
+2019-06-12 09:08:06,849 Script started with sdfsdf parameters
+2019-06-12 09:08:06,850 127.0.0.1 - - [12/Jun/2019 09:08:06] "GET /loc?location=sdfsdf HTTP/1.1" 200 -
+2019-06-12 09:08:06,901 127.0.0.1 - - [12/Jun/2019 09:08:06] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 09:09:33,170 Script started with greensboro parameters
+2019-06-12 09:09:33,171 127.0.0.1 - - [12/Jun/2019 09:09:33] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 09:09:33,198 127.0.0.1 - - [12/Jun/2019 09:09:33] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 09:56:37,578 Script started with jhuhj parameters
+2019-06-12 09:56:37,579 127.0.0.1 - - [12/Jun/2019 09:56:37] "GET /loc?location=jhuhj HTTP/1.1" 200 -
+2019-06-12 09:56:37,612 Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1810, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1793, in raise_routing_exception
+    raise request.routing_exception
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/ctx.py", line 336, in match_request
+    self.url_adapter.match(return_rule=True)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1786, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1732, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1661, in handle_http_exception
+    return handler(e)
+  File "/home/nightt/flask_test/app/routes.py", line 68, in page_not_found
+    load = json.laod(x)
+AttributeError: module 'json' has no attribute 'laod'
+2019-06-12 09:56:37,684 127.0.0.1 - - [12/Jun/2019 09:56:37] "GET /favicon.ico HTTP/1.1" 500 -
+2019-06-12 09:56:52,238 Exception on /nbnb [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1810, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1793, in raise_routing_exception
+    raise request.routing_exception
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/ctx.py", line 336, in match_request
+    self.url_adapter.match(return_rule=True)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1786, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1732, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1661, in handle_http_exception
+    return handler(e)
+  File "/home/nightt/flask_test/app/routes.py", line 68, in page_not_found
+    load = json.laod(x)
+AttributeError: module 'json' has no attribute 'laod'
+2019-06-12 09:56:52,238 127.0.0.1 - - [12/Jun/2019 09:56:52] "GET /nbnb HTTP/1.1" 500 -
+2019-06-12 09:56:52,271 Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1810, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1793, in raise_routing_exception
+    raise request.routing_exception
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/ctx.py", line 336, in match_request
+    self.url_adapter.match(return_rule=True)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1786, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1732, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1661, in handle_http_exception
+    return handler(e)
+  File "/home/nightt/flask_test/app/routes.py", line 68, in page_not_found
+    load = json.laod(x)
+AttributeError: module 'json' has no attribute 'laod'
+2019-06-12 09:56:52,272 127.0.0.1 - - [12/Jun/2019 09:56:52] "GET /favicon.ico HTTP/1.1" 500 -
+2019-06-12 10:23:38,597 Script started with greensboro parameters
+2019-06-12 10:23:38,597 127.0.0.1 - - [12/Jun/2019 10:23:38] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 10:23:38,625 127.0.0.1 - - [12/Jun/2019 10:23:38] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 10:44:21,452 Script started with greensboro parameters
+2019-06-12 10:45:00,869 127.0.0.1 - - [12/Jun/2019 10:45:00] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 10:45:00,918 127.0.0.1 - - [12/Jun/2019 10:45:00] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 10:50:20,592 Script started with greensboro parameters
+2019-06-12 10:56:52,870 127.0.0.1 - - [12/Jun/2019 10:56:52] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 10:56:53,543 127.0.0.1 - - [12/Jun/2019 10:56:53] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 11:00:57,840 Script started with greensboro parameters
+2019-06-12 11:07:40,759 127.0.0.1 - - [12/Jun/2019 11:07:40] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 11:07:41,540 127.0.0.1 - - [12/Jun/2019 11:07:41] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 11:10:51,650 Script started with greensboro parameters
+2019-06-12 11:12:31,748 Script started with greensboro parameters
+2019-06-12 11:16:58,756 Script started with greensboro parameters
+2019-06-12 11:16:58,757 127.0.0.1 - - [12/Jun/2019 11:16:58] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 11:16:58,816 127.0.0.1 - - [12/Jun/2019 11:16:58] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 11:50:14,007 Script started with greensboro parameters
+2019-06-12 11:50:14,007 Checking for pre-defined cities
+2019-06-12 11:50:14,008 Pre-defined cities check complete
+2019-06-12 11:50:14,008 127.0.0.1 - - [12/Jun/2019 11:50:14] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 11:50:14,039 127.0.0.1 - - [12/Jun/2019 11:50:14] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 12:33:32,322 Script started with greensboro parameters
+2019-06-12 12:33:32,349 Checking for pre-defined cities
+2019-06-12 12:33:32,350 Converting -74.3031, 40.4987, -73.4922, 40.956402 map to .o5m
+2019-06-12 12:33:32,354 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,354 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,358 Filtering Complete
+2019-06-12 12:33:32,358 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,359 Converting -118.5836, 33.52307, -117.7075, 34.3162 map to .o5m
+2019-06-12 12:33:32,362 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,362 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,365 Filtering Complete
+2019-06-12 12:33:32,365 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,366 Converting -88.19927, 41.42401, -87.18029, 42.2303 map to .o5m
+2019-06-12 12:33:32,368 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,368 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,371 Filtering Complete
+2019-06-12 12:33:32,371 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,371 Converting -95.72903, 29.50382, -94.88583, 30.13291 map to .o5m
+2019-06-12 12:33:32,374 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,374 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,377 Filtering Complete
+2019-06-12 12:33:32,378 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,378 Converting -112.35473, 33.26239, -111.46347, 33.77531 map to .o5m
+2019-06-12 12:33:32,382 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,382 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,386 Filtering Complete
+2019-06-12 12:33:32,386 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,386 Converting -75.36466, 39.76215, -74.8359, 40.17053 map to .o5m
+2019-06-12 12:33:32,389 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,389 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,392 Filtering Complete
+2019-06-12 12:33:32,392 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,393 Converting -98.71840, 29.19170, -98.25011, 29.63193 map to .o5m
+2019-06-12 12:33:32,395 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,396 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,399 Filtering Complete
+2019-06-12 12:33:32,399 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,399 Converting -117.24358, 32.5738, -116.95279, 32.94944 map to .o5m
+2019-06-12 12:33:32,402 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,402 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,407 Filtering Complete
+2019-06-12 12:33:32,407 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,407 Converting -97.0573, 32.61960, -96.5396, 33.05345 map to .o5m
+2019-06-12 12:33:32,410 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,410 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,414 Filtering Complete
+2019-06-12 12:33:32,415 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,415 Converting -122.05638, 37.20632, -121.7631, 37.44547 map to .o5m
+2019-06-12 12:33:32,418 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,418 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,421 Filtering Complete
+2019-06-12 12:33:32,421 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,421 Converting -97.91839, 30.11519, -97.51053, 30.46856 map to .o5m
+2019-06-12 12:33:32,424 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,424 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,426 Filtering Complete
+2019-06-12 12:33:32,427 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,427 Converting -81.78578, 30.18358, -81.50655, 30.45541 map to .o5m
+2019-06-12 12:33:32,429 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,429 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,432 Filtering Complete
+2019-06-12 12:33:32,432 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,432 Converting -97.5048, 32.60870, -97.08603, 32.99194 map to .o5m
+2019-06-12 12:33:32,436 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,436 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,439 Filtering Complete
+2019-06-12 12:33:32,439 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,439 Converting -83.14137, 39.87414, -82.84337, 40.13082 map to .o5m
+2019-06-12 12:33:32,442 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,442 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,445 Filtering Complete
+2019-06-12 12:33:32,446 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,446 Converting -122.5143, 37.58080, -122.2080, 37.93908 map to .o5m
+2019-06-12 12:33:32,453 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,453 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,457 Filtering Complete
+2019-06-12 12:33:32,458 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,458 Converting -81.0023, 35.05963, -80.65301, 35.38034 map to .o5m
+2019-06-12 12:33:32,462 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,462 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,466 Filtering Complete
+2019-06-12 12:33:32,467 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,467 Converting -86.2893, 39.6767, -86.01655, 39.95115 map to .o5m
+2019-06-12 12:33:32,472 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,473 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,478 Filtering Complete
+2019-06-12 12:33:32,478 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,478 Converting -122.41975, 47.2706, -122.00532, 47.7999 map to .o5m
+2019-06-12 12:33:32,481 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,482 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,488 Filtering Complete
+2019-06-12 12:33:32,488 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,489 Converting -105.2371, 39.53650, -104.7125, 39.9799 map to .o5m
+2019-06-12 12:33:32,493 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,493 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,496 Filtering Complete
+2019-06-12 12:33:32,496 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,496 Converting -77.2496, 38.7187, -76.8335, 39.05010 map to .o5m
+2019-06-12 12:33:32,498 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,499 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,501 Filtering Complete
+2019-06-12 12:33:32,501 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,501 Converting -71.18310, 42.2564, -70.9764, 42.45532 map to .o5m
+2019-06-12 12:33:32,505 Map Successfully Converted to .o5m
+2019-06-12 12:33:32,505 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:33:32,508 Filtering Complete
+2019-06-12 12:33:32,508 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:33:32,508 Pre-defined cities check complete
+2019-06-12 12:33:32,510 127.0.0.1 - - [12/Jun/2019 12:33:32] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 12:33:32,538 127.0.0.1 - - [12/Jun/2019 12:33:32] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 12:35:35,849 Script started with greensboro parameters
+2019-06-12 12:35:35,850 Exception occured while downloading map North America
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 158, in update
+    os.rename("app/map_files/" + sub["file_name"], "app/map_files/backup/" + sub["file_name"])
+FileNotFoundError: [Errno 2] No such file or directory: 'app/map_files/north-america-latest.osm.pbf' -> 'app/map_files/backup/north-america-latest.osm.pbf'
+2019-06-12 12:35:35,856 Converting and filtering error
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 181, in update
+    os.rename("app/map_files/" + sub["file_name"], "app/map_files/backup/" + sub["file_name"])
+FileNotFoundError: [Errno 2] No such file or directory: 'app/map_files/north-america-latest.osm.pbf' -> 'app/map_files/backup/north-america-latest.osm.pbf'
+2019-06-12 12:35:35,856 Checking for pre-defined cities
+2019-06-12 12:35:35,857 Converting -74.3031, 40.4987, -73.4922, 40.956402 map to .o5m
+2019-06-12 12:35:35,860 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,860 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,864 Filtering Complete
+2019-06-12 12:35:35,865 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,865 Converting -118.5836, 33.52307, -117.7075, 34.3162 map to .o5m
+2019-06-12 12:35:35,868 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,868 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,871 Filtering Complete
+2019-06-12 12:35:35,871 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,871 Converting -88.19927, 41.42401, -87.18029, 42.2303 map to .o5m
+2019-06-12 12:35:35,874 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,874 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,876 Filtering Complete
+2019-06-12 12:35:35,877 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,877 Converting -95.72903, 29.50382, -94.88583, 30.13291 map to .o5m
+2019-06-12 12:35:35,881 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,881 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,884 Filtering Complete
+2019-06-12 12:35:35,884 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,884 Converting -112.35473, 33.26239, -111.46347, 33.77531 map to .o5m
+2019-06-12 12:35:35,888 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,888 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,890 Filtering Complete
+2019-06-12 12:35:35,890 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,891 Converting -75.36466, 39.76215, -74.8359, 40.17053 map to .o5m
+2019-06-12 12:35:35,893 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,893 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,896 Filtering Complete
+2019-06-12 12:35:35,896 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,896 Converting -98.71840, 29.19170, -98.25011, 29.63193 map to .o5m
+2019-06-12 12:35:35,899 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,899 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,902 Filtering Complete
+2019-06-12 12:35:35,902 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,903 Converting -117.24358, 32.5738, -116.95279, 32.94944 map to .o5m
+2019-06-12 12:35:35,906 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,907 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,910 Filtering Complete
+2019-06-12 12:35:35,910 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,910 Converting -97.0573, 32.61960, -96.5396, 33.05345 map to .o5m
+2019-06-12 12:35:35,913 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,914 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,916 Filtering Complete
+2019-06-12 12:35:35,917 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,917 Converting -122.05638, 37.20632, -121.7631, 37.44547 map to .o5m
+2019-06-12 12:35:35,920 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,921 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,923 Filtering Complete
+2019-06-12 12:35:35,924 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,924 Converting -97.91839, 30.11519, -97.51053, 30.46856 map to .o5m
+2019-06-12 12:35:35,927 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,927 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,929 Filtering Complete
+2019-06-12 12:35:35,929 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,930 Converting -81.78578, 30.18358, -81.50655, 30.45541 map to .o5m
+2019-06-12 12:35:35,932 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,933 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,935 Filtering Complete
+2019-06-12 12:35:35,936 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,936 Converting -97.5048, 32.60870, -97.08603, 32.99194 map to .o5m
+2019-06-12 12:35:35,940 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,940 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,943 Filtering Complete
+2019-06-12 12:35:35,944 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,944 Converting -83.14137, 39.87414, -82.84337, 40.13082 map to .o5m
+2019-06-12 12:35:35,947 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,947 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,949 Filtering Complete
+2019-06-12 12:35:35,950 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,950 Converting -122.5143, 37.58080, -122.2080, 37.93908 map to .o5m
+2019-06-12 12:35:35,952 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,952 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,955 Filtering Complete
+2019-06-12 12:35:35,956 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,956 Converting -81.0023, 35.05963, -80.65301, 35.38034 map to .o5m
+2019-06-12 12:35:35,960 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,960 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,963 Filtering Complete
+2019-06-12 12:35:35,963 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,965 Converting -86.2893, 39.6767, -86.01655, 39.95115 map to .o5m
+2019-06-12 12:35:35,971 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,972 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,982 Filtering Complete
+2019-06-12 12:35:35,982 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,983 Converting -122.41975, 47.2706, -122.00532, 47.7999 map to .o5m
+2019-06-12 12:35:35,987 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,987 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,989 Filtering Complete
+2019-06-12 12:35:35,990 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,990 Converting -105.2371, 39.53650, -104.7125, 39.9799 map to .o5m
+2019-06-12 12:35:35,993 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,993 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:35,996 Filtering Complete
+2019-06-12 12:35:35,996 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:35,996 Converting -77.2496, 38.7187, -76.8335, 39.05010 map to .o5m
+2019-06-12 12:35:35,998 Map Successfully Converted to .o5m
+2019-06-12 12:35:35,999 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:36,001 Filtering Complete
+2019-06-12 12:35:36,002 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:36,002 Converting -71.18310, 42.2564, -70.9764, 42.45532 map to .o5m
+2019-06-12 12:35:36,005 Map Successfully Converted to .o5m
+2019-06-12 12:35:36,006 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:35:36,008 Filtering Complete
+2019-06-12 12:35:36,009 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 218, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:35:36,009 Pre-defined cities check complete
+2019-06-12 12:35:36,010 127.0.0.1 - - [12/Jun/2019 12:35:36] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 12:35:36,037 127.0.0.1 - - [12/Jun/2019 12:35:36] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 12:37:18,263 Script started with greensboro parameters
+2019-06-12 12:47:24,699 Converting and filtering error
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 189, in update
+    os.remove("o5m_Temp.o5m")
+FileNotFoundError: [Errno 2] No such file or directory: 'o5m_Temp.o5m'
+2019-06-12 12:47:26,738 Checking for pre-defined cities
+2019-06-12 12:47:26,738 Converting -74.3031, 40.4987, -73.4922, 40.956402 map to .o5m
+2019-06-12 12:47:26,740 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,741 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,743 Filtering Complete
+2019-06-12 12:47:26,743 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,744 Converting -118.5836, 33.52307, -117.7075, 34.3162 map to .o5m
+2019-06-12 12:47:26,746 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,746 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,749 Filtering Complete
+2019-06-12 12:47:26,749 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,749 Converting -88.19927, 41.42401, -87.18029, 42.2303 map to .o5m
+2019-06-12 12:47:26,753 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,753 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,756 Filtering Complete
+2019-06-12 12:47:26,757 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,757 Converting -95.72903, 29.50382, -94.88583, 30.13291 map to .o5m
+2019-06-12 12:47:26,760 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,761 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,764 Filtering Complete
+2019-06-12 12:47:26,765 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,765 Converting -112.35473, 33.26239, -111.46347, 33.77531 map to .o5m
+2019-06-12 12:47:26,770 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,770 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,774 Filtering Complete
+2019-06-12 12:47:26,774 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,775 Converting -75.36466, 39.76215, -74.8359, 40.17053 map to .o5m
+2019-06-12 12:47:26,777 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,777 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,780 Filtering Complete
+2019-06-12 12:47:26,780 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,780 Converting -98.71840, 29.19170, -98.25011, 29.63193 map to .o5m
+2019-06-12 12:47:26,783 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,783 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,787 Filtering Complete
+2019-06-12 12:47:26,787 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,787 Converting -117.24358, 32.5738, -116.95279, 32.94944 map to .o5m
+2019-06-12 12:47:26,791 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,791 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,794 Filtering Complete
+2019-06-12 12:47:26,794 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,795 Converting -97.0573, 32.61960, -96.5396, 33.05345 map to .o5m
+2019-06-12 12:47:26,800 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,800 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,803 Filtering Complete
+2019-06-12 12:47:26,804 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,804 Converting -122.05638, 37.20632, -121.7631, 37.44547 map to .o5m
+2019-06-12 12:47:26,807 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,807 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,810 Filtering Complete
+2019-06-12 12:47:26,810 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,811 Converting -97.91839, 30.11519, -97.51053, 30.46856 map to .o5m
+2019-06-12 12:47:26,813 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,813 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,815 Filtering Complete
+2019-06-12 12:47:26,816 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,816 Converting -81.78578, 30.18358, -81.50655, 30.45541 map to .o5m
+2019-06-12 12:47:26,818 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,819 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,821 Filtering Complete
+2019-06-12 12:47:26,821 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,821 Converting -97.5048, 32.60870, -97.08603, 32.99194 map to .o5m
+2019-06-12 12:47:26,823 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,824 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,827 Filtering Complete
+2019-06-12 12:47:26,827 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,828 Converting -83.14137, 39.87414, -82.84337, 40.13082 map to .o5m
+2019-06-12 12:47:26,831 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,832 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,835 Filtering Complete
+2019-06-12 12:47:26,835 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,836 Converting -122.5143, 37.58080, -122.2080, 37.93908 map to .o5m
+2019-06-12 12:47:26,839 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,839 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,841 Filtering Complete
+2019-06-12 12:47:26,842 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,842 Converting -81.0023, 35.05963, -80.65301, 35.38034 map to .o5m
+2019-06-12 12:47:26,845 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,845 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,848 Filtering Complete
+2019-06-12 12:47:26,848 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,849 Converting -86.2893, 39.6767, -86.01655, 39.95115 map to .o5m
+2019-06-12 12:47:26,852 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,852 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,855 Filtering Complete
+2019-06-12 12:47:26,855 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,856 Converting -122.41975, 47.2706, -122.00532, 47.7999 map to .o5m
+2019-06-12 12:47:26,858 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,859 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,861 Filtering Complete
+2019-06-12 12:47:26,862 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,862 Converting -105.2371, 39.53650, -104.7125, 39.9799 map to .o5m
+2019-06-12 12:47:26,865 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,865 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,868 Filtering Complete
+2019-06-12 12:47:26,869 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,869 Converting -77.2496, 38.7187, -76.8335, 39.05010 map to .o5m
+2019-06-12 12:47:26,872 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,872 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,874 Filtering Complete
+2019-06-12 12:47:26,875 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,875 Converting -71.18310, 42.2564, -70.9764, 42.45532 map to .o5m
+2019-06-12 12:47:26,877 Map Successfully Converted to .o5m
+2019-06-12 12:47:26,877 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 12:47:26,881 Filtering Complete
+2019-06-12 12:47:26,881 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 12:47:26,882 Pre-defined cities check complete
+2019-06-12 12:47:26,882 127.0.0.1 - - [12/Jun/2019 12:47:26] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 12:47:27,542 127.0.0.1 - - [12/Jun/2019 12:47:27] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 12:57:11,193 Script started with greensboro parameters
+2019-06-12 13:04:49,813 Converting and filtering error
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 190, in update
+    os.remove("temp.o5m")
+FileNotFoundError: [Errno 2] No such file or directory: 'temp.o5m'
+2019-06-12 13:04:50,048 Checking for pre-defined cities
+2019-06-12 13:04:50,048 Converting -74.3031, 40.4987, -73.4922, 40.956402 map to .o5m
+2019-06-12 13:04:50,051 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,051 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,053 Filtering Complete
+2019-06-12 13:04:50,053 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,092 Converting -118.5836, 33.52307, -117.7075, 34.3162 map to .o5m
+2019-06-12 13:04:50,097 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,097 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,101 Filtering Complete
+2019-06-12 13:04:50,101 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,102 Converting -88.19927, 41.42401, -87.18029, 42.2303 map to .o5m
+2019-06-12 13:04:50,106 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,107 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,109 Filtering Complete
+2019-06-12 13:04:50,110 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,110 Converting -95.72903, 29.50382, -94.88583, 30.13291 map to .o5m
+2019-06-12 13:04:50,114 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,115 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,118 Filtering Complete
+2019-06-12 13:04:50,119 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,119 Converting -112.35473, 33.26239, -111.46347, 33.77531 map to .o5m
+2019-06-12 13:04:50,123 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,123 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,128 Filtering Complete
+2019-06-12 13:04:50,128 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,129 Converting -75.36466, 39.76215, -74.8359, 40.17053 map to .o5m
+2019-06-12 13:04:50,134 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,135 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,138 Filtering Complete
+2019-06-12 13:04:50,138 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,139 Converting -98.71840, 29.19170, -98.25011, 29.63193 map to .o5m
+2019-06-12 13:04:50,141 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,141 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,144 Filtering Complete
+2019-06-12 13:04:50,144 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,144 Converting -117.24358, 32.5738, -116.95279, 32.94944 map to .o5m
+2019-06-12 13:04:50,147 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,147 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,149 Filtering Complete
+2019-06-12 13:04:50,150 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,150 Converting -97.0573, 32.61960, -96.5396, 33.05345 map to .o5m
+2019-06-12 13:04:50,152 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,152 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,155 Filtering Complete
+2019-06-12 13:04:50,155 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,155 Converting -122.05638, 37.20632, -121.7631, 37.44547 map to .o5m
+2019-06-12 13:04:50,158 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,158 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,160 Filtering Complete
+2019-06-12 13:04:50,161 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,161 Converting -97.91839, 30.11519, -97.51053, 30.46856 map to .o5m
+2019-06-12 13:04:50,164 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,164 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,166 Filtering Complete
+2019-06-12 13:04:50,167 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,167 Converting -81.78578, 30.18358, -81.50655, 30.45541 map to .o5m
+2019-06-12 13:04:50,171 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,171 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,174 Filtering Complete
+2019-06-12 13:04:50,174 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,174 Converting -97.5048, 32.60870, -97.08603, 32.99194 map to .o5m
+2019-06-12 13:04:50,178 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,178 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,180 Filtering Complete
+2019-06-12 13:04:50,180 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,181 Converting -83.14137, 39.87414, -82.84337, 40.13082 map to .o5m
+2019-06-12 13:04:50,183 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,184 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,187 Filtering Complete
+2019-06-12 13:04:50,188 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,188 Converting -122.5143, 37.58080, -122.2080, 37.93908 map to .o5m
+2019-06-12 13:04:50,190 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,190 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,192 Filtering Complete
+2019-06-12 13:04:50,193 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,193 Converting -81.0023, 35.05963, -80.65301, 35.38034 map to .o5m
+2019-06-12 13:04:50,195 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,195 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,197 Filtering Complete
+2019-06-12 13:04:50,198 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,198 Converting -86.2893, 39.6767, -86.01655, 39.95115 map to .o5m
+2019-06-12 13:04:50,201 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,201 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,204 Filtering Complete
+2019-06-12 13:04:50,204 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,205 Converting -122.41975, 47.2706, -122.00532, 47.7999 map to .o5m
+2019-06-12 13:04:50,208 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,208 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,210 Filtering Complete
+2019-06-12 13:04:50,210 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,211 Converting -105.2371, 39.53650, -104.7125, 39.9799 map to .o5m
+2019-06-12 13:04:50,213 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,213 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,217 Filtering Complete
+2019-06-12 13:04:50,217 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,217 Converting -77.2496, 38.7187, -76.8335, 39.05010 map to .o5m
+2019-06-12 13:04:50,220 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,220 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,223 Filtering Complete
+2019-06-12 13:04:50,224 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,224 Converting -71.18310, 42.2564, -70.9764, 42.45532 map to .o5m
+2019-06-12 13:04:50,226 Map Successfully Converted to .o5m
+2019-06-12 13:04:50,227 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:04:50,229 Filtering Complete
+2019-06-12 13:04:50,230 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:04:50,230 Pre-defined cities check complete
+2019-06-12 13:04:50,232 127.0.0.1 - - [12/Jun/2019 13:04:50] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 13:04:50,372 127.0.0.1 - - [12/Jun/2019 13:04:50] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 13:06:00,473 Script started with greensboro parameters
+2019-06-12 13:06:00,482 Converting and filtering error
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 185, in update
+    os.rename("app/map_files/" + sub["file_name"], "app/map_files/backup/" + sub["file_name"])
+FileNotFoundError: [Errno 2] No such file or directory: 'app/map_files/north-america-latest.osm.pbf' -> 'app/map_files/backup/north-america-latest.osm.pbf'
+2019-06-12 13:06:00,483 Checking for pre-defined cities
+2019-06-12 13:06:00,483 Converting -74.3031, 40.4987, -73.4922, 40.956402 map to .o5m
+2019-06-12 13:06:00,488 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,488 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,493 Filtering Complete
+2019-06-12 13:06:00,493 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,494 Converting -118.5836, 33.52307, -117.7075, 34.3162 map to .o5m
+2019-06-12 13:06:00,498 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,499 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,503 Filtering Complete
+2019-06-12 13:06:00,504 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,504 Converting -88.19927, 41.42401, -87.18029, 42.2303 map to .o5m
+2019-06-12 13:06:00,510 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,511 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,514 Filtering Complete
+2019-06-12 13:06:00,515 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,515 Converting -95.72903, 29.50382, -94.88583, 30.13291 map to .o5m
+2019-06-12 13:06:00,521 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,522 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,526 Filtering Complete
+2019-06-12 13:06:00,527 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,527 Converting -112.35473, 33.26239, -111.46347, 33.77531 map to .o5m
+2019-06-12 13:06:00,531 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,531 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,536 Filtering Complete
+2019-06-12 13:06:00,537 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,537 Converting -75.36466, 39.76215, -74.8359, 40.17053 map to .o5m
+2019-06-12 13:06:00,542 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,542 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,547 Filtering Complete
+2019-06-12 13:06:00,548 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,548 Converting -98.71840, 29.19170, -98.25011, 29.63193 map to .o5m
+2019-06-12 13:06:00,551 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,552 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,554 Filtering Complete
+2019-06-12 13:06:00,554 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,555 Converting -117.24358, 32.5738, -116.95279, 32.94944 map to .o5m
+2019-06-12 13:06:00,558 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,558 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,561 Filtering Complete
+2019-06-12 13:06:00,561 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,561 Converting -97.0573, 32.61960, -96.5396, 33.05345 map to .o5m
+2019-06-12 13:06:00,564 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,565 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,569 Filtering Complete
+2019-06-12 13:06:00,569 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,570 Converting -122.05638, 37.20632, -121.7631, 37.44547 map to .o5m
+2019-06-12 13:06:00,572 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,573 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,576 Filtering Complete
+2019-06-12 13:06:00,576 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,576 Converting -97.91839, 30.11519, -97.51053, 30.46856 map to .o5m
+2019-06-12 13:06:00,579 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,579 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,581 Filtering Complete
+2019-06-12 13:06:00,582 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,582 Converting -81.78578, 30.18358, -81.50655, 30.45541 map to .o5m
+2019-06-12 13:06:00,585 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,585 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,588 Filtering Complete
+2019-06-12 13:06:00,588 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,589 Converting -97.5048, 32.60870, -97.08603, 32.99194 map to .o5m
+2019-06-12 13:06:00,591 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,591 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,594 Filtering Complete
+2019-06-12 13:06:00,594 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,595 Converting -83.14137, 39.87414, -82.84337, 40.13082 map to .o5m
+2019-06-12 13:06:00,598 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,598 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,601 Filtering Complete
+2019-06-12 13:06:00,601 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,602 Converting -122.5143, 37.58080, -122.2080, 37.93908 map to .o5m
+2019-06-12 13:06:00,605 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,605 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,608 Filtering Complete
+2019-06-12 13:06:00,609 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,609 Converting -81.0023, 35.05963, -80.65301, 35.38034 map to .o5m
+2019-06-12 13:06:00,612 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,613 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,615 Filtering Complete
+2019-06-12 13:06:00,615 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,615 Converting -86.2893, 39.6767, -86.01655, 39.95115 map to .o5m
+2019-06-12 13:06:00,618 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,619 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,621 Filtering Complete
+2019-06-12 13:06:00,622 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,622 Converting -122.41975, 47.2706, -122.00532, 47.7999 map to .o5m
+2019-06-12 13:06:00,625 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,625 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,628 Filtering Complete
+2019-06-12 13:06:00,629 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,629 Converting -105.2371, 39.53650, -104.7125, 39.9799 map to .o5m
+2019-06-12 13:06:00,632 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,633 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,635 Filtering Complete
+2019-06-12 13:06:00,635 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,636 Converting -77.2496, 38.7187, -76.8335, 39.05010 map to .o5m
+2019-06-12 13:06:00,638 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,639 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,642 Filtering Complete
+2019-06-12 13:06:00,642 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,642 Converting -71.18310, 42.2564, -70.9764, 42.45532 map to .o5m
+2019-06-12 13:06:00,645 Map Successfully Converted to .o5m
+2019-06-12 13:06:00,645 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 13:06:00,649 Filtering Complete
+2019-06-12 13:06:00,650 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 222, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 13:06:00,650 Pre-defined cities check complete
+2019-06-12 13:06:00,651 127.0.0.1 - - [12/Jun/2019 13:06:00] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 13:06:00,675 127.0.0.1 - - [12/Jun/2019 13:06:00] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 13:17:30,850 Script started with greensboro parameters
+2019-06-12 13:39:09,257 Converting and filtering error
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 186, in update
+    os.remove("o5m_Temp.o5m")
+FileNotFoundError: [Errno 2] No such file or directory: 'o5m_Temp.o5m'
+2019-06-12 13:39:09,427 127.0.0.1 - - [12/Jun/2019 13:39:09] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 13:39:09,785 127.0.0.1 - - [12/Jun/2019 13:39:09] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 16:08:20,781 Script started with greensboro parameters
+2019-06-12 16:08:20,782 Exception occured while downloading map North America
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 158, in update
+    os.rename("app/map_files/" + sub["file_name"], "app/map_files/backup/" + sub["file_name"])
+FileNotFoundError: [Errno 2] No such file or directory: 'app/map_files/north-america-latest.osm.pbf' -> 'app/map_files/backup/north-america-latest.osm.pbf'
+2019-06-12 16:08:20,783 Checking for pre-defined cities
+2019-06-12 16:08:20,783 Converting -74.3031, 40.4987, -73.4922, 40.956402 map to .o5m
+2019-06-12 16:08:20,811 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,812 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,883 Filtering Complete
+2019-06-12 16:08:20,883 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,883 Converting -118.5836, 33.52307, -117.7075, 34.3162 map to .o5m
+2019-06-12 16:08:20,886 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,886 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,889 Filtering Complete
+2019-06-12 16:08:20,889 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,889 Converting -88.19927, 41.42401, -87.18029, 42.2303 map to .o5m
+2019-06-12 16:08:20,891 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,892 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,895 Filtering Complete
+2019-06-12 16:08:20,895 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,895 Converting -95.72903, 29.50382, -94.88583, 30.13291 map to .o5m
+2019-06-12 16:08:20,898 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,898 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,900 Filtering Complete
+2019-06-12 16:08:20,901 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,901 Converting -112.35473, 33.26239, -111.46347, 33.77531 map to .o5m
+2019-06-12 16:08:20,903 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,903 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,907 Filtering Complete
+2019-06-12 16:08:20,907 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,907 Converting -75.36466, 39.76215, -74.8359, 40.17053 map to .o5m
+2019-06-12 16:08:20,911 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,911 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,914 Filtering Complete
+2019-06-12 16:08:20,914 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,915 Converting -98.71840, 29.19170, -98.25011, 29.63193 map to .o5m
+2019-06-12 16:08:20,917 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,918 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,920 Filtering Complete
+2019-06-12 16:08:20,921 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,921 Converting -117.24358, 32.5738, -116.95279, 32.94944 map to .o5m
+2019-06-12 16:08:20,925 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,925 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,928 Filtering Complete
+2019-06-12 16:08:20,928 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,928 Converting -97.0573, 32.61960, -96.5396, 33.05345 map to .o5m
+2019-06-12 16:08:20,932 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,932 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,935 Filtering Complete
+2019-06-12 16:08:20,936 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,936 Converting -122.05638, 37.20632, -121.7631, 37.44547 map to .o5m
+2019-06-12 16:08:20,938 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,939 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,942 Filtering Complete
+2019-06-12 16:08:20,942 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,943 Converting -97.91839, 30.11519, -97.51053, 30.46856 map to .o5m
+2019-06-12 16:08:20,945 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,945 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,948 Filtering Complete
+2019-06-12 16:08:20,948 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,948 Converting -81.78578, 30.18358, -81.50655, 30.45541 map to .o5m
+2019-06-12 16:08:20,951 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,951 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,953 Filtering Complete
+2019-06-12 16:08:20,953 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,953 Converting -97.5048, 32.60870, -97.08603, 32.99194 map to .o5m
+2019-06-12 16:08:20,956 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,956 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,958 Filtering Complete
+2019-06-12 16:08:20,958 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,959 Converting -83.14137, 39.87414, -82.84337, 40.13082 map to .o5m
+2019-06-12 16:08:20,961 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,961 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,964 Filtering Complete
+2019-06-12 16:08:20,965 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,965 Converting -122.5143, 37.58080, -122.2080, 37.93908 map to .o5m
+2019-06-12 16:08:20,969 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,969 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,979 Filtering Complete
+2019-06-12 16:08:20,979 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,980 Converting -81.0023, 35.05963, -80.65301, 35.38034 map to .o5m
+2019-06-12 16:08:20,983 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,983 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,987 Filtering Complete
+2019-06-12 16:08:20,987 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,987 Converting -86.2893, 39.6767, -86.01655, 39.95115 map to .o5m
+2019-06-12 16:08:20,993 Map Successfully Converted to .o5m
+2019-06-12 16:08:20,993 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:20,997 Filtering Complete
+2019-06-12 16:08:20,997 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:20,997 Converting -122.41975, 47.2706, -122.00532, 47.7999 map to .o5m
+2019-06-12 16:08:21,001 Map Successfully Converted to .o5m
+2019-06-12 16:08:21,001 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:21,004 Filtering Complete
+2019-06-12 16:08:21,004 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:21,005 Converting -105.2371, 39.53650, -104.7125, 39.9799 map to .o5m
+2019-06-12 16:08:21,008 Map Successfully Converted to .o5m
+2019-06-12 16:08:21,008 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:21,014 Filtering Complete
+2019-06-12 16:08:21,014 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:21,014 Converting -77.2496, 38.7187, -76.8335, 39.05010 map to .o5m
+2019-06-12 16:08:21,018 Map Successfully Converted to .o5m
+2019-06-12 16:08:21,018 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:21,020 Filtering Complete
+2019-06-12 16:08:21,021 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:21,021 Converting -71.18310, 42.2564, -70.9764, 42.45532 map to .o5m
+2019-06-12 16:08:21,023 Map Successfully Converted to .o5m
+2019-06-12 16:08:21,024 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:08:21,026 Filtering Complete
+2019-06-12 16:08:21,026 Error occured while updating pre-defined cities
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 219, in city_gen
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-12 16:08:21,027 Pre-defined cities check complete
+2019-06-12 16:08:21,028 127.0.0.1 - - [12/Jun/2019 16:08:21] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 16:08:21,057 127.0.0.1 - - [12/Jun/2019 16:08:21] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-12 16:10:25,421 Script started with greensboro parameters
+2019-06-12 16:10:25,422 No map for north-america-latest.osm.pbf found
+2019-06-12 16:36:21,173 Checking for pre-defined cities
+2019-06-12 16:36:21,173 Converting -74.3031, 40.4987, -73.4922, 40.956402 map to .o5m
+2019-06-12 16:36:31,241 Map Successfully Converted to .o5m
+2019-06-12 16:36:31,241 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:36:31,710 Filtering Complete
+2019-06-12 16:36:47,911 Converting -118.5836, 33.52307, -117.7075, 34.3162 map to .o5m
+2019-06-12 16:36:58,095 Map Successfully Converted to .o5m
+2019-06-12 16:36:58,096 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:36:58,880 Filtering Complete
+2019-06-12 16:37:24,610 Converting -88.19927, 41.42401, -87.18029, 42.2303 map to .o5m
+2019-06-12 16:37:34,497 Map Successfully Converted to .o5m
+2019-06-12 16:37:34,497 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:37:34,844 Filtering Complete
+2019-06-12 16:37:46,147 Converting -95.72903, 29.50382, -94.88583, 30.13291 map to .o5m
+2019-06-12 16:37:56,220 Map Successfully Converted to .o5m
+2019-06-12 16:37:56,221 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:37:56,619 Filtering Complete
+2019-06-12 16:38:10,944 Converting -112.35473, 33.26239, -111.46347, 33.77531 map to .o5m
+2019-06-12 16:38:21,012 Map Successfully Converted to .o5m
+2019-06-12 16:38:21,012 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:38:21,426 Filtering Complete
+2019-06-12 16:38:35,795 Converting -75.36466, 39.76215, -74.8359, 40.17053 map to .o5m
+2019-06-12 16:38:46,204 Map Successfully Converted to .o5m
+2019-06-12 16:38:46,205 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:38:46,430 Filtering Complete
+2019-06-12 16:38:53,548 Converting -98.71840, 29.19170, -98.25011, 29.63193 map to .o5m
+2019-06-12 16:39:03,448 Map Successfully Converted to .o5m
+2019-06-12 16:39:03,448 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:39:03,594 Filtering Complete
+2019-06-12 16:39:07,806 Converting -117.24358, 32.5738, -116.95279, 32.94944 map to .o5m
+2019-06-12 16:39:17,693 Map Successfully Converted to .o5m
+2019-06-12 16:39:17,693 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:39:17,854 Filtering Complete
+2019-06-12 16:39:22,557 Converting -97.0573, 32.61960, -96.5396, 33.05345 map to .o5m
+2019-06-12 16:39:32,557 Map Successfully Converted to .o5m
+2019-06-12 16:39:32,557 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:39:32,871 Filtering Complete
+2019-06-12 16:39:43,864 Converting -122.05638, 37.20632, -121.7631, 37.44547 map to .o5m
+2019-06-12 16:39:53,750 Map Successfully Converted to .o5m
+2019-06-12 16:39:53,750 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:39:53,925 Filtering Complete
+2019-06-12 16:39:58,882 Converting -97.91839, 30.11519, -97.51053, 30.46856 map to .o5m
+2019-06-12 16:40:08,642 Map Successfully Converted to .o5m
+2019-06-12 16:40:08,642 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:40:08,765 Filtering Complete
+2019-06-12 16:40:12,034 Converting -81.78578, 30.18358, -81.50655, 30.45541 map to .o5m
+2019-06-12 16:40:21,886 Map Successfully Converted to .o5m
+2019-06-12 16:40:21,886 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:40:21,978 Filtering Complete
+2019-06-12 16:40:24,087 Converting -97.5048, 32.60870, -97.08603, 32.99194 map to .o5m
+2019-06-12 16:40:33,981 Map Successfully Converted to .o5m
+2019-06-12 16:40:33,981 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:40:34,140 Filtering Complete
+2019-06-12 16:40:39,162 Converting -83.14137, 39.87414, -82.84337, 40.13082 map to .o5m
+2019-06-12 16:40:49,688 Map Successfully Converted to .o5m
+2019-06-12 16:40:49,688 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:40:49,782 Filtering Complete
+2019-06-12 16:40:51,986 Converting -122.5143, 37.58080, -122.2080, 37.93908 map to .o5m
+2019-06-12 16:41:02,043 Map Successfully Converted to .o5m
+2019-06-12 16:41:02,043 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:41:02,222 Filtering Complete
+2019-06-12 16:41:07,419 Converting -81.0023, 35.05963, -80.65301, 35.38034 map to .o5m
+2019-06-12 16:41:17,371 Map Successfully Converted to .o5m
+2019-06-12 16:41:17,371 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:41:17,485 Filtering Complete
+2019-06-12 16:41:20,526 Converting -86.2893, 39.6767, -86.01655, 39.95115 map to .o5m
+2019-06-12 16:41:30,442 Map Successfully Converted to .o5m
+2019-06-12 16:41:30,443 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:41:30,601 Filtering Complete
+2019-06-12 16:41:34,812 Converting -122.41975, 47.2706, -122.00532, 47.7999 map to .o5m
+2019-06-12 16:41:44,936 Map Successfully Converted to .o5m
+2019-06-12 16:41:44,936 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:41:45,162 Filtering Complete
+2019-06-12 16:41:52,146 Converting -105.2371, 39.53650, -104.7125, 39.9799 map to .o5m
+2019-06-12 16:42:02,021 Map Successfully Converted to .o5m
+2019-06-12 16:42:02,022 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:42:02,365 Filtering Complete
+2019-06-12 16:42:14,616 Converting -77.2496, 38.7187, -76.8335, 39.05010 map to .o5m
+2019-06-12 16:42:24,629 Map Successfully Converted to .o5m
+2019-06-12 16:42:24,629 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:42:24,874 Filtering Complete
+2019-06-12 16:42:32,764 Converting -71.18310, 42.2564, -70.9764, 42.45532 map to .o5m
+2019-06-12 16:42:42,520 Map Successfully Converted to .o5m
+2019-06-12 16:42:42,521 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-12 16:42:42,661 Filtering Complete
+2019-06-12 16:42:46,469 Pre-defined cities check complete
+2019-06-12 16:42:46,469 127.0.0.1 - - [12/Jun/2019 16:42:46] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-12 16:42:46,528 127.0.0.1 - - [12/Jun/2019 16:42:46] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-13 09:32:47,246 Script started with chicago parameters
+2019-06-13 11:26:40,703 Script started with -79.19235, 35.6085, -78.731208, 36.08304 parameters
+2019-06-13 11:26:40,704 Converting -79.19235, 35.6085, -78.731208, 36.08304 map to .o5m
+2019-06-13 11:26:58,945 Map Successfully Converted to .o5m
+2019-06-13 11:26:58,946 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-13 11:26:59,256 Filtering Complete
+2019-06-13 11:26:59,256 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-13 11:27:03,900 OSM to Adj complete
+2019-06-13 11:27:03,910 Map file created with bounds: [-79.19235, 35.6085, -78.731208, 36.08304] in 23.20578098297119 seconds
+2019-06-13 11:27:03,919 127.0.0.1 - - [13/Jun/2019 11:27:03] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-13 11:27:05,556 127.0.0.1 - - [13/Jun/2019 11:27:05] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-14 11:32:46,356 Script started with greensboro parameters
+2019-06-14 11:32:46,357 Exception occured while downloading map North America
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 175, in update
+    routes.download_map(sub["url"])
+NameError: name 'routes' is not defined
+2019-06-14 11:32:46,390 127.0.0.1 - - [14/Jun/2019 11:32:46] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-14 11:32:46,512 127.0.0.1 - - [14/Jun/2019 11:32:46] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-14 11:33:40,798 Script started with greensboro parameters
+2019-06-14 12:06:17,883 127.0.0.1 - - [14/Jun/2019 12:06:17] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-14 12:06:18,780 127.0.0.1 - - [14/Jun/2019 12:06:18] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 09:39:38,161 Script started with greensboro parameters
+2019-06-17 09:39:38,162 127.0.0.1 - - [17/Jun/2019 09:39:38] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-17 09:39:38,276 127.0.0.1 - - [17/Jun/2019 09:39:38] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 10:08:15,398 Script started with sdfsdf parameters
+2019-06-17 10:08:15,398 Exception on /loc [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 39, in namedInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 278, in pipeline
+    return page_not_found()
+TypeError: page_not_found() missing 1 required positional argument: 'e'
+2019-06-17 10:08:15,429 127.0.0.1 - - [17/Jun/2019 10:08:15] "GET /loc?location=sdfsdf HTTP/1.1" 500 -
+2019-06-17 10:08:15,525 127.0.0.1 - - [17/Jun/2019 10:08:15] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 10:08:39,821 Script started with greensboro parameters
+2019-06-17 10:08:39,821 127.0.0.1 - - [17/Jun/2019 10:08:39] "GET /loc?location=greensboro HTTP/1.1" 200 -
+2019-06-17 10:08:39,874 127.0.0.1 - - [17/Jun/2019 10:08:39] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 11:20:55,444 Script started with -79.19235, 35.6085, -78.731208, 36.08304 parameters
+2019-06-17 11:20:55,445 Converting -79.19235, 35.6085, -78.731208, 36.08304 map to .o5m
+2019-06-17 11:20:55,449 Map Successfully Converted to .o5m
+2019-06-17 11:20:55,449 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-17 11:20:55,455 Filtering Complete
+2019-06-17 11:20:55,456 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-17 11:20:55,456 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 59, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 312, in pipeline
+    osm_to_adj.main(filename, 0)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-17 11:20:55,458 127.0.0.1 - - [17/Jun/2019 11:20:55] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 500 -
+2019-06-17 11:20:55,526 127.0.0.1 - - [17/Jun/2019 11:20:55] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 11:20:56,001 Looking for jobs to run
+2019-06-17 11:20:56,002 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:20:56 EDT)" (scheduled at 2019-06-17 11:20:56-04:00)
+2019-06-17 11:20:56,002 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:20:56 EDT)" executed successfully
+2019-06-17 11:20:56,003 Next wakeup is due at 2019-06-17 11:20:57-04:00 (in 0.998520 seconds)
+2019-06-17 11:20:57,002 Looking for jobs to run
+2019-06-17 11:20:57,002 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:20:57 EDT)" (scheduled at 2019-06-17 11:20:57-04:00)
+2019-06-17 11:20:57,002 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:20:57 EDT)" executed successfully
+2019-06-17 11:20:57,003 Next wakeup is due at 2019-06-17 11:20:58-04:00 (in 0.997846 seconds)
+2019-06-17 11:20:58,001 Looking for jobs to run
+2019-06-17 11:20:58,002 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:20:58 EDT)" (scheduled at 2019-06-17 11:20:58-04:00)
+2019-06-17 11:20:58,002 Next wakeup is due at 2019-06-17 11:20:59-04:00 (in 0.998510 seconds)
+2019-06-17 11:20:58,002 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:20:59 EDT)" executed successfully
+2019-06-17 11:20:59,001 Looking for jobs to run
+2019-06-17 11:20:59,002 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:20:59 EDT)" (scheduled at 2019-06-17 11:20:59-04:00)
+2019-06-17 11:20:59,003 Next wakeup is due at 2019-06-17 11:21:00-04:00 (in 0.998022 seconds)
+2019-06-17 11:20:59,003 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:21:00 EDT)" executed successfully
+2019-06-17 11:21:00,001 Looking for jobs to run
+2019-06-17 11:21:00,002 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:21:00 EDT)" (scheduled at 2019-06-17 11:21:00-04:00)
+2019-06-17 11:21:00,003 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:21:00 EDT)" executed successfully
+2019-06-17 11:21:00,003 Next wakeup is due at 2019-06-17 11:21:01-04:00 (in 0.997907 seconds)
+2019-06-17 11:21:01,002 Looking for jobs to run
+2019-06-17 11:21:01,002 Next wakeup is due at 2019-06-17 11:21:02-04:00 (in 0.997565 seconds)
+2019-06-17 11:21:01,002 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:21:02 EDT)" (scheduled at 2019-06-17 11:21:01-04:00)
+2019-06-17 11:21:01,602 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:21:02 EDT)" executed successfully
+2019-06-17 11:22:31,514 Script started with -79.19235, 35.6085, -78.731208, 36.08304 parameters
+2019-06-17 11:22:31,514 Converting -79.19235, 35.6085, -78.731208, 36.08304 map to .o5m
+2019-06-17 11:22:32,000 Looking for jobs to run
+2019-06-17 11:22:32,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:32 EDT)" (scheduled at 2019-06-17 11:22:32-04:00)
+2019-06-17 11:22:32,002 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:32 EDT)" executed successfully
+2019-06-17 11:22:32,003 Next wakeup is due at 2019-06-17 11:22:33-04:00 (in 0.998765 seconds)
+2019-06-17 11:22:33,002 Looking for jobs to run
+2019-06-17 11:22:33,003 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:33 EDT)" (scheduled at 2019-06-17 11:22:33-04:00)
+2019-06-17 11:22:33,003 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:33 EDT)" executed successfully
+2019-06-17 11:22:33,003 Next wakeup is due at 2019-06-17 11:22:34-04:00 (in 0.997145 seconds)
+2019-06-17 11:22:34,001 Looking for jobs to run
+2019-06-17 11:22:34,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:34 EDT)" (scheduled at 2019-06-17 11:22:34-04:00)
+2019-06-17 11:22:34,001 Next wakeup is due at 2019-06-17 11:22:35-04:00 (in 0.998754 seconds)
+2019-06-17 11:22:34,002 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:35 EDT)" executed successfully
+2019-06-17 11:22:35,001 Looking for jobs to run
+2019-06-17 11:22:35,002 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:35 EDT)" (scheduled at 2019-06-17 11:22:35-04:00)
+2019-06-17 11:22:35,003 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:35 EDT)" executed successfully
+2019-06-17 11:22:35,004 Next wakeup is due at 2019-06-17 11:22:36-04:00 (in 0.998491 seconds)
+2019-06-17 11:22:36,003 Looking for jobs to run
+2019-06-17 11:22:36,003 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:36 EDT)" (scheduled at 2019-06-17 11:22:36-04:00)
+2019-06-17 11:22:36,004 Next wakeup is due at 2019-06-17 11:22:37-04:00 (in 0.996630 seconds)
+2019-06-17 11:22:36,004 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:37 EDT)" executed successfully
+2019-06-17 11:22:37,000 Looking for jobs to run
+2019-06-17 11:22:37,001 Next wakeup is due at 2019-06-17 11:22:38-04:00 (in 0.998954 seconds)
+2019-06-17 11:22:37,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:38 EDT)" (scheduled at 2019-06-17 11:22:37-04:00)
+2019-06-17 11:22:37,001 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:38 EDT)" executed successfully
+2019-06-17 11:22:38,000 Looking for jobs to run
+2019-06-17 11:22:38,001 Next wakeup is due at 2019-06-17 11:22:39-04:00 (in 0.999241 seconds)
+2019-06-17 11:22:38,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:39 EDT)" (scheduled at 2019-06-17 11:22:38-04:00)
+2019-06-17 11:22:38,001 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:39 EDT)" executed successfully
+2019-06-17 11:22:39,000 Looking for jobs to run
+2019-06-17 11:22:39,001 Next wakeup is due at 2019-06-17 11:22:40-04:00 (in 0.999079 seconds)
+2019-06-17 11:22:39,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:40 EDT)" (scheduled at 2019-06-17 11:22:39-04:00)
+2019-06-17 11:22:39,001 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:40 EDT)" executed successfully
+2019-06-17 11:22:40,001 Looking for jobs to run
+2019-06-17 11:22:40,001 Next wakeup is due at 2019-06-17 11:22:41-04:00 (in 0.998640 seconds)
+2019-06-17 11:22:40,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:41 EDT)" (scheduled at 2019-06-17 11:22:40-04:00)
+2019-06-17 11:22:40,002 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:41 EDT)" executed successfully
+2019-06-17 11:22:41,000 Looking for jobs to run
+2019-06-17 11:22:41,000 Next wakeup is due at 2019-06-17 11:22:42-04:00 (in 0.999290 seconds)
+2019-06-17 11:22:41,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:42 EDT)" (scheduled at 2019-06-17 11:22:41-04:00)
+2019-06-17 11:22:41,001 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:42 EDT)" executed successfully
+2019-06-17 11:22:42,000 Looking for jobs to run
+2019-06-17 11:22:42,001 Next wakeup is due at 2019-06-17 11:22:43-04:00 (in 0.999045 seconds)
+2019-06-17 11:22:42,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:43 EDT)" (scheduled at 2019-06-17 11:22:42-04:00)
+2019-06-17 11:22:42,001 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:43 EDT)" executed successfully
+2019-06-17 11:22:42,676 Map Successfully Converted to .o5m
+2019-06-17 11:22:42,677 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-17 11:22:42,848 Filtering Complete
+2019-06-17 11:22:42,848 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-17 11:22:43,001 Looking for jobs to run
+2019-06-17 11:22:43,003 Next wakeup is due at 2019-06-17 11:22:44-04:00 (in 0.997025 seconds)
+2019-06-17 11:22:43,005 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:44 EDT)" (scheduled at 2019-06-17 11:22:43-04:00)
+2019-06-17 11:22:43,013 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:44 EDT)" executed successfully
+2019-06-17 11:22:44,008 Looking for jobs to run
+2019-06-17 11:22:44,013 Next wakeup is due at 2019-06-17 11:22:45-04:00 (in 0.986741 seconds)
+2019-06-17 11:22:44,018 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:45 EDT)" (scheduled at 2019-06-17 11:22:44-04:00)
+2019-06-17 11:22:44,029 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:45 EDT)" executed successfully
+2019-06-17 11:22:45,006 Looking for jobs to run
+2019-06-17 11:22:45,009 Next wakeup is due at 2019-06-17 11:22:46-04:00 (in 0.990655 seconds)
+2019-06-17 11:22:45,012 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:46 EDT)" (scheduled at 2019-06-17 11:22:45-04:00)
+2019-06-17 11:22:45,018 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:46 EDT)" executed successfully
+2019-06-17 11:22:46,008 Looking for jobs to run
+2019-06-17 11:22:46,013 Next wakeup is due at 2019-06-17 11:22:47-04:00 (in 0.986498 seconds)
+2019-06-17 11:22:46,019 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:47 EDT)" (scheduled at 2019-06-17 11:22:46-04:00)
+2019-06-17 11:22:46,029 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:47 EDT)" executed successfully
+2019-06-17 11:22:46,952 OSM to Adj complete
+2019-06-17 11:22:46,963 Map file created with bounds: [-79.19235, 35.6085, -78.731208, 36.08304] in 15.449298620223999 seconds
+2019-06-17 11:22:46,972 127.0.0.1 - - [17/Jun/2019 11:22:46] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-17 11:22:47,005 Looking for jobs to run
+2019-06-17 11:22:47,006 Next wakeup is due at 2019-06-17 11:22:48-04:00 (in 0.994064 seconds)
+2019-06-17 11:22:47,006 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:48 EDT)" (scheduled at 2019-06-17 11:22:47-04:00)
+2019-06-17 11:22:47,006 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:48 EDT)" executed successfully
+2019-06-17 11:22:48,001 Looking for jobs to run
+2019-06-17 11:22:48,001 Next wakeup is due at 2019-06-17 11:22:49-04:00 (in 0.998801 seconds)
+2019-06-17 11:22:48,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:49 EDT)" (scheduled at 2019-06-17 11:22:48-04:00)
+2019-06-17 11:22:48,002 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:49 EDT)" executed successfully
+2019-06-17 11:22:48,754 127.0.0.1 - - [17/Jun/2019 11:22:48] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 11:22:49,001 Looking for jobs to run
+2019-06-17 11:22:49,001 Next wakeup is due at 2019-06-17 11:22:50-04:00 (in 0.998600 seconds)
+2019-06-17 11:22:49,002 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:50 EDT)" (scheduled at 2019-06-17 11:22:49-04:00)
+2019-06-17 11:22:49,002 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:50 EDT)" executed successfully
+2019-06-17 11:22:50,001 Looking for jobs to run
+2019-06-17 11:22:50,001 Next wakeup is due at 2019-06-17 11:22:51-04:00 (in 0.998807 seconds)
+2019-06-17 11:22:50,001 Running job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:51 EDT)" (scheduled at 2019-06-17 11:22:50-04:00)
+2019-06-17 11:22:50,002 Job "test (trigger: cron[second='*'], next run at: 2019-06-17 11:22:51 EDT)" executed successfully
+2019-06-17 11:44:48,866 Script started with -79.19235, 35.6085, -78.731208, 36.08304 parameters
+2019-06-17 11:44:48,866 Converting -79.19235, 35.6085, -78.731208, 36.08304 map to .o5m
+2019-06-17 11:45:01,159 Map Successfully Converted to .o5m
+2019-06-17 11:45:01,159 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-17 11:45:01,288 Filtering Complete
+2019-06-17 11:45:01,288 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-17 11:45:05,037 OSM to Adj complete
+2019-06-17 11:45:05,047 Map file created with bounds: [-79.19235, 35.6085, -78.731208, 36.08304] in 16.1805157661438 seconds
+2019-06-17 11:45:05,056 127.0.0.1 - - [17/Jun/2019 11:45:05] "GET /coords?minLon=-79.19235&minLat=35.6085&maxLon=-78.731208&maxLat=36.08304 HTTP/1.1" 200 -
+2019-06-17 11:45:06,663 127.0.0.1 - - [17/Jun/2019 11:45:06] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 11:45:17,183 127.0.0.1 - - [17/Jun/2019 11:45:17] "GET /coords?minLon=ert45345 HTTP/1.1" 400 -
+2019-06-17 11:45:17,223 127.0.0.1 - - [17/Jun/2019 11:45:17] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 11:45:26,711 Script started with sdfsdf parameters
+2019-06-17 11:45:26,712 Exception on /loc [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 39, in namedInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 284, in pipeline
+    return page_not_found()
+TypeError: page_not_found() missing 1 required positional argument: 'e'
+2019-06-17 11:45:26,883 127.0.0.1 - - [17/Jun/2019 11:45:26] "GET /loc?location=sdfsdf HTTP/1.1" 500 -
+2019-06-17 11:45:26,923 127.0.0.1 - - [17/Jun/2019 11:45:26] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 11:45:26,995 Error on request:
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 39, in namedInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 284, in pipeline
+    return page_not_found()
+TypeError: page_not_found() missing 1 required positional argument: 'e'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/werkzeug/serving.py", line 303, in run_wsgi
+    execute(self.server.app)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/werkzeug/serving.py", line 291, in execute
+    application_iter = app(environ, start_response)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2328, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2314, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1767, in handle_exception
+    return self.finalize_request(handler(e), from_error_handler=True)
+TypeError: server_error() takes 0 positional arguments but 1 was given
+2019-06-17 11:46:13,810 Script started with sdfsdf parameters
+2019-06-17 11:46:13,811 127.0.0.1 - - [17/Jun/2019 11:46:13] "GET /loc?location=sdfsdf HTTP/1.1" 200 -
+2019-06-17 11:46:13,849 Exception on /favicon.ico [GET]
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1810, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1793, in raise_routing_exception
+    raise request.routing_exception
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/ctx.py", line 336, in match_request
+    self.url_adapter.match(return_rule=True)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1786, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1732, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1661, in handle_http_exception
+    return handler(e)
+TypeError: page_not_found() takes 0 positional arguments but 1 was given
+2019-06-17 11:46:13,877 127.0.0.1 - - [17/Jun/2019 11:46:13] "GET /favicon.ico HTTP/1.1" 500 -
+2019-06-17 11:46:13,884 Error on request:
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1810, in dispatch_request
+    self.raise_routing_exception(req)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1793, in raise_routing_exception
+    raise request.routing_exception
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/ctx.py", line 336, in match_request
+    self.url_adapter.match(return_rule=True)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/werkzeug/routing.py", line 1786, in match
+    raise NotFound()
+werkzeug.exceptions.NotFound: 404 Not Found: The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1732, in handle_user_exception
+    return self.handle_http_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1661, in handle_http_exception
+    return handler(e)
+TypeError: page_not_found() takes 0 positional arguments but 1 was given
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/werkzeug/serving.py", line 303, in run_wsgi
+    execute(self.server.app)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/werkzeug/serving.py", line 291, in execute
+    application_iter = app(environ, start_response)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2328, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 2314, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/nightt/flask_test/venv/lib/python3.6/site-packages/flask/app.py", line 1767, in handle_exception
+    return self.finalize_request(handler(e), from_error_handler=True)
+TypeError: server_error() takes 0 positional arguments but 1 was given
+2019-06-17 11:46:40,015 Script started with sdfsdf parameters
+2019-06-17 11:46:40,017 127.0.0.1 - - [17/Jun/2019 11:46:40] "GET /loc?location=sdfsdf HTTP/1.1" 200 -
+2019-06-17 11:46:40,054 127.0.0.1 - - [17/Jun/2019 11:46:40] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 11:47:16,582 Script started with sdfsdf parameters
+2019-06-17 11:47:16,584 127.0.0.1 - - [17/Jun/2019 11:47:16] "GET /loc?location=sdfsdf HTTP/1.1" 200 -
+2019-06-17 11:47:16,620 127.0.0.1 - - [17/Jun/2019 11:47:16] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-17 11:47:18,591 Script started with sdfsdf parameters
+2019-06-17 11:47:18,593 127.0.0.1 - - [17/Jun/2019 11:47:18] "GET /loc?location=sdfsdf HTTP/1.1" 200 -
+2019-06-17 11:47:18,624 127.0.0.1 - - [17/Jun/2019 11:47:18] "GET /favicon.ico HTTP/1.1" 200 -
