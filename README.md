@@ -45,4 +45,5 @@ Finally to launch the web server run
 flask run --host=0.0.0.0 --port=8080
 ```
 --host signifies that the server should use its default IP when listening for requests
+
 --port is the port that it is listening on, 8080 redirects to port 80
