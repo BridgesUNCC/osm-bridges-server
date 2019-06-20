@@ -271,7 +271,7 @@ def pipeline(location):
         update()
         #city_gen()
 
-    start_time = time.time()
+
     #Checks input for name or list
     if type(location) == str:
         location = location.lower()
@@ -299,10 +299,14 @@ def pipeline(location):
             print("This coordinate map has already been generated")
             return f"{name}/map_data.json"
 
+
+        start_time = time.time()
         o5m = call_convert(str(filename), location)
+        logging.info("convertosm: %s" % (time.time() - start_time))
 
+    start_time = time.time()
     filename = call_filter(o5m)
-
+    logging.info("filterosm: %s" % (time.time() - start_time))
     #return filename
 
 
@@ -311,8 +315,13 @@ def pipeline(location):
         soft, hard = resource.getrlimit(resource.RLIMIT_AS)
         resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
         logging.info(f"Starting OSM to Adj Convert on {filename}")
-        osm_to_adj.main(filename, 0)
+
+
+        #osm_to_adj.main(filename, 0)
+
+        start_time = time.time()
         test2 = osm_to_adj.main(filename, 4)
+        logging.info("osm run1: %s" % (time.time() - start_time))
         logging.info("OSM to Adj complete")
 
         os.makedirs(name)
