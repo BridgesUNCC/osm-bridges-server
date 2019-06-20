@@ -46,4 +46,4 @@ flask run --host=0.0.0.0 --port=8080
 ```
 --host signifies that the server should use its default IP when listening for requests
 
---port is the port that it is listening on, 8080 redirects to port 80
+--port is the port that it is listening on, the server will be listening on port 8080, unless the server configuration for 8080 redirects to port 80
