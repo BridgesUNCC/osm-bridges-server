@@ -35,7 +35,7 @@ After creating the python virtual environment run this line to launch the virtua
 source venv/bin/activate
 ```
 
-To launch the flask server first compile the webapp
+To launch the flask server first compile the web server
 ```bash
 export FLASK_APP=run.py
 ```
