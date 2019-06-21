@@ -8,6 +8,9 @@ sudo ./python_setup
 ```
 This file holds all the commands to download the required python version and python repositories
 
+If running CentOS make sure you have libraries for running 32bit code
+**sudo yum -y install glibc.i686**
+
 If you are running a different version of linux run these commands to download Python 3.6
 ```bash
 sudo add-apt-repository ppa:jonathonf/python-3.6
