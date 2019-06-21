@@ -1,0 +1,229 @@
+2019-06-20 16:49:55,564 Script started with -77.055, 39.121, -76.305, 39.508' parameters
+2019-06-20 16:49:55,565 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 59, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 294, in pipeline
+    location[3] = float(location[3])
+ValueError: could not convert string to float: "39.508'"
+2019-06-20 16:49:55,577 127.0.0.1 - - [20/Jun/2019 16:49:55] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508%27 HTTP/1.1" 500 -
+2019-06-20 16:49:55,583 Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 59, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 294, in pipeline
+    location[3] = float(location[3])
+ValueError: could not convert string to float: "39.508'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/werkzeug/serving.py", line 303, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python3.6/dist-packages/werkzeug/serving.py", line 291, in execute
+    application_iter = app(environ, start_response)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2328, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2314, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1767, in handle_exception
+    return self.finalize_request(handler(e), from_error_handler=True)
+TypeError: server_error() takes 0 positional arguments but 1 was given
+2019-06-20 16:49:55,638 127.0.0.1 - - [20/Jun/2019 16:49:55] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-20 16:50:03,167 Script started with -77.055, 39.121, -76.305, 39.508 parameters
+2019-06-20 16:50:03,167 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-20 16:50:03,170 Map Successfully Converted to .o5m
+2019-06-20 16:50:03,170 convertosm: 0.00257110595703125
+2019-06-20 16:50:03,170 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-20 16:50:03,179 Filtering Complete
+2019-06-20 16:50:03,179 filterosm: 0.009068489074707031
+2019-06-20 16:50:03,179 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-20 16:50:03,180 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 59, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 323, in pipeline
+    test2 = osm_to_adj.main(filename, 4)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-20 16:50:03,182 127.0.0.1 - - [20/Jun/2019 16:50:03] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508 HTTP/1.1" 500 -
+2019-06-20 16:50:03,188 Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 59, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 323, in pipeline
+    test2 = osm_to_adj.main(filename, 4)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/werkzeug/serving.py", line 303, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python3.6/dist-packages/werkzeug/serving.py", line 291, in execute
+    application_iter = app(environ, start_response)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2328, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2314, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1767, in handle_exception
+    return self.finalize_request(handler(e), from_error_handler=True)
+TypeError: server_error() takes 0 positional arguments but 1 was given
+2019-06-20 16:50:03,206 127.0.0.1 - - [20/Jun/2019 16:50:03] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-20 16:50:17,753 Script started with -77.055, 39.121, -76.305, 39.508 parameters
+2019-06-20 16:50:17,754 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-20 16:50:17,757 Map Successfully Converted to .o5m
+2019-06-20 16:50:17,758 convertosm: 0.00406193733215332
+2019-06-20 16:50:17,758 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-20 16:50:17,761 Filtering Complete
+2019-06-20 16:50:17,761 filterosm: 0.003675699234008789
+2019-06-20 16:50:17,762 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-20 16:50:17,762 Exception on /coords [GET]
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 59, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 323, in pipeline
+    test2 = osm_to_adj.main(filename, 4)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+2019-06-20 16:50:17,771 127.0.0.1 - - [20/Jun/2019 16:50:17] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508 HTTP/1.1" 500 -
+2019-06-20 16:50:17,776 Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python3.6/dist-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1832, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1818, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nightt/flask_test/app/routes.py", line 59, in coordsInput
+    return pipeline(input_Value)
+  File "/home/nightt/flask_test/app/routes.py", line 323, in pipeline
+    test2 = osm_to_adj.main(filename, 4)
+  File "/home/nightt/flask_test/app/osm_to_adj.py", line 217, in main
+    f = io.open(input_filename,encoding='utf-8')           # open file
+FileNotFoundError: [Errno 2] No such file or directory: 'app/xml_Temp.xml'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.6/dist-packages/werkzeug/serving.py", line 303, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python3.6/dist-packages/werkzeug/serving.py", line 291, in execute
+    application_iter = app(environ, start_response)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2328, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 2314, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.6/dist-packages/flask/app.py", line 1767, in handle_exception
+    return self.finalize_request(handler(e), from_error_handler=True)
+TypeError: server_error() takes 0 positional arguments but 1 was given
+2019-06-20 16:50:17,803 127.0.0.1 - - [20/Jun/2019 16:50:17] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-20 16:51:04,275 Script started with -77.055, 39.121, -76.305, 39.508 parameters
+2019-06-20 16:51:04,275 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-20 16:51:14,609 Map Successfully Converted to .o5m
+2019-06-20 16:51:14,609 convertosm: 10.334233522415161
+2019-06-20 16:51:14,609 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-20 16:51:14,835 Filtering Complete
+2019-06-20 16:51:14,835 filterosm: 0.22588038444519043
+2019-06-20 16:51:14,835 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-20 16:51:19,519 osm run1: 4.683732986450195
+2019-06-20 16:51:19,519 OSM to Adj complete
+2019-06-20 16:51:19,539 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 4.703267335891724 seconds
+2019-06-20 16:51:19,554 127.0.0.1 - - [20/Jun/2019 16:51:19] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508 HTTP/1.1" 200 -
+2019-06-20 16:51:22,582 127.0.0.1 - - [20/Jun/2019 16:51:22] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-21 09:32:34,786 Script started with -77.055, 39.121, -76.305, 39.508 parameters
+2019-06-21 09:32:34,787 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-21 09:32:45,266 Map Successfully Converted to .o5m
+2019-06-21 09:32:45,267 convertosm: 10.479870557785034
+2019-06-21 09:32:45,267 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-21 09:32:45,492 Filtering Complete
+2019-06-21 09:32:45,493 filterosm: 0.2261207103729248
+2019-06-21 09:32:45,493 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-21 09:32:50,111 osm run1: 4.617498159408569
+2019-06-21 09:32:50,111 OSM to Adj complete
+2019-06-21 09:32:50,133 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 4.639627456665039 seconds
+2019-06-21 09:32:50,147 127.0.0.1 - - [21/Jun/2019 09:32:50] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508 HTTP/1.1" 200 -
+2019-06-21 09:32:53,140 127.0.0.1 - - [21/Jun/2019 09:32:53] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-21 09:34:30,590 Script started with -77.055, 39.121, -76.305, 39.508 parameters
+2019-06-21 09:34:30,591 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-21 09:34:40,462 Map Successfully Converted to .o5m
+2019-06-21 09:34:40,463 convertosm: 9.872016429901123
+2019-06-21 09:34:40,463 Starting osmfilter32 on app/o5m_Temp.o5m
+2019-06-21 09:34:40,695 Filtering Complete
+2019-06-21 09:34:40,695 filterosm: 0.23219013214111328
+2019-06-21 09:34:40,695 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-21 09:34:45,078 osm run1: 4.382192611694336
+2019-06-21 09:34:45,078 OSM to Adj complete
+2019-06-21 09:34:45,842 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 5.146604537963867 seconds
+2019-06-21 09:34:46,420 127.0.0.1 - - [21/Jun/2019 09:34:46] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508 HTTP/1.1" 200 -
+2019-06-21 09:34:52,862 127.0.0.1 - - [21/Jun/2019 09:34:52] "GET /favicon.ico HTTP/1.1" 200 -

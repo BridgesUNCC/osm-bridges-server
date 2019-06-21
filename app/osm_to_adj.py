@@ -62,17 +62,17 @@ def distance(lat1,lon1,lat2,lon2):
 # returns whether anything was deleted (True) or not (False)
 def del_chain1(d_nodes, adj_nodes):
     retval = False
-    
+
     # compute indegrees
     indegrees = {}
     for ele in d_nodes:
         for idx in adj_nodes[ele]:
-            dest = idx[0] 
+            dest = idx[0]
             if dest not in indegrees:
                 indegrees[dest] = 1
             else:
                 indegrees[dest] = indegrees[dest] + 1
-                
+
     # Compressing degree 1 path
 
     marked = set()
@@ -90,7 +90,7 @@ def del_chain1(d_nodes, adj_nodes):
                     # where intermediary has no other edges (incoming
                     # or outgoing) and neither of the three is
                     # marked. Ready to adjust the graph structure.
-                    
+
                     # mark to prevent two remove in one pass
                     marked.add(ele)
                     marked.add(intermediary)
@@ -105,39 +105,39 @@ def del_chain1(d_nodes, adj_nodes):
                     # the following two lines are ok because ele is of out degree one.
                     adj_nodes[ele] = list()                        #reinitialize the set
                     adj_nodes[ele].append((end,time_to_adj))       #add as an edge
-                    
+
                     retval = True
-                    
+
     for ele in nodestodelete:
         adj_nodes.pop(ele)
         d_nodes.pop(ele)
 
     return retval
-    
+
 
 # remove chain a<->b<->c where a and b have degree 1.
 # once identified in a chain, neither a or c will be deleted again
 # returns whether anything was deleted (True) or not (False)
 def del_chain2(d_nodes, adj_nodes):
     retval = False
-    
+
     # compute indegrees
     indegrees = {}
     for ele in d_nodes:
         for idx in adj_nodes[ele]:
-            dest = idx[0] 
+            dest = idx[0]
             if dest not in indegrees:
                 indegrees[dest] = 1
             else:
                 indegrees[dest] = indegrees[dest] + 1
-                
+
     # Compressing degree 1 path
     marked = set()
     nodestodelete = set()
     for ele in d_nodes:
         if ele in marked:
             continue;
-        
+
         if len(adj_nodes[ele]) == 2:
             before = adj_nodes[ele][0][0]
             after = adj_nodes[ele][1][0]
@@ -145,7 +145,7 @@ def del_chain2(d_nodes, adj_nodes):
             if before == after:
                 # print ("What is going on?") # probably we compressed a disconnected traffic circle
                 continue
-            
+
             if before in marked:
                 continue
             if after in marked:
@@ -153,7 +153,7 @@ def del_chain2(d_nodes, adj_nodes):
 
             if ele not in indegrees:
                 continue
-            
+
             if indegrees[ele] != 2:
                 continue
 
@@ -168,7 +168,7 @@ def del_chain2(d_nodes, adj_nodes):
 
             if not foundbefore:
                 continue
-            
+
 
             # does before has ele in its neighbor?
             foundafter = False
@@ -188,7 +188,7 @@ def del_chain2(d_nodes, adj_nodes):
             marked.add(before)
             marked.add(ele)
             marked.add(after)
-            
+
             # ele should be deleted from nodes and adj_nodes
             nodestodelete.add (ele)
 
@@ -200,12 +200,12 @@ def del_chain2(d_nodes, adj_nodes):
 
             # add the before->after edge
             adj_nodes[before].append((after, newedgelenth))
-            
+
             # add the after->before edge
             adj_nodes[after].append((before, newedgelenth))
 
             retval = True
-            
+
     for ele in nodestodelete:
         adj_nodes.pop(ele)
         d_nodes.pop(ele)
@@ -274,7 +274,7 @@ def main(input_filename, shrink=0, name=None):
         for ele in d_nodes:
             f.write("{0} {1} {2}\n".format(ele, d_nodes[ele][0], d_nodes[ele][1]))
     """
-    
+
     # JSON Formatting
     out = {}
     meta = {}
@@ -300,18 +300,20 @@ def main(input_filename, shrink=0, name=None):
 
         out_vert.append([ele, this_lat, this_lon])
 
-    out['nodes'] = out_vert
-    out['edges'] = out_edges
+    out["nodes"] = out_vert
+    out["edges"] = out_edges
     meta['lat_min'] = lat_min
     meta['lat_max'] = lat_max
     meta['lon_min'] = lon_min
     meta['lon_max'] = lon_max
 
     if name is not None:
-        meta['name'] = name
-
-    out['meta'] = meta
-    return json.dumps(out)
+        meta["name"] = name
+    else:
+        meta["name"] = "temp_map"
+    out["meta"] = meta
+    #return json.dumps(out)
+    return out
 
 
 if __name__=="__main__":
