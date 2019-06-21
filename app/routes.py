@@ -278,7 +278,10 @@ def pipeline(location):
         name = f"app/reduced_maps/named_places/{location}"
         if (os.path.isfile(f"{name}/map_data.json")):
             print(f"{location} map has already been generated")
-            return f"{name}/map_data.json"
+            f = open(f"{name}/map_data.json")
+            data = json.load(f)
+            f.close()
+            return  json.dumps(data, sort_keys = False, indent = 2)
         else:
             print ("Please put a location that is supported")
             return page_not_found()
@@ -297,7 +300,10 @@ def pipeline(location):
         name = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}"
         if (os.path.isfile(f"{name}/map_data.json")):
             print("This coordinate map has already been generated")
-            return f"{name}/map_data.json"
+            f = open(f'{name}/map_data.json')
+            data = json.load(f)
+            f.close()
+            return  json.dumps(data, sort_keys = False, indent = 2)
 
 
         start_time = time.time()
