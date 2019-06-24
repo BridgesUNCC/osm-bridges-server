@@ -12,6 +12,7 @@ import sys
 import resource
 import logging
 import time
+import hashlib
 from apscheduler.schedulers.background import BackgroundScheduler
 
 memPercent = .85
@@ -335,6 +336,18 @@ def pipeline(location):
     except MemoryError:
         logging.exception(f"Memory Exception occurred while processing: {name}")
 
+
+    try:
+        md5_hash = hashlib.md5()
+        with open(f"{name}/map_data.json","rb") as f:
+            # Read and update hash string value in blocks of 4K
+            for byte_block in iter(lambda: f.read(4096),b""):
+                md5_hash.update(byte_block)
+            print(md5_hash.hexdigest())
+
+
+    except:
+        print("Hashing error")
 
     print("Complete")
     os.remove(o5m)
