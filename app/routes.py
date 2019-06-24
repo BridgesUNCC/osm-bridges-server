@@ -46,7 +46,7 @@ def coordsInput():
     logging.info(f"Script started with {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} parameters")
 
     try:
-        input_Value = [double(request.args['minLon']), double(request.args['minLat']), double(request.args['maxLon']), double(request.args['maxLat'])]
+        input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
     except:
         print("System arguements are invalid")
         logging.exception(f"System arguements invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
