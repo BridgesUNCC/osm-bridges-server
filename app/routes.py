@@ -25,10 +25,12 @@ def namedInput():
 
     try:
         input_Value = request.args['location']
+        if not input_Value.isalpha():
+            raise ValueError('A very specific bad thing happened.')
     except:
-        print("Error getting system arguments")
+        print("System arguments are invalid")
         logging.exception(f"System arguements invalid {request.args['location']}")
-
+        return "Invalid arguements"
     #Sets a limit on the amount of memory the script is allowed to use
     #Currently set at 85% of free memory
     #Prevents complete memory usage and crashes due to large map files
@@ -44,10 +46,11 @@ def coordsInput():
     logging.info(f"Script started with {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} parameters")
 
     try:
-        input_Value = [request.args['minLon'], request.args['minLat'], request.args['maxLon'], request.args['maxLat']]
+        input_Value = [double(request.args['minLon']), double(request.args['minLat']), double(request.args['maxLon']), double(request.args['maxLat'])]
     except:
-        print("Error getting system arguments")
+        print("System arguements are invalid")
         logging.exception(f"System arguements invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
+        return "Invalid arguements"
 
     #Sets a limit on the amount of memory the script is allowed to use
     #Currently set at 85% of free memory
@@ -266,10 +269,6 @@ def pipeline(location):
     '''
 
     filename = "app/map_files/north-america-latest.osm.pbf"
-
-    if (False):
-        update()
-        #city_gen()
 
 
     #Checks input for name or list
