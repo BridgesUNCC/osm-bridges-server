@@ -344,7 +344,8 @@ def pipeline(location):
             for byte_block in iter(lambda: f.read(4096),b""):
                 md5_hash.update(byte_block)
             print(md5_hash.hexdigest())
-
+        with open(f"{name}/hash.txt", "w") as h:
+            h.write(md5_hash.hexdigest())
 
     except:
         print("Hashing error")
