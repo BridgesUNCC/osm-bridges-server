@@ -25,53 +25,42 @@ secondary = ' =secondary =secondary_link'
 tertiary = ' =tertiary =tertiary_link'
 unclassified = ' =unclassified'
 
+divider = "-----------------------------------------------------------------"
 
 @app.route('/loc')
 def namedInput():
-    logging.basicConfig(filename='log.log',format='%(asctime)s %(message)s', level=logging.DEBUG)
-    logging.info(f"Script started with {request.args['location']} parameters")
 
     try:
         input_Value = request.args['location']
+        logging.info(f"{divider}\nScript started with {request.args['location']} parameters")
         if not input_Value.isalpha():
-            raise ValueError('A very specific bad thing happened.')
+            raise ValueError()
     except:
         print("System arguments are invalid")
         logging.exception(f"System arguements invalid {request.args['location']}")
         return "Invalid arguements"
-    #Sets a limit on the amount of memory the script is allowed to use
-    #Currently set at 85% of free memory
-    #Prevents complete memory usage and crashes due to large map files
-
-    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
-    resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
-
     return pipeline(input_Value)
 
 @app.route('/coords')
 def coordsInput():
-    logging.basicConfig(filename='log.log',format='%(asctime)s %(message)s', level=logging.DEBUG)
-    logging.info(f"Script started with {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} parameters")
 
     try:
         input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
-
+        logging.info(f"{divider}\nScript started with Box: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} bounds")
     except:
         print("System arguements are invalid")
-        logging.exception(f"System arguements invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
+        logging.exception(f"System arguements invalid {request.args}")
         return "Invalid arguements"
 
     try:
         if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
             level = string(request.args['level'])
+            logging.info(f"Script using street detail level of: {request.args['level']}")
+            break
+        level = "default"
     except:
         level = "default"
-    #Sets a limit on the amount of memory the script is allowed to use
-    #Currently set at 85% of free memory
-    #Prevents complete memory usage and crashes due to large map files
-
-    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
-    resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
+        logging.info(f"Script using street detail level of default (full detail)")
 
     return pipeline(input_Value, level)
 
@@ -79,7 +68,7 @@ def coordsInput():
 def hashreturn():
     try:
         input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
-
+        logging.info(f"{divider}\nHash checking for map with bounds: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
     except:
         print("System arguements for hash check are invalid")
         logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
@@ -90,9 +79,8 @@ def hashreturn():
             re = f.readlines()
             return re[0]
     except:
-        print("No hash directory found")
+        print("No map hash found")
         return "None"
-
 
 @app.route('/')
 def noinput():
@@ -100,7 +88,7 @@ def noinput():
 
 @app.errorhandler(404)
 def page_not_found(e=''):
-    list = "Please request a bounding box or a city name. <br> Available Cities: "
+    list = "Please request a bounding box or a city name."
     with open('app/namedList.json', 'r') as x:
         loaded = json.load(x)
         #for city in loaded["named"]:
@@ -109,7 +97,7 @@ def page_not_found(e=''):
 
 @app.errorhandler(500)
 def server_error():
-    return "Server Error occured while attempting to process your request"
+    return "Server Error occured while attempting to process your request. Please try again..."
 
 def call_convert(filename, box=[]):
     """Creates a process of the osmconvert, to shrink the map file down to a bounding box as well as change the file type to .o5m
@@ -134,8 +122,9 @@ def call_convert(filename, box=[]):
 
 
     try:
+        start_time = time.time()
         subprocess.run([command], shell=True)
-        logging.info("Map Successfully Converted to .o5m")
+        logging.info("Map Successfully Converted to .o5m in: %s" % (time.time() - start_time))
     except:
         print("Error converting file to .o5m")
         logging.exception(f"Exception occurred while converting bounds: {box[0]}, {box[1]}, {box[2]}, {box[3]}")
@@ -186,7 +175,7 @@ def call_filter(o5m_filename, level):
     elif (level == "tertiary"):
         para = para + motorway + trunk + primary + secondary + tertiary
     elif (level == "unclassified"):
-        para = para + motorway + trunk + primary + secondary + tertiary
+        para = para + motorway + trunk + primary + secondary + tertiary + unclassified
 
     para = para + "\" --drop-version"
 
@@ -195,9 +184,10 @@ def call_filter(o5m_filename, level):
 
     command = f"app/osm_converts/osmfilter32 {o5m_filename} " + para + f" -o=app/{area}.xml"
     try:
-        logging.info(f"Starting osmfilter32 on {o5m_filename}")
+        start_time = time.time()
+        logging.info(f"Starting osmfilter32 on {o5m_filename} with filter command {command}")
         subprocess.run([command], shell=True)
-        logging.info("Filtering Complete")
+        logging.info("Filtering Complete in: %s" % (time.time() - start_time))
     except:
         print("Error while filtering data")
         logging.exception(f"Exception while filtering data on map: {o5m_filename}")
@@ -357,15 +347,11 @@ def pipeline(location, level):
             f.close()
             return  json.dumps(data, sort_keys = False, indent = 2)
 
-
-        start_time = time.time()
+        #Map Convert Call
         o5m = call_convert(str(filename), location)
-        logging.info("convertosm: %s" % (time.time() - start_time))
 
-    start_time = time.time()
+    #Map Filter Call
     filename = call_filter(o5m, level)
-    logging.info("filterosm: %s" % (time.time() - start_time))
-    #return filename
 
 
     #Starts using osm_to_adj.py
@@ -376,8 +362,7 @@ def pipeline(location, level):
 
         start_time = time.time() #timer to determine run time of osm_to_adj
         test2 = osm_to_adj.main(filename, 4)
-        logging.info("osm run1: %s" % (time.time() - start_time))
-        logging.info("OSM to Adj complete")
+        logging.info("OSM to Adj complete in: : %s" % (time.time() - start_time))
 
         os.makedirs(name)
         with open(f"{name}/map_data.json", 'w') as x:
