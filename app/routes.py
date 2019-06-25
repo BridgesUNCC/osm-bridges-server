@@ -75,6 +75,23 @@ def coordsInput():
 
     return pipeline(input_Value, level)
 
+@app.route('/hash')
+def hashreturn():
+    try:
+        input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
+
+    except:
+        print("System arguements for hash check are invalid")
+        logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
+        return "Invalid arguements"
+
+    try:
+        with open(f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/hash.txt", 'r') as f:
+            return f.readlines()
+    except:
+        print("No hash directory found")
+        return None
+
 @app.route('/')
 def noinput():
     return page_not_found()
