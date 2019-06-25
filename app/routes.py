@@ -82,17 +82,20 @@ def hashreturn():
 
     except:
         print("System arguements for hash check are invalid")
-        #logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
+        logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
         return "Invalid arguements"
 
     try:
         print("1")
         with open(f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/hash.txt", 'r') as f:
             print("2")
-            return f.readlines()[0]
+            re = f.readlines()
+            print(re)
     except:
         print("No hash directory found")
-        return None
+        return "None"
+    return "worked"
+
 
 @app.route('/')
 def noinput():
@@ -416,3 +419,5 @@ sched.start()
 sched.add_job(update, 'cron', day='1st tue', hour='2', misfire_grace_time=None)
 
 sched.print_jobs()
+
+logging.basicConfig(filename='log.log',format='%(asctime)s %(message)s', level=logging.DEBUG)
