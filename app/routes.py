@@ -56,8 +56,9 @@ def coordsInput():
         if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
             level = string(request.args['level'])
             logging.info(f"Script using street detail level of: {request.args['level']}")
-            break
-        level = "default"
+        else:
+            level = "default"
+            logging.info(f"Script using street detail level of default (full detail)")
     except:
         level = "default"
         logging.info(f"Script using street detail level of default (full detail)")
