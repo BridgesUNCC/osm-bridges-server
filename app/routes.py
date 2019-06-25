@@ -86,15 +86,12 @@ def hashreturn():
         return "Invalid arguements"
 
     try:
-        print("1")
         with open(f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/hash.txt", 'r') as f:
-            print("2")
             re = f.readlines()
-            print(re)
+            return re[0]
     except:
         print("No hash directory found")
         return "None"
-    return "worked"
 
 
 @app.route('/')
