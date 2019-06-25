@@ -17,7 +17,14 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 memPercent = .85
 
-pre_def = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
+default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
+motorway = ' =motorway =motorway_link'
+trunk = ' =trunk =trunk_link'
+primary = ' =primary =primary_link'
+secondary = ' =secondary =secondary_link'
+tertiary = ' =tertiary =tertiary_link'
+unclassified = ' =unclassified'
+
 
 @app.route('/loc')
 def namedInput():
@@ -48,11 +55,17 @@ def coordsInput():
 
     try:
         input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
+
     except:
         print("System arguements are invalid")
         logging.exception(f"System arguements invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
         return "Invalid arguements"
 
+    try:
+        if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
+            level = string(request.args['level'])
+    except:
+        level = "default"
     #Sets a limit on the amount of memory the script is allowed to use
     #Currently set at 85% of free memory
     #Prevents complete memory usage and crashes due to large map files
@@ -60,7 +73,7 @@ def coordsInput():
     soft, hard = resource.getrlimit(resource.RLIMIT_AS)
     resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
 
-    return pipeline(input_Value)
+    return pipeline(input_Value, level)
 
 @app.route('/')
 def noinput():
@@ -129,7 +142,7 @@ def download_map(url):
         return
     return filename
 
-def call_filter(o5m_filename):
+def call_filter(o5m_filename, level):
     """Creates a process of the osmfilter to remove any info that we dont need
 
     Parameters:
@@ -141,7 +154,27 @@ def call_filter(o5m_filename):
 
     area = "xml_Temp"
 
-    command = f"app/osm_converts/osmfilter32 {o5m_filename} " + pre_def + f" -o=app/{area}.xml"
+    para = "--keep=\"highway"
+
+    if (level == "motorway"):
+        para = para + motorway
+    elif (level == "trunk"):
+        para = para + motorway + trunk
+    elif (level == "primary"):
+        para = para + motorway + trunk + primary
+    elif (level == "secondary"):
+        para = para + motorway + trunk + primary + secondary
+    elif (level == "tertiary"):
+        para = para + motorway + trunk + primary + secondary + tertiary
+    elif (level == "unclassified"):
+        para = para + motorway + trunk + primary + secondary + tertiary
+
+    para = para + "\" --drop-version"
+
+    if (level == "default"):
+        para = default
+
+    command = f"app/osm_converts/osmfilter32 {o5m_filename} " + para + f" -o=app/{area}.xml"
     try:
         logging.info(f"Starting osmfilter32 on {o5m_filename}")
         subprocess.run([command], shell=True)
@@ -259,7 +292,7 @@ def city_gen():
     logging.info("Pre-defined cities check complete in %s seconds" % (time.time() - start_time))
     return
 
-def pipeline(location):
+def pipeline(location, level):
     '''The main method that pipelines the process of converting and shrinking map requests
 
     Parameters:
@@ -311,7 +344,7 @@ def pipeline(location):
         logging.info("convertosm: %s" % (time.time() - start_time))
 
     start_time = time.time()
-    filename = call_filter(o5m)
+    filename = call_filter(o5m, level)
     logging.info("filterosm: %s" % (time.time() - start_time))
     #return filename
 
