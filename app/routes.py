@@ -32,7 +32,8 @@ def namedInput():
 
     try:
         input_Value = request.args['location']
-        logging.info(f"{divider}\nScript started with {request.args['location']} parameters")
+        logging.info(divider)
+        logging.info(f"Script started with {request.args['location']} parameters")
         if not input_Value.isalpha():
             raise ValueError()
     except:
@@ -46,7 +47,8 @@ def coordsInput():
 
     try:
         input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
-        logging.info(f"{divider}\nScript started with Box: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} bounds")
+        logging.info(divider)
+        logging.info(f"Script started with Box: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} bounds")
     except:
         print("System arguements are invalid")
         logging.exception(f"System arguements invalid {request.args}")
@@ -69,7 +71,8 @@ def coordsInput():
 def hashreturn():
     try:
         input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
-        logging.info(f"{divider}\nHash checking for map with bounds: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
+        logging.info(divider)
+        logging.info(f"Hash checking for map with bounds: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
     except:
         print("System arguements for hash check are invalid")
         logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
@@ -81,7 +84,7 @@ def hashreturn():
             return re[0]
     except:
         print("No map hash found")
-        return "None"
+        return "false"
 
 @app.route('/')
 def noinput():
@@ -357,6 +360,7 @@ def pipeline(location, level):
 
     #Starts using osm_to_adj.py
     try:
+        #Sets memory constraints on the program to prevent memory crashes
         soft, hard = resource.getrlimit(resource.RLIMIT_AS)
         resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
         logging.info(f"Starting OSM to Adj Convert on {filename}")
