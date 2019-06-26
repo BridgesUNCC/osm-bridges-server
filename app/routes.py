@@ -18,6 +18,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 memPercent = .85
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
+map_convert_command = '--keep=\"motorway=motorway trunk=trunk primary=primary secondary=secondary tertiary=tertiary unclassified=unclassified primary_link=primary_link secondary_link=secondary_link tertiary_link=tertiary_link trunk_link=trunk_link motorway_link=motorway_link\" --drop-version'
 motorway = ' =motorway =motorway_link'
 trunk = ' =trunk =trunk_link'
 primary = ' =primary =primary_link'
@@ -244,17 +245,17 @@ def update():
                     command  = (f"./app/osm_converts/osmconvert64 app/map_files/download/{file_name} -o=app/o5m_Temp.o5m")
                     subprocess.run([command], shell=True)
 
-                    command = f"./app/osm_converts/osmfilter32 app/o5m_Temp.o5m " + pre_def + f" -o=app/temp.o5m"
+                    command = f"./app/osm_converts/osmfilter32 app/o5m_Temp.o5m " + map_convert_command + f" -o=app/temp.osm"
                     subprocess.run([command], shell=True)
 
                     #shutil.rmtree("app/map_files/backup")
                     os.mkdir("app/map_files/download/temp")
                     os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/download/temp/" + sub["file_name"])
-                    command  = (f"./app/osm_converts/osmconvert64 app/temp.o5m -o=app/map_files/download/{file_name}")
+                    command  = (f"./app/osm_converts/osmconvert64 app/temp.osm -o=app/map_files/download/{file_name}")
                     subprocess.run([command], shell=True)
 
                     os.remove("app/o5m_Temp.o5m")
-                    os.remove("app/temp.o5m")
+                    os.remove("app/temp.osm")
 
                 except:
                     logging.exception("Converting and filtering error")
@@ -317,6 +318,7 @@ def pipeline(location, level):
 
     filename = "app/map_files/north-america-latest.osm.pbf"
 
+    #update()
 
     #Checks input for name or list
     if type(location) == str:
