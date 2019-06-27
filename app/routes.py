@@ -72,10 +72,15 @@ def coordsInput():
 def hashreturn():
     try:
         input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
-        if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
-            level = str(request.args['level'])
-        else:
+        try:
+            x = request.args['level'].lower()
+            if (x == 'motorway' or x == 'trunk' or x == 'primary' or x == 'secondary' or x == 'tertiary' or rx == 'unclassified'):
+                level = str(x)
+            else:
+                level = "default"
+        except:
             level = "default"
+
 
         logging.info(divider)
         logging.info(f"Hash checking for map with bounds: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} and level: {level}")
