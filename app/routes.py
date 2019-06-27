@@ -254,7 +254,7 @@ def update():
                     command  = (f"./app/osm_converts/osmconvert64 app/map_files/download/{file_name} -o=app/o5m_Temp.o5m")
                     subprocess.run([command], shell=True)
 
-                    command = f"./app/osm_converts/osmfilter32 app/o5m_Temp.o5m " + map_convert_command + f" -o=app/temp.o5m"
+                    command = f"./app/osm_converts/osmfilter app/o5m_Temp.o5m " + map_convert_command + f" -o=app/temp.o5m"
                     subprocess.run([command], shell=True)
 
                     os.mkdir("app/map_files/download/temp")
