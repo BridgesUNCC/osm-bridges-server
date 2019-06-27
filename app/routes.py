@@ -73,7 +73,7 @@ def hashreturn():
     try:
         input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
         if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
-            level = str(request.args['level']))
+            level = str(request.args['level'])
         else:
             level = "default"
 
