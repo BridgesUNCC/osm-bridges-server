@@ -18,8 +18,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 memPercent = .85
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
-map_convert_command = '--keep=\"motorway=motorway trunk=trunk primary=primary secondary=secondary tertiary=tertiary unclassified=unclassified primary_link=primary_link secondary_link=secondary_link tertiary_link=tertiary_link trunk_link=trunk_link motorway_link=motorway_link\" --drop-version'
-motorway = ' =motorway =motorway_link'
+map_convert_command = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
+motorway = '=motorway =motorway_link'
 trunk = ' =trunk =trunk_link'
 primary = ' =primary =primary_link'
 secondary = ' =secondary =secondary_link'
@@ -57,7 +57,7 @@ def coordsInput():
 
     try:
         if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
-            level = string(request.args['level'])
+            level = str(request.args['level'])
             logging.info(f"Script using street detail level of: {request.args['level']}")
         else:
             level = "default"
@@ -245,17 +245,16 @@ def update():
                     command  = (f"./app/osm_converts/osmconvert64 app/map_files/download/{file_name} -o=app/o5m_Temp.o5m")
                     subprocess.run([command], shell=True)
 
-                    command = f"./app/osm_converts/osmfilter32 app/o5m_Temp.o5m " + map_convert_command + f" -o=app/temp.osm"
+                    command = f"./app/osm_converts/osmfilter32 app/o5m_Temp.o5m " + map_convert_command + f" -o=app/temp.o5m"
                     subprocess.run([command], shell=True)
 
-                    #shutil.rmtree("app/map_files/backup")
                     os.mkdir("app/map_files/download/temp")
                     os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/download/temp/" + sub["file_name"])
-                    command  = (f"./app/osm_converts/osmconvert64 app/temp.osm -o=app/map_files/download/{file_name}")
+                    command  = (f"./app/osm_converts/osmconvert64 app/temp.o5m -o=app/map_files/download/{file_name}")
                     subprocess.run([command], shell=True)
 
                     os.remove("app/o5m_Temp.o5m")
-                    os.remove("app/temp.osm")
+                    os.remove("app/temp.o5m")
 
                 except:
                     logging.exception("Converting and filtering error")
@@ -271,7 +270,8 @@ def update():
             os.mkdir("app/reduced_maps/coords")
 
             print("Maps are up-to-date")
-    except:
+    except Exception as e:
+        print(e)
         print("Error reading update file")
         logging.exception("Update file read exception")
 
@@ -318,7 +318,7 @@ def pipeline(location, level):
 
     filename = "app/map_files/north-america-latest.osm.pbf"
 
-    #update()
+
 
     #Checks input for name or list
     if type(location) == str:

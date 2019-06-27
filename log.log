@@ -454,3 +454,197 @@ TypeError: server_error() takes 0 positional arguments but 1 was given
 2019-06-21 10:44:33,786 Script started with -77.055, 39.121, -76.305, 39.508 parameters
 2019-06-21 10:44:34,539 127.0.0.1 - - [21/Jun/2019 10:44:34] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508 HTTP/1.1" 200 -
 2019-06-21 10:44:39,846 127.0.0.1 - - [21/Jun/2019 10:44:39] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-26 17:36:25,029  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-26 17:37:13,625  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-26 17:37:27,700  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-26 17:37:58,594 127.0.0.1 - - [26/Jun/2019 17:37:58] "GET / HTTP/1.1" 200 -
+2019-06-26 17:37:58,652 127.0.0.1 - - [26/Jun/2019 17:37:58] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-26 17:38:19,420 Next wakeup is due at 2019-07-02 02:00:00-04:00 (in 462100.579862 seconds)
+2019-06-26 17:38:19,433 Converting and filtering error
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 253, in update
+    os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/download/temp/" + sub["file_name"])
+FileNotFoundError: [Errno 2] No such file or directory: 'app/map_files/download/north-america-latest.osm.pbf' -> 'app/map_files/download/temp/north-america-latest.osm.pbf'
+2019-06-26 17:38:19,695 Update file read exception
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 265, in update
+    os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/" + sub["file_name"])
+FileNotFoundError: [Errno 2] No such file or directory: 'app/map_files/download/north-america-latest.osm.pbf' -> 'app/map_files/north-america-latest.osm.pbf'
+2019-06-26 17:38:19,705  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-26 17:39:50,348 Converting and filtering error
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 253, in update
+    os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/download/temp/" + sub["file_name"])
+FileNotFoundError: [Errno 2] No such file or directory: 'app/map_files/download/north-america-latest.osm.pbf' -> 'app/map_files/download/temp/north-america-latest.osm.pbf'
+2019-06-26 17:39:50,601 Update file read exception
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 265, in update
+    os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/" + sub["file_name"])
+FileNotFoundError: [Errno 2] No such file or directory: 'app/map_files/download/north-america-latest.osm.pbf' -> 'app/map_files/north-america-latest.osm.pbf'
+2019-06-26 17:39:50,612  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-26 17:41:23,313 Converting and filtering error
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 257, in update
+    os.remove("app/o5m_Temp.o5m")
+FileNotFoundError: [Errno 2] No such file or directory: 'app/o5m_Temp.o5m'
+2019-06-26 17:41:23,329  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-26 17:41:47,496 Update file read exception
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 223, in update
+    os.mkdir("app/map_files/download")
+FileExistsError: [Errno 17] File exists: 'app/map_files/download'
+2019-06-26 17:41:47,505  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-27 11:47:59,882 Update file read exception
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 223, in update
+    os.mkdir("app/map_files/download")
+FileExistsError: [Errno 17] File exists: 'app/map_files/download'
+2019-06-27 11:47:59,892  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-27 11:49:11,398 Update file read exception
+Traceback (most recent call last):
+  File "/home/nightt/flask_test/app/routes.py", line 223, in update
+    os.mkdir("app/map_files/download")
+FileExistsError: [Errno 17] File exists: 'app/map_files/download'
+2019-06-27 11:49:11,406  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-27 12:01:19,090  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-27 12:14:03,101 -----------------------------------------------------------------
+2019-06-27 12:14:03,101 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:14:03,101 Script using street detail level of default (full detail)
+2019-06-27 12:14:03,101 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:14:13,606 Map Successfully Converted to .o5m in: 10.504961013793945
+2019-06-27 12:14:13,607 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:14:13,834 Filtering Complete in: 0.22683954238891602
+2019-06-27 12:14:13,834 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:14:18,660 OSM to Adj complete in: : 4.825176239013672
+2019-06-27 12:14:19,312 Hash: 18295a8c2e3dd5a83907f36e4240899e
+2019-06-27 12:14:19,317 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 5.482264041900635 seconds
+2019-06-27 12:14:19,870 127.0.0.1 - - [27/Jun/2019 12:14:19] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=motorway HTTP/1.1" 200 -
+2019-06-27 12:14:25,896 127.0.0.1 - - [27/Jun/2019 12:14:25] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:15:00,543 -----------------------------------------------------------------
+2019-06-27 12:15:00,543 Script started with Box: -77.045, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:15:00,543 Script using street detail level of default (full detail)
+2019-06-27 12:15:00,543 Converting -77.045, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:15:11,305 Map Successfully Converted to .o5m in: 10.761654138565063
+2019-06-27 12:15:11,305 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:15:11,540 Filtering Complete in: 0.2347395420074463
+2019-06-27 12:15:11,540 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:15:15,910 OSM to Adj complete in: : 4.369687795639038
+2019-06-27 12:15:16,542 Hash: 0487b880010ea745e2dce714be76b988
+2019-06-27 12:15:16,546 Map file created with bounds: [-77.045, 39.121, -76.305, 39.508] in 5.005111217498779 seconds
+2019-06-27 12:15:17,188 127.0.0.1 - - [27/Jun/2019 12:15:17] "GET /coords?minLon=-77.045&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=default HTTP/1.1" 200 -
+2019-06-27 12:15:20,577 127.0.0.1 - - [27/Jun/2019 12:15:20] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:15:51,195  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-27 12:15:55,725 -----------------------------------------------------------------
+2019-06-27 12:15:55,725 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:15:55,725 Script using street detail level of default (full detail)
+2019-06-27 12:15:55,725 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:16:07,221 Map Successfully Converted to .o5m in: 11.495012283325195
+2019-06-27 12:16:07,221 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:16:07,470 Filtering Complete in: 0.24887871742248535
+2019-06-27 12:16:07,470 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:16:12,448 OSM to Adj complete in: : 4.977954864501953
+2019-06-27 12:16:13,148 Hash: 18295a8c2e3dd5a83907f36e4240899e
+2019-06-27 12:16:13,152 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 5.681610822677612 seconds
+2019-06-27 12:16:13,706 127.0.0.1 - - [27/Jun/2019 12:16:13] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=motorway HTTP/1.1" 200 -
+2019-06-27 12:16:19,897 127.0.0.1 - - [27/Jun/2019 12:16:19] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:16:46,363 Next wakeup is due at 2019-07-02 02:00:00-04:00 (in 394993.637006 seconds)
+2019-06-27 12:16:46,371  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-27 12:16:50,317 -----------------------------------------------------------------
+2019-06-27 12:16:50,317 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:16:50,317 Script using street detail level of default (full detail)
+2019-06-27 12:16:50,317 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:17:00,486 Map Successfully Converted to .o5m in: 10.168345928192139
+2019-06-27 12:17:00,486 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:17:00,718 Filtering Complete in: 0.2319040298461914
+2019-06-27 12:17:00,718 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:17:06,573 OSM to Adj complete in: : 5.854227066040039
+2019-06-27 12:17:07,332 Hash: 18295a8c2e3dd5a83907f36e4240899e
+2019-06-27 12:17:07,336 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 6.617837190628052 seconds
+2019-06-27 12:17:07,957 127.0.0.1 - - [27/Jun/2019 12:17:07] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=motorway HTTP/1.1" 200 -
+2019-06-27 12:17:14,703 127.0.0.1 - - [27/Jun/2019 12:17:14] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:18:28,081  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-27 12:18:32,714 -----------------------------------------------------------------
+2019-06-27 12:18:32,714 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:18:32,714 Script using street detail level of: motorway
+2019-06-27 12:18:32,714 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:18:42,889 Map Successfully Converted to .o5m in: 10.174464702606201
+2019-06-27 12:18:42,889 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway =motorway =motorway_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:18:43,121 Filtering Complete in: 0.23231005668640137
+2019-06-27 12:18:43,122 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:18:47,623 OSM to Adj complete in: : 4.501544952392578
+2019-06-27 12:18:48,251 Hash: 18295a8c2e3dd5a83907f36e4240899e
+2019-06-27 12:18:48,255 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 5.1329967975616455 seconds
+2019-06-27 12:18:48,836 127.0.0.1 - - [27/Jun/2019 12:18:48] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=motorway HTTP/1.1" 200 -
+2019-06-27 12:18:54,359 127.0.0.1 - - [27/Jun/2019 12:18:54] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:19:32,838  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-27 12:19:37,907 -----------------------------------------------------------------
+2019-06-27 12:19:37,907 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:19:37,907 Script using street detail level of: motorway
+2019-06-27 12:19:37,908 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:19:48,264 Map Successfully Converted to .o5m in: 10.355975151062012
+2019-06-27 12:19:48,264 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway =motorway =motorway_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:19:48,498 Filtering Complete in: 0.2337048053741455
+2019-06-27 12:19:48,498 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:19:53,458 OSM to Adj complete in: : 4.959877014160156
+2019-06-27 12:19:54,113 Hash: 18295a8c2e3dd5a83907f36e4240899e
+2019-06-27 12:19:54,113 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 5.614725589752197 seconds
+2019-06-27 12:19:54,654 127.0.0.1 - - [27/Jun/2019 12:19:54] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=motorway HTTP/1.1" 200 -
+2019-06-27 12:20:01,017 127.0.0.1 - - [27/Jun/2019 12:20:01] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:21:56,084 -----------------------------------------------------------------
+2019-06-27 12:21:56,084 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:21:56,084 Script using street detail level of default (full detail)
+2019-06-27 12:21:56,733 127.0.0.1 - - [27/Jun/2019 12:21:56] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=default HTTP/1.1" 200 -
+2019-06-27 12:22:03,166 127.0.0.1 - - [27/Jun/2019 12:22:03] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:22:05,634 -----------------------------------------------------------------
+2019-06-27 12:22:05,634 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:22:05,634 Script using street detail level of default (full detail)
+2019-06-27 12:22:05,634 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:22:16,408 Map Successfully Converted to .o5m in: 10.774092674255371
+2019-06-27 12:22:16,409 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:22:16,667 Filtering Complete in: 0.25769782066345215
+2019-06-27 12:22:16,668 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:22:20,978 OSM to Adj complete in: : 4.310058355331421
+2019-06-27 12:22:21,620 Hash: 18295a8c2e3dd5a83907f36e4240899e
+2019-06-27 12:22:21,620 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 4.952436447143555 seconds
+2019-06-27 12:22:22,292 127.0.0.1 - - [27/Jun/2019 12:22:22] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=default HTTP/1.1" 200 -
+2019-06-27 12:22:28,500 127.0.0.1 - - [27/Jun/2019 12:22:28] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:23:24,402 -----------------------------------------------------------------
+2019-06-27 12:23:24,402 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:23:24,402 Script using street detail level of: motorway
+2019-06-27 12:23:24,402 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:23:34,603 Map Successfully Converted to .o5m in: 10.200216054916382
+2019-06-27 12:23:34,603 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway =motorway =motorway_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:23:34,858 Filtering Complete in: 0.2550959587097168
+2019-06-27 12:23:34,859 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:23:39,324 OSM to Adj complete in: : 4.464867830276489
+2019-06-27 12:23:39,964 Hash: 18295a8c2e3dd5a83907f36e4240899e
+2019-06-27 12:23:39,964 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 5.105270147323608 seconds
+2019-06-27 12:23:40,505 127.0.0.1 - - [27/Jun/2019 12:23:40] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=motorway HTTP/1.1" 200 -
+2019-06-27 12:23:46,365 127.0.0.1 - - [27/Jun/2019 12:23:46] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:27:34,179  * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+2019-06-27 12:27:42,644 -----------------------------------------------------------------
+2019-06-27 12:27:42,645 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:27:42,645 Script using street detail level of: motorway
+2019-06-27 12:27:42,645 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:27:53,193 Map Successfully Converted to .o5m in: 10.548226356506348
+2019-06-27 12:27:53,194 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway=motorway =motorway_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:27:53,302 Filtering Complete in: 0.10829639434814453
+2019-06-27 12:27:53,302 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:27:54,038 OSM to Adj complete in: : 0.7358171939849854
+2019-06-27 12:27:54,137 Hash: 99e89f214bca2598004f78fa2afb1c91
+2019-06-27 12:27:54,137 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 0.8344392776489258 seconds
+2019-06-27 12:27:54,214 127.0.0.1 - - [27/Jun/2019 12:27:54] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=motorway HTTP/1.1" 200 -
+2019-06-27 12:27:54,968 127.0.0.1 - - [27/Jun/2019 12:27:54] "GET /favicon.ico HTTP/1.1" 200 -
+2019-06-27 12:28:17,359 -----------------------------------------------------------------
+2019-06-27 12:28:17,359 Script started with Box: -77.055, 39.121, -76.305, 39.508 bounds
+2019-06-27 12:28:17,359 Script using street detail level of: primary
+2019-06-27 12:28:17,359 Converting -77.055, 39.121, -76.305, 39.508 map to .o5m
+2019-06-27 12:28:27,716 Map Successfully Converted to .o5m in: 10.357498168945312
+2019-06-27 12:28:27,717 Starting osmfilter32 on app/o5m_Temp.o5m with filter command app/osm_converts/osmfilter32 app/o5m_Temp.o5m --keep="highway=motorway =motorway_link =trunk =trunk_link =primary =primary_link" --drop-version -o=app/xml_Temp.xml
+2019-06-27 12:28:27,858 Filtering Complete in: 0.14138269424438477
+2019-06-27 12:28:27,859 Starting OSM to Adj Convert on app/xml_Temp.xml
+2019-06-27 12:28:29,453 OSM to Adj complete in: : 1.5945241451263428
+2019-06-27 12:28:29,661 Hash: 55a0df9eafd3bdcc07d3287b367cade6
+2019-06-27 12:28:29,661 Map file created with bounds: [-77.055, 39.121, -76.305, 39.508] in 1.8024537563323975 seconds
+2019-06-27 12:28:29,838 127.0.0.1 - - [27/Jun/2019 12:28:29] "GET /coords?minLon=-77.055&minLat=39.121&maxLon=-76.305&maxLat=39.508&level=primary HTTP/1.1" 200 -
+2019-06-27 12:28:31,282 127.0.0.1 - - [27/Jun/2019 12:28:31] "GET /favicon.ico HTTP/1.1" 200 -
