@@ -260,7 +260,8 @@ def update():
                     logging.exception("Converting and filtering error")
 
 
-                os.remove("app/map_files/" + sub["file_name"])
+                if (os.path.isfile("app/map_files/" + sub["file_name"])):
+                    os.remove("app/map_files/" + sub["file_name"])
                 os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/" + sub["file_name"])
 
             shutil.rmtree("app/map_files/download")
@@ -345,7 +346,7 @@ def pipeline(location, level):
         location[3] = float(location[3])
 
 
-        name = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}"
+        name = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
         if (os.path.isfile(f"{name}/map_data.json")):
             print("This coordinate map has already been generated")
             f = open(f'{name}/map_data.json')
