@@ -72,15 +72,20 @@ def coordsInput():
 def hashreturn():
     try:
         input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
+        if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
+            level = str(request.args['level']))
+        else:
+            level = "default"
+
         logging.info(divider)
-        logging.info(f"Hash checking for map with bounds: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
+        logging.info(f"Hash checking for map with bounds: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} and level: {level}")
     except:
         print("System arguements for hash check are invalid")
         logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
         return "Invalid arguements"
 
     try:
-        with open(f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/hash.txt", 'r') as f:
+        with open(f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{level}/hash.txt", 'r') as f:
             re = f.readlines()
             return re[0]
     except:
