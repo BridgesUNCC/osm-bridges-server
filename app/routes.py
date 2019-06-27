@@ -196,10 +196,10 @@ def call_filter(o5m_filename, level):
     if (level == "default"):
         para = default
 
-    command = f"app/osm_converts/osmfilter32 {o5m_filename} " + para + f" -o=app/{area}.xml"
+    command = f"app/osm_converts/osmfilter {o5m_filename} " + para + f" -o=app/{area}.xml"
     try:
         start_time = time.time()
-        logging.info(f"Starting osmfilter32 on {o5m_filename} with filter command {command}")
+        logging.info(f"Starting osmfilter on {o5m_filename} with filter command {command}")
         subprocess.run([command], shell=True)
         logging.info("Filtering Complete in: %s" % (time.time() - start_time))
     except:
