@@ -4,7 +4,6 @@ import wget
 import subprocess
 import json
 import app.osm_to_adj as osm_to_adj
-import app.mapInfo as mapInfo
 import os
 from datetime import *
 import shutil
