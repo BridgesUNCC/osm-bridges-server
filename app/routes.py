@@ -102,9 +102,9 @@ def noinput():
 
 @app.errorhandler(404)
 def page_not_found(e=''):
-    list = "Please request a bounding box or a city name."
-    with open('app/namedList.json', 'r') as x:
-        loaded = json.load(x)
+    list = "Please use correct formatting for requesting a bounding box or city name."
+    #with open('app/namedList.json', 'r') as x:
+        #loaded = json.load(x)
         #for city in loaded["named"]:
             #list = list + ", " + city["city"]
     return list
@@ -145,25 +145,6 @@ def call_convert(filename, box=[]):
 
     return f"app/o5m_Temp.o5m"
 
-def download_map(url):
-    """Uses wget to attempt downloading a map url
-
-    Parameters:
-    url(str): String of the URL that the map download is located at
-
-    Returns:
-    string: String of the directory location of the map downloaded
-
-    """
-    try:
-        filename = wget.download(url, out="app/map_files/download")
-        print("Map Download Complete")
-    except:
-        print("Error downloading map")
-        logging.exception("Exception occurred while downloading map")
-        return
-    return filename
-
 def call_filter(o5m_filename, level):
     """Creates a process of the osmfilter to remove any info that we dont need
 
@@ -199,7 +180,7 @@ def call_filter(o5m_filename, level):
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + f" -o=app/{area}.xml"
     try:
         start_time = time.time()
-        logging.info(f"Starting osmfilter on {o5m_filename} with filter command {command}")
+        logging.info(f"Starting osmfilter on {o5m_filename} with filter command level {level}")
         subprocess.run([command], shell=True)
         logging.info("Filtering Complete in: %s" % (time.time() - start_time))
     except:
@@ -207,6 +188,25 @@ def call_filter(o5m_filename, level):
         logging.exception(f"Exception while filtering data on map: {o5m_filename}")
 
     return f"app/{area}.xml"
+
+def download_map(url):
+    """Uses wget to attempt downloading a map url
+
+    Parameters:
+    url(str): String of the URL that the map download is located at
+
+    Returns:
+    string: String of the directory location of the map downloaded
+
+    """
+    try:
+        filename = wget.download(url, out="app/map_files/download")
+        print("Map Download Complete")
+    except:
+        print("Error downloading map")
+        logging.exception("Exception occurred while downloading map")
+        return
+    return filename
 
 def get_memory():
     '''Retreives current amount of free memory
