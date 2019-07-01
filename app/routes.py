@@ -366,7 +366,7 @@ def pipeline(location, level):
                             maxLon = city['longitude'] + .25
                             coord = [minLat, minLon, maxLat, maxLon]
                             break;
-            if (coord = None):
+            if (coord == None):
                 print ("Please put a location that is supported")
                 return page_not_found()
         o5m = call_convert(str(filename), coord)
