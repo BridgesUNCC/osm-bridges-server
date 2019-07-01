@@ -92,6 +92,7 @@ def hashreturn():
     try:
         with open(f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{level}/hash.txt", 'r') as f:
             re = f.readlines()
+            logging.info(f"Hash value found: {re[0]}")
             return re[0]
     except:
         print("No map hash found")
