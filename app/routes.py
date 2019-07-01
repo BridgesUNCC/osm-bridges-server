@@ -15,6 +15,7 @@ import hashlib
 from apscheduler.schedulers.background import BackgroundScheduler
 
 memPercent = .85
+degreeRound = 4
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
 map_convert_command = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
@@ -46,7 +47,7 @@ def namedInput():
 def coordsInput():
 
     try:
-        input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
+        input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
         logging.info(divider)
         logging.info(f"Script started with Box: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} bounds")
     except:
@@ -281,9 +282,7 @@ def update():
 
             print("Maps are up-to-date")
     except Exception as e:
-        print(e)
-        print("Error reading update file")
-        logging.exception("Update file read exception")
+        logging.exception("Update file read exception" + e)
 
 def city_gen():
     '''Generates premade cities based on the namedList.json file'''
