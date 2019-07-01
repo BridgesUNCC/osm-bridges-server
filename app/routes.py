@@ -47,6 +47,7 @@ def namedInput():
 def coordsInput():
 
     try:
+        #rounds and converts the args to floats and rounds to a certain decimal
         input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
         logging.info(divider)
         logging.info(f"Script started with Box: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} bounds")
@@ -71,6 +72,7 @@ def coordsInput():
 @app.route('/hash')
 def hashreturn():
     try:
+        #rounds and converts the args to floats and rounds to a certain decimal
         input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
         try:
             x = request.args['level'].lower()
@@ -349,6 +351,7 @@ def pipeline(location, level):
 
     elif type(location) == list:
         #Used to remove extra trailing zeros to prevent duplicates
+        #might be redundent
         location[0] = float(location[0])
         location[1] = float(location[1])
         location[2] = float(location[2])
@@ -357,16 +360,16 @@ def pipeline(location, level):
 
         name = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
         if (os.path.isfile(f"{name}/map_data.json")):
-            print("This coordinate map has already been generated")
+            logging.info("The map was found in the servers map storage")
             f = open(f'{name}/map_data.json')
             data = json.load(f)
             f.close()
-            return  json.dumps(data, sort_keys = False, indent = 2)
+            return  json.dumps(data, sort_keys = False, indent = 2) #returns map data from storage
 
-        #Map Convert Call
+        #Map Convert Call, converts the large NA map to that of the bounding box
         o5m = call_convert(str(filename), location)
 
-    #Map Filter Call
+    #Map Filter Call, filters out any data that is not required withing the level requested
     filename = call_filter(o5m, level)
 
 
@@ -378,9 +381,10 @@ def pipeline(location, level):
         logging.info(f"Starting OSM to Adj Convert on {filename}")
 
         start_time = time.time() #timer to determine run time of osm_to_adj
-        test2 = osm_to_adj.main(filename, 4)
+        test2 = osm_to_adj.main(filename, 4) #reduces the number of nodes in map file
         logging.info("OSM to Adj complete in: : %s" % (time.time() - start_time))
 
+        #Save map data to server storage
         os.makedirs(name)
         with open(f"{name}/map_data.json", 'w') as x:
             json.dump(test2, x, indent=4)
@@ -400,6 +404,7 @@ def pipeline(location, level):
     except:
         logging.exception("Hashing error occured")
 
+    #removes temporary files generated while generating map
     os.remove(o5m)
     os.remove(filename)
 
@@ -408,7 +413,6 @@ def pipeline(location, level):
     response = json.dumps(test2, sort_keys = False, indent = 2)
     return response
 
-    #return f"{name}/map_data.json"
 
 #Creates a background scheduled task for the map update method
 sched = BackgroundScheduler()
