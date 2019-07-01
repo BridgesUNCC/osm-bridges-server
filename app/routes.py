@@ -83,7 +83,7 @@ def hashreturn():
 
 
         logging.info(divider)
-        logging.info(f"Hash checking for map with bounds: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} and level: {level}")
+        logging.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]} and level: {level}")
     except:
         print("System arguements for hash check are invalid")
         logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
