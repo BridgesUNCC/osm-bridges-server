@@ -14,8 +14,8 @@ import time
 import hashlib
 from apscheduler.schedulers.background import BackgroundScheduler
 
-memPercent = .85
-degreeRound = 4
+memPercent = .85 # % of RAM allowed for osm_to_adj.py to use
+degreeRound = 4 #number of decimal places to round bounding box coords too
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
 map_convert_command = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
@@ -41,7 +41,19 @@ def namedInput():
         print("System arguments are invalid")
         logging.exception(f"System arguements invalid {request.args['location']}")
         return "Invalid arguements"
-    return pipeline(input_Value)
+
+    try:
+        if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
+            level = str(request.args['level'])
+            logging.info(f"Script using street detail level of: {request.args['level']}")
+        else:
+            level = "default"
+            logging.info(f"Script using street detail level of default (full detail)")
+    except:
+        level = "default"
+        logging.info(f"Script using street detail level of default (full detail)")
+
+    return pipeline(input_Value, level)
 
 @app.route('/coords')
 def coordsInput():
@@ -328,7 +340,7 @@ def pipeline(location, level):
     string: Directory location of new map json created
     '''
 
-    filename = "app/map_files/north-america-latest.osm.pbf"
+    filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
 
 
 
@@ -337,16 +349,22 @@ def pipeline(location, level):
         location = location.lower()
         name = f"app/reduced_maps/named_places/{location}"
         if (os.path.isfile(f"{name}/map_data.json")):
-            print(f"{location} map has already been generated")
+            logging.info(f"{location} map has already been generated")
             f = open(f"{name}/map_data.json")
             data = json.load(f)
             f.close()
             return  json.dumps(data, sort_keys = False, indent = 2)
         else:
+            with open('app/cities.json', 'r') as x:
+                loaded = json.load(x)
+                for city in loaded:
+                    print(city["city"])
+
+
             print ("Please put a location that is supported")
             return page_not_found()
 
-        #o5m = call_convert(str(filename))
+        #o5m = call_convert(str(filename), location)
 
 
     elif type(location) == list:
