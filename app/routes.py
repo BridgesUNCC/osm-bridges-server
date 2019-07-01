@@ -355,27 +355,31 @@ def pipeline(location, level):
             f.close()
             return  json.dumps(data, sort_keys = False, indent = 2)
         else:
+            coord = None
             with open('app/cities.json', 'r') as x:
                 loaded = json.load(x)
                 for city in loaded:
-                    print(city["city"])
-
-
-            print ("Please put a location that is supported")
-            return page_not_found()
-
-        #o5m = call_convert(str(filename), location)
+                    if (city["city"].lower() == location):
+                            minLat = city['latitude'] - .25
+                            minLon = city['longitude'] - .25
+                            maxLat = city['latitude'] + .25
+                            maxLon = city['longitude'] + .25
+                            coord = [minLat, minLon, maxLat, maxLon]
+            if (coord = None):
+                print ("Please put a location that is supported")
+                return page_not_found()
+        o5m = call_convert(str(filename), coord)
 
 
     elif type(location) == list:
         #Used to remove extra trailing zeros to prevent duplicates
         #might be redundent
-        location[0] = float(location[0])
-        location[1] = float(location[1])
-        location[2] = float(location[2])
-        location[3] = float(location[3])
+        location[0] = float(location[0]) #minLat
+        location[1] = float(location[1]) #minLon
+        location[2] = float(location[2]) #maxLat
+        location[3] = float(location[3]) #maxLon
 
-
+        # minLat / minLon / maxLat / maxLon
         name = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
         if (os.path.isfile(f"{name}/map_data.json")):
             logging.info("The map was found in the servers map storage")
