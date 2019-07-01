@@ -71,7 +71,7 @@ def coordsInput():
 @app.route('/hash')
 def hashreturn():
     try:
-        input_Value = [float(request.args['minLon']), float(request.args['minLat']), float(request.args['maxLon']), float(request.args['maxLat'])]
+        input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
         try:
             x = request.args['level'].lower()
             if (x == 'motorway' or x == 'trunk' or x == 'primary' or x == 'secondary' or x == 'tertiary' or rx == 'unclassified'):
