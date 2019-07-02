@@ -393,7 +393,7 @@ def map_size(coords, level):
         limit = .5
 
 
-    if (abs(abs(coords[2]) - abs(coords[0])) > limit || abs(abs(coords[3]) - abs(coords[1])) > limit):
+    if (abs(abs(coords[2]) - abs(coords[0])) > limit or abs(abs(coords[3]) - abs(coords[1])) > limit):
         return True
     return False
 
