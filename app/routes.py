@@ -10,7 +10,7 @@ import shutil
 import sys
 import resource
 import logging
-import logging.handlers as handlers
+from logging.handlers import RotatingFileHandler
 import time
 import hashlib
 from apscheduler.schedulers.background import BackgroundScheduler
