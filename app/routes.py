@@ -376,6 +376,27 @@ def city_coords(location):
     except Exception as e:
         logging.info(e)
 
+def map_size(coords, level):
+    if (level == "motorway"):
+        limit = 2
+    elif (level == "trunk"):
+        limit = 1.5
+    elif (level == "primary"):
+        limit = 1
+    elif (level == "secondary"):
+        limit = .8
+    elif (level == "tertiary"):
+        limit = .6
+    elif (level == "unclassified"):
+        limit = .5
+    else:
+        limit = .5
+
+
+    if (abs(abs(coords[2]) - abs(coords[0])) > limit || abs(abs(coords[3]) - abs(coords[1])) > limit):
+        return True
+    return False
+
 def pipeline(location, level, cityName = None):
     '''The main method that pipelines the process of converting and shrinking map requests
 
@@ -421,6 +442,10 @@ def pipeline(location, level, cityName = None):
             data = json.load(f)
             f.close()
             return  json.dumps(data, sort_keys = False, indent = 2) #returns map data from storage
+
+
+    if (map_size(location)):
+        return ""
 
     #Map Convert Call, converts the large NA map to that of the bounding box
     o5m = call_convert(str(filename), location)
