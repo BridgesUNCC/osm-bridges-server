@@ -34,6 +34,7 @@ def namedInput():
     try:
         input_Value = request.args['location']
         logging.info(divider)
+        logging.info(f"Requester: {request.remote_addr}")
         logging.info(f"Script started with {request.args['location']} parameters")
         if not input_Value.isalpha():
             raise ValueError()
@@ -72,6 +73,7 @@ def coordsInput():
         #rounds and converts the args to floats and rounds to a certain decimal
         input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
         logging.info(divider)
+        logging.info(f"Requester: {request.remote_addr}")
         logging.info(f"Script started with Box: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} bounds")
     except:
         print("System arguements are invalid")
@@ -99,6 +101,7 @@ def hashreturn():
         input_Value = city_coords(loc)
         type = "loc"
         logging.info(divider)
+        logging.info(f"Requester: {request.remote_addr}")
         logging.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
     except:
         try:
@@ -106,6 +109,7 @@ def hashreturn():
             input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
             type = "coord"
             logging.info(divider)
+            logging.info(f"Requester: {request.remote_addr}")
             logging.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
         except:
             print("System arguements for hash check are invalid")
