@@ -369,8 +369,6 @@ def city_coords(location):
                         maxLat = round(city['latitude'] + .25, degreeRound)
                         maxLon = round(city['longitude'] + .25, degreeRound)
                         coord = [minLat, minLon, maxLat, maxLon]
-                        print(coord)
-                        print (city['latitude'])
                         return coord
         if (coord == None):
             print ("Please put a location that is supported")
@@ -443,7 +441,7 @@ def pipeline(location, level, cityName = None):
         start_time = time.time() #timer to determine run time of osm_to_adj
         test2 = osm_to_adj.main(filename, 4, cityName) #reduces the number of nodes in map file
         logging.info("OSM to Adj complete in: : %s" % (time.time() - start_time))
-
+        return test2
 
         #Save map data to server storage
         os.makedirs(dir)
