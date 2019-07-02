@@ -439,7 +439,7 @@ def pipeline(location, level, cityName = None):
 
 
         start_time = time.time() #timer to determine run time of osm_to_adj
-        test2 = osm_to_adj.main(filename, 4, cityName) #reduces the number of nodes in map file
+        test2 = osm_to_adj.main(filename, 4) #reduces the number of nodes in map file
         logging.info("OSM to Adj complete in: : %s" % (time.time() - start_time))
         return json.dumps(test2, sort_keys = False, indent = 2)
         #Save map data to server storage
