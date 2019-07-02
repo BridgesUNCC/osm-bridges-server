@@ -438,10 +438,10 @@ def pipeline(location, level, cityName = None):
     elif cityName == None:
         #Used to remove extra trailing zeros to prevent duplicates
         #might be redundent
-        location[0] = float(location[0]) #minLat
-        location[1] = float(location[1]) #minLon
-        location[2] = float(location[2]) #maxLat
-        location[3] = float(location[3]) #maxLon
+        location[0] = float(location[0]) #minLon
+        location[1] = float(location[1]) #minLat
+        location[2] = float(location[2]) #maxLon
+        location[3] = float(location[3]) #maxLat
 
         # minLon / minLat / maxLon / maxLat
         dir = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
@@ -454,6 +454,7 @@ def pipeline(location, level, cityName = None):
 
 
     if (map_size(location, level)):
+        logging.info("Map bounds outside of max map size allowed")
         return "MAP BOUNDING SIZE IS TOO LARGE"
 
     #Map Convert Call, converts the large NA map to that of the bounding box
