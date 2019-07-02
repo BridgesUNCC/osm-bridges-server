@@ -63,7 +63,7 @@ def namedInput():
         else:
             return page_not_found()
     except:
-        logging.info(f"Error occured while looking up city: {input_Value}")
+        logging.info(f"Error occured while processing city: {input_Value}")
         return server_error()
 
 @app.route('/coords')
@@ -394,7 +394,6 @@ def map_size(coords, level):
 
 
     if (abs(abs(coords[2]) - abs(coords[0])) > limit or abs(abs(coords[3]) - abs(coords[1])) > limit):
-        print("oof")
         return True
     return False
 
@@ -445,7 +444,7 @@ def pipeline(location, level, cityName = None):
             return  json.dumps(data, sort_keys = False, indent = 2) #returns map data from storage
 
 
-    if (map_size(location)):
+    if (map_size(location, level)):
         return "MAP BOUNDING SIZE IS TOO LARGE"
 
     #Map Convert Call, converts the large NA map to that of the bounding box
