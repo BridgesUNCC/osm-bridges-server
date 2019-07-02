@@ -380,17 +380,17 @@ def map_size(coords, level):
     if (level == "motorway"):
         limit = 2
     elif (level == "trunk"):
-        limit = 1.5
-    elif (level == "primary"):
         limit = 1
-    elif (level == "secondary"):
+    elif (level == "primary"):
         limit = .8
+    elif (level == "secondary"):
+        limit = .5
     elif (level == "tertiary"):
-        limit = .6
+        limit = .4
     elif (level == "unclassified"):
-        limit = .5
+        limit = .3
     else:
-        limit = .5
+        limit = .3
 
 
     if (abs(abs(coords[2]) - abs(coords[0])) > limit or abs(abs(coords[3]) - abs(coords[1])) > limit):
