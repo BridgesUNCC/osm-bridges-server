@@ -53,7 +53,17 @@ def namedInput():
         level = "default"
         logging.info(f"Script using street detail level of default (full detail)")
 
-    return pipeline(input_Value, level)
+
+
+    try:
+        coords = city_coords(input_Value)
+        if (coords != 404):
+            return pipeline(coords, level, input_Value.lower())
+        else:
+            return page_not_found()
+    except:
+        logging.info(f"Error occured while looking up city: {input_Value}")
+        return server_error()
 
 @app.route('/coords')
 def coordsInput():
@@ -83,28 +93,46 @@ def coordsInput():
 
 @app.route('/hash')
 def hashreturn():
+    type = None
     try:
-        #rounds and converts the args to floats and rounds to a certain decimal
-        input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
-        try:
-            x = request.args['level'].lower()
-            if (x == 'motorway' or x == 'trunk' or x == 'primary' or x == 'secondary' or x == 'tertiary' or rx == 'unclassified'):
-                level = str(x)
-            else:
-                level = "default"
-        except:
-            level = "default"
-
-
+        loc = str(request.args['location'])
+        input_Value = city_coords(loc)
+        type = "loc"
         logging.info(divider)
-        logging.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]} and level: {level}")
+        logging.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
     except:
-        print("System arguements for hash check are invalid")
-        logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
-        return "Invalid arguements"
+        try:
+            #rounds and converts the args to floats and rounds to a certain decimal
+            input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
+            type = "coord"
+            logging.info(divider)
+            logging.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
+        except:
+            print("System arguements for hash check are invalid")
+            logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
+            return "Invalid arguements"
 
     try:
-        with open(f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{level}/hash.txt", 'r') as f:
+        x = request.args['level'].lower()
+        if (x == 'motorway' or x == 'trunk' or x == 'primary' or x == 'secondary' or x == 'tertiary' or rx == 'unclassified'):
+            level = str(x)
+        else:
+            level = "default"
+    except:
+        level = "default"
+
+
+    if (type == "loc"):
+        dir = f"app/reduced_maps/cities/{loc}/{level}"
+    elif (type == "coord"):
+        dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{level}"
+    else:
+        return page_not_found()
+
+
+
+    try:
+        with open(f"{dir}/hash.txt", 'r') as f:
             re = f.readlines()
             logging.info(f"Hash value found: {re[0]}")
             return re[0]
@@ -118,12 +146,7 @@ def noinput():
 
 @app.errorhandler(404)
 def page_not_found(e=''):
-    list = "Please use correct formatting for requesting a bounding box or city name."
-    #with open('app/namedList.json', 'r') as x:
-        #loaded = json.load(x)
-        #for city in loaded["named"]:
-            #list = list + ", " + city["city"]
-    return list
+    return 404
 
 @app.errorhandler(500)
 def server_error():
@@ -308,7 +331,7 @@ def city_gen():
         logging.info("Checking for pre-defined cities")
         loaded = json.load(x)
         for city in loaded["named"]:
-            name = f"app/reduced_maps/named_places/{city['city'].lower()}"
+            name = f"app/reduced_maps/cities/{city['city'].lower()}"
             filename = "app/map_files/north-america-latest.osm.pbf"
             try:
                 if (os.path.isfile(f"{name}/map_data.json")):
@@ -330,7 +353,23 @@ def city_gen():
     logging.info("Pre-defined cities check complete in %s seconds" % (time.time() - start_time))
     return
 
-def pipeline(location, level):
+def city_coords(location):
+    coord = None
+    with open('app/cities.json', 'r') as x:
+        loaded = json.load(x)
+        for city in loaded:
+            if (city["city"].lower() == location):
+                    minLat = city['latitude'] - .15
+                    minLon = city['longitude'] - .15
+                    maxLat = city['latitude'] + .15
+                    maxLon = city['longitude'] + .15
+                    coord = [minLat, minLon, maxLat, maxLon]
+                    return coord
+    if (coord == None):
+        print ("Please put a location that is supported")
+        return page_not_found()
+
+def pipeline(location, level, cityName = None):
     '''The main method that pipelines the process of converting and shrinking map requests
 
     Parameters:
@@ -343,36 +382,19 @@ def pipeline(location, level):
     filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
 
 
-
     #Checks input for name or list
-    if type(location) == str:
-        location = location.lower()
-        name = f"app/reduced_maps/named_places/{location}"
-        if (os.path.isfile(f"{name}/map_data.json")):
-            logging.info(f"{location} map has already been generated")
-            f = open(f"{name}/map_data.json")
+    if cityName is not None :
+        dir = f"app/reduced_maps/cities/{cityName}/{level}"
+        if (os.path.isfile(f"{dir}/map_data.json")):
+            logging.info(f"{cityName} map has already been generated")
+            f = open(f"{dir}/map_data.json")
             data = json.load(f)
             f.close()
             return  json.dumps(data, sort_keys = False, indent = 2)
-        else:
-            coord = None
-            with open('app/cities.json', 'r') as x:
-                loaded = json.load(x)
-                for city in loaded:
-                    if (city["city"].lower() == location):
-                            minLat = city['latitude'] - .25
-                            minLon = city['longitude'] - .25
-                            maxLat = city['latitude'] + .25
-                            maxLon = city['longitude'] + .25
-                            coord = [minLat, minLon, maxLat, maxLon]
-                            break;
-            if (coord == None):
-                print ("Please put a location that is supported")
-                return page_not_found()
         o5m = call_convert(str(filename), coord)
 
 
-    elif type(location) == list:
+    elif cityName == None:
         #Used to remove extra trailing zeros to prevent duplicates
         #might be redundent
         location[0] = float(location[0]) #minLat
@@ -381,10 +403,10 @@ def pipeline(location, level):
         location[3] = float(location[3]) #maxLon
 
         # minLat / minLon / maxLat / maxLon
-        name = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
-        if (os.path.isfile(f"{name}/map_data.json")):
+        dir = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
+        if (os.path.isfile(f"{dir}/map_data.json")):
             logging.info("The map was found in the servers map storage")
-            f = open(f'{name}/map_data.json')
+            f = open(f'{dir}/map_data.json')
             data = json.load(f)
             f.close()
             return  json.dumps(data, sort_keys = False, indent = 2) #returns map data from storage
@@ -403,26 +425,28 @@ def pipeline(location, level):
         resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
         logging.info(f"Starting OSM to Adj Convert on {filename}")
 
+
         start_time = time.time() #timer to determine run time of osm_to_adj
-        test2 = osm_to_adj.main(filename, 4) #reduces the number of nodes in map file
+        test2 = osm_to_adj.main(filename, 4, cityName) #reduces the number of nodes in map file
         logging.info("OSM to Adj complete in: : %s" % (time.time() - start_time))
 
+
         #Save map data to server storage
-        os.makedirs(name)
-        with open(f"{name}/map_data.json", 'w') as x:
+        os.makedirs(dir)
+        with open(f"{dir}/map_data.json", 'w') as x:
             json.dump(test2, x, indent=4)
     except MemoryError:
-        logging.exception(f"Memory Exception occurred while processing: {name}")
+        logging.exception(f"Memory Exception occurred while processing: {dir}")
 
     #Generates hash file for recently created map
     try:
         md5_hash = hashlib.md5()
-        with open(f"{name}/map_data.json","rb") as f:
+        with open(f"{dir}/map_data.json","rb") as f:
             # Read and update hash string value in blocks of 4K
             for byte_block in iter(lambda: f.read(4096),b""):
                 md5_hash.update(byte_block)
             logging.info("Hash: " + md5_hash.hexdigest())
-        with open(f"{name}/hash.txt", "w") as h:
+        with open(f"{dir}/hash.txt", "w") as h:
             h.write(md5_hash.hexdigest())
     except:
         logging.exception("Hashing error occured")
