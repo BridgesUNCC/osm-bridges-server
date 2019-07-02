@@ -369,6 +369,8 @@ def city_coords(location):
                         maxLat = round(city['latitude'] + .25, degreeRound)
                         maxLon = round(city['longitude'] + .25, degreeRound)
                         coord = [minLat, minLon, maxLat, maxLon]
+                        print(coord)
+                        print (city['latitude'])
                         return coord
         if (coord == None):
             print ("Please put a location that is supported")
@@ -395,6 +397,7 @@ def pipeline(location, level, cityName = None):
         location[1] = float(location[1]) #minLon
         location[2] = float(location[2]) #maxLat
         location[3] = float(location[3]) #maxLon
+        print(location)
         dir = f"app/reduced_maps/cities/{cityName}/{level}"
         if (os.path.isfile(f"{dir}/map_data.json")):
             logging.info(f"{cityName} map has already been generated")
@@ -402,7 +405,7 @@ def pipeline(location, level, cityName = None):
             data = json.load(f)
             f.close()
             return  json.dumps(data, sort_keys = False, indent = 2)
-        o5m = call_convert(str(filename), location)
+
 
 
     elif cityName == None:
@@ -422,8 +425,8 @@ def pipeline(location, level, cityName = None):
             f.close()
             return  json.dumps(data, sort_keys = False, indent = 2) #returns map data from storage
 
-        #Map Convert Call, converts the large NA map to that of the bounding box
-        o5m = call_convert(str(filename), location)
+    #Map Convert Call, converts the large NA map to that of the bounding box
+    o5m = call_convert(str(filename), location)
 
     #Map Filter Call, filters out any data that is not required withing the level requested
     filename = call_filter(o5m, level)
