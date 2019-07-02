@@ -59,6 +59,7 @@ def namedInput():
     try:
         coords = city_coords(input_Value)
         if (coords != 404):
+            print("1")
             return pipeline(coords, level, input_Value.lower())
         else:
             return page_not_found()
