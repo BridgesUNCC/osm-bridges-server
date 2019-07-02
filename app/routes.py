@@ -518,7 +518,7 @@ sched.print_jobs()
 
 #logging.basicConfig(filename='log.log',format='%(asctime)s %(message)s', level=logging.DEBUG)
 
-format = '%(asctime)s %(message)s'
+format = logging.Formatter('%(asctime)s %(message)s')
 logFile = 'log.log'
 my_handler = RotatingFileHandler(logFile, mode='a', maxBytes=5*1024*1024,
                                  backupCount=2, encoding=None, delay=0)
