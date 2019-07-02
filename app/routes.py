@@ -359,19 +359,22 @@ def city_gen():
 
 def city_coords(location):
     coord = None
-    with open('app/cities.json', 'r') as x:
-        loaded = json.load(x)
-        for city in loaded:
-            if (city["city"].lower() == location):
-                    minLat = city['latitude'] - .15
-                    minLon = city['longitude'] - .15
-                    maxLat = city['latitude'] + .15
-                    maxLon = city['longitude'] + .15
-                    coord = [minLat, minLon, maxLat, maxLon]
-                    return coord
-    if (coord == None):
-        print ("Please put a location that is supported")
-        return page_not_found()
+    try:
+        with open('app/cities.json', 'r') as x:
+            loaded = json.load(x)
+            for city in loaded:
+                if (city["city"].lower() == location):
+                        minLat = city['latitude'] - .15
+                        minLon = city['longitude'] - .15
+                        maxLat = city['latitude'] + .15
+                        maxLon = city['longitude'] + .15
+                        coord = [minLat, minLon, maxLat, maxLon]
+                        return coord
+        if (coord == None):
+            print ("Please put a location that is supported")
+            return page_not_found()
+    except Exception as e:
+        logging.info(e)
 
 def pipeline(location, level, cityName = None):
     '''The main method that pipelines the process of converting and shrinking map requests
