@@ -10,6 +10,7 @@ import shutil
 import sys
 import resource
 import logging
+import logging.handlers as handlers
 import time
 import hashlib
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -33,26 +34,26 @@ def namedInput():
 
     try:
         input_Value = request.args['location'].lower()
-        logging.info(divider)
-        logging.info(f"Requester: {request.remote_addr}")
-        logging.info(f"Script started with {request.args['location']} parameters")
+        app_log.info(divider)
+        app_log.info(f"Requester: {request.remote_addr}")
+        app_log.info(f"Script started with {request.args['location']} parameters")
         if not input_Value.isalpha():
             raise ValueError()
     except:
         print("System arguments are invalid")
-        logging.exception(f"System arguements invalid {request.args['location']}")
+        app_log.exception(f"System arguements invalid {request.args['location']}")
         return "Invalid arguements"
 
     try:
         if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
             level = str(request.args['level'])
-            logging.info(f"Script using street detail level of: {request.args['level']}")
+            app_log.info(f"Script using street detail level of: {request.args['level']}")
         else:
             level = "default"
-            logging.info(f"Script using street detail level of default (full detail)")
+            app_log.info(f"Script using street detail level of default (full detail)")
     except:
         level = "default"
-        logging.info(f"Script using street detail level of default (full detail)")
+        app_log.info(f"Script using street detail level of default (full detail)")
 
 
 
@@ -63,7 +64,7 @@ def namedInput():
         else:
             return page_not_found()
     except:
-        logging.info(f"Error occured while processing city: {input_Value}")
+        app_log.info(f"Error occured while processing city: {input_Value}")
         return server_error()
 
 @app.route('/coords')
@@ -72,24 +73,24 @@ def coordsInput():
     try:
         #rounds and converts the args to floats and rounds to a certain decimal
         input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
-        logging.info(divider)
-        logging.info(f"Requester: {request.remote_addr}")
-        logging.info(f"Script started with Box: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} bounds")
+        app_log.info(divider)
+        app_log.info(f"Requester: {request.remote_addr}")
+        app_log.info(f"Script started with Box: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} bounds")
     except:
         print("System arguements are invalid")
-        logging.exception(f"System arguements invalid {request.args}")
+        app_log.exception(f"System arguements invalid {request.args}")
         return "Invalid arguements"
 
     try:
         if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
             level = str(request.args['level'])
-            logging.info(f"Script using street detail level of: {request.args['level']}")
+            app_log.info(f"Script using street detail level of: {request.args['level']}")
         else:
             level = "default"
-            logging.info(f"Script using street detail level of default (full detail)")
+            app_log.info(f"Script using street detail level of default (full detail)")
     except:
         level = "default"
-        logging.info(f"Script using street detail level of default (full detail)")
+        app_log.info(f"Script using street detail level of default (full detail)")
 
     return pipeline(input_Value, level)
 
@@ -100,20 +101,20 @@ def hashreturn():
         loc = str(request.args['location']).lower()
         input_Value = city_coords(loc)
         type = "loc"
-        logging.info(divider)
-        logging.info(f"Requester: {request.remote_addr}")
-        logging.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
+        app_log.info(divider)
+        app_log.info(f"Requester: {request.remote_addr}")
+        app_log.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
     except:
         try:
             #rounds and converts the args to floats and rounds to a certain decimal
             input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
             type = "coord"
-            logging.info(divider)
-            logging.info(f"Requester: {request.remote_addr}")
-            logging.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
+            app_log.info(divider)
+            app_log.info(f"Requester: {request.remote_addr}")
+            app_log.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
         except:
             print("System arguements for hash check are invalid")
-            logging.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
+            app_log.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
             return "Invalid arguements"
 
     try:
@@ -138,7 +139,7 @@ def hashreturn():
     try:
         with open(f"{dir}/hash.txt", 'r') as f:
             re = f.readlines()
-            logging.info(f"Hash value found: {re[0]}")
+            app_log.info(f"Hash value found: {re[0]}")
             return re[0]
     except:
         print("No map hash found")
@@ -175,16 +176,16 @@ def call_convert(filename, box=[]):
         command  = (f"app/osm_converts/osmconvert64 " + filename + f" -o=app/o5m_Temp.o5m")
 
 
-    logging.info(f"Converting {box[0]}, {box[1]}, {box[2]}, {box[3]} map to .o5m")
+    app_log.info(f"Converting {box[0]}, {box[1]}, {box[2]}, {box[3]} map to .o5m")
 
 
     try:
         start_time = time.time()
         subprocess.run([command], shell=True)
-        logging.info("Map Successfully Converted to .o5m in: %s" % (time.time() - start_time))
+        app_log.info("Map Successfully Converted to .o5m in: %s" % (time.time() - start_time))
     except:
         print("Error converting file to .o5m")
-        logging.exception(f"Exception occurred while converting bounds: {box[0]}, {box[1]}, {box[2]}, {box[3]}")
+        app_log.exception(f"Exception occurred while converting bounds: {box[0]}, {box[1]}, {box[2]}, {box[3]}")
 
     return f"app/o5m_Temp.o5m"
 
@@ -223,12 +224,12 @@ def call_filter(o5m_filename, level):
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + f" -o=app/{area}.xml"
     try:
         start_time = time.time()
-        logging.info(f"Starting osmfilter on {o5m_filename} with filter command level {level}")
+        app_log.info(f"Starting osmfilter on {o5m_filename} with filter command level {level}")
         subprocess.run([command], shell=True)
-        logging.info("Filtering Complete in: %s" % (time.time() - start_time))
+        app_log.info("Filtering Complete in: %s" % (time.time() - start_time))
     except:
         print("Error while filtering data")
-        logging.exception(f"Exception while filtering data on map: {o5m_filename}")
+        app_log.exception(f"Exception while filtering data on map: {o5m_filename}")
 
     return f"app/{area}.xml"
 
@@ -247,7 +248,7 @@ def download_map(url):
         print("Map Download Complete")
     except:
         print("Error downloading map")
-        logging.exception("Exception occurred while downloading map")
+        app_log.exception("Exception occurred while downloading map")
         return
     return filename
 
@@ -285,7 +286,7 @@ def update():
 
                 except:
                     print("Error Downloading Map")
-                    logging.exception(f"Exception occured while downloading map {map_title}")
+                    app_log.exception(f"Exception occured while downloading map {map_title}")
                     break
 
                 with open("app/update.json", 'w') as f:
@@ -309,7 +310,7 @@ def update():
                     os.remove("app/temp.o5m")
 
                 except:
-                    logging.exception("Converting and filtering error")
+                    app_log.exception("Converting and filtering error")
 
 
                 if (os.path.isfile("app/map_files/" + sub["file_name"])):
@@ -333,7 +334,7 @@ def update():
 
             print("Maps are up-to-date")
     except Exception as e:
-        logging.exception("Update file read exception" + e)
+        app_log.exception("Update file read exception" + e)
 
 def city_gen():
     '''Generates premade cities based on the namedList.json file'''
@@ -341,7 +342,7 @@ def city_gen():
     start_time = time.time()
 
     with open('app/namedList.json', 'r') as x:
-        logging.info("Checking for pre-defined cities")
+        app_log.info("Checking for pre-defined cities")
         loaded = json.load(x)
         for city in loaded["named"]:
             name = f"app/reduced_maps/cities/{city['city'].lower()}"
@@ -362,8 +363,8 @@ def city_gen():
                 os.remove("app/temp.o5m")
 
             except:
-                logging.exception(f"Error occured while updating pre-defined cities")
-    logging.info("Pre-defined cities check complete in %s seconds" % (time.time() - start_time))
+                app_log.exception(f"Error occured while updating pre-defined cities")
+    app_log.info("Pre-defined cities check complete in %s seconds" % (time.time() - start_time))
     return
 
 def city_coords(location):
@@ -383,7 +384,7 @@ def city_coords(location):
             print ("Please put a location that is supported")
             return page_not_found()
     except Exception as e:
-        logging.info(e)
+        app_log.info(e)
 
 def map_size(coords, level):
     if (level == "motorway"):
@@ -427,7 +428,7 @@ def pipeline(location, level, cityName = None):
         location[3] = float(location[3]) #maxLat
         dir = f"app/reduced_maps/cities/{cityName}/{level}"
         if (os.path.isfile(f"{dir}/map_data.json")):
-            logging.info(f"{cityName} map has already been generated")
+            app_log.info(f"{cityName} map has already been generated")
             f = open(f"{dir}/map_data.json")
             data = json.load(f)
             f.close()
@@ -446,7 +447,7 @@ def pipeline(location, level, cityName = None):
         # minLon / minLat / maxLon / maxLat
         dir = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
         if (os.path.isfile(f"{dir}/map_data.json")):
-            logging.info("The map was found in the servers map storage")
+            app_log.info("The map was found in the servers map storage")
             f = open(f'{dir}/map_data.json')
             data = json.load(f)
             f.close()
@@ -454,7 +455,7 @@ def pipeline(location, level, cityName = None):
 
 
     if (map_size(location, level)):
-        logging.info("Map bounds outside of max map size allowed")
+        app_log.info("Map bounds outside of max map size allowed")
         return "MAP BOUNDING SIZE IS TOO LARGE"
 
     #Map Convert Call, converts the large NA map to that of the bounding box
@@ -469,19 +470,19 @@ def pipeline(location, level, cityName = None):
         #Sets memory constraints on the program to prevent memory crashes
         soft, hard = resource.getrlimit(resource.RLIMIT_AS)
         resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
-        logging.info(f"Starting OSM to Adj Convert on {filename}")
+        app_log.info(f"Starting OSM to Adj Convert on {filename}")
 
 
         start_time = time.time() #timer to determine run time of osm_to_adj
         test2 = osm_to_adj.main(filename, 4, cityName) #reduces the number of nodes in map file
-        logging.info("OSM to Adj complete in: : %s" % (time.time() - start_time))
+        app_log.info("OSM to Adj complete in: : %s" % (time.time() - start_time))
 
         #Save map data to server storage
         os.makedirs(dir)
         with open(f"{dir}/map_data.json", 'w') as x:
             json.dump(test2, x, indent=4)
     except MemoryError:
-        logging.exception(f"Memory Exception occurred while processing: {dir}")
+        app_log.exception(f"Memory Exception occurred while processing: {dir}")
 
     #Generates hash file for recently created map
     try:
@@ -490,18 +491,18 @@ def pipeline(location, level, cityName = None):
             # Read and update hash string value in blocks of 4K
             for byte_block in iter(lambda: f.read(4096),b""):
                 md5_hash.update(byte_block)
-            logging.info("Hash: " + md5_hash.hexdigest())
+            app_log.info("Hash: " + md5_hash.hexdigest())
         with open(f"{dir}/hash.txt", "w") as h:
             h.write(md5_hash.hexdigest())
     except:
-        logging.exception("Hashing error occured")
+        app_log.exception("Hashing error occured")
 
     #removes temporary files generated while generating map
     os.remove(o5m)
     os.remove(filename)
 
     ti = (time.time() - start_time)
-    logging.info(f"Map file created with bounds: {location} in {ti} seconds")
+    app_log.info(f"Map file created with bounds: {location} in {ti} seconds")
     response = json.dumps(test2, sort_keys = False, indent = 2)
     return response
 
@@ -515,4 +516,16 @@ sched.add_job(update, 'cron', day='1st tue', hour='2', misfire_grace_time=None)
 
 sched.print_jobs()
 
-logging.basicConfig(filename='log.log',format='%(asctime)s %(message)s', level=logging.DEBUG)
+#logging.basicConfig(filename='log.log',format='%(asctime)s %(message)s', level=logging.DEBUG)
+
+format = '%(asctime)s %(message)s'
+logFile = 'log.log'
+my_handler = RotatingFileHandler(logFile, mode='a', maxBytes=5*1024*1024,
+                                 backupCount=2, encoding=None, delay=0)
+my_handler.setFormatter(format)
+my_handler.setLevel(logging.INFO)
+
+app_log = logging.getLogger('root')
+app_log.setLevel(logging.INFO)
+
+app_log.addHandler(my_handler)
