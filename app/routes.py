@@ -320,7 +320,16 @@ def update():
 
             #Clears the saved coordinate maps on update call
             shutil.rmtree("app/reduced_maps/coords")
+            shutil.rmtree("app/reduced_maps/cities")
             os.mkdir("app/reduced_maps/coords")
+            os.mkdir("app/reduced_maps/cities")
+
+            f = open("app/reduced_maps/coords/.gitkeep", 'w')
+            f.close()
+            f = open("app/reduced_maps/cities/.gitkeep", 'w')
+            f.close()
+
+
 
             print("Maps are up-to-date")
     except Exception as e:
