@@ -32,7 +32,7 @@ divider = "-----------------------------------------------------------------"
 def namedInput():
 
     try:
-        input_Value = request.args['location']
+        input_Value = request.args['location'].lower()
         logging.info(divider)
         logging.info(f"Requester: {request.remote_addr}")
         logging.info(f"Script started with {request.args['location']} parameters")
