@@ -446,7 +446,7 @@ def pipeline(location, level, cityName = None):
 
 
     if (map_size(location)):
-        return ""
+        return "MAP BOUNDING SIZE IS TOO LARGE"
 
     #Map Convert Call, converts the large NA map to that of the bounding box
     o5m = call_convert(str(filename), location)
