@@ -394,6 +394,7 @@ def map_size(coords, level):
 
 
     if (abs(abs(coords[2]) - abs(coords[0])) > limit or abs(abs(coords[3]) - abs(coords[1])) > limit):
+        print("oof")
         return True
     return False
 
