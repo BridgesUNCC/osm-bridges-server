@@ -364,10 +364,10 @@ def city_coords(location):
             loaded = json.load(x)
             for city in loaded:
                 if (city["city"].lower() == location):
-                        minLat = city['latitude'] - .15
-                        minLon = city['longitude'] - .15
-                        maxLat = city['latitude'] + .15
-                        maxLon = city['longitude'] + .15
+                        minLat = round(city['latitude'] - .15, degreeRound)
+                        minLon = round(city['longitude'] - .15, degreeRound)
+                        maxLat = round(city['latitude'] + .15, degreeRound)
+                        maxLon = round(city['longitude'] + .15, degreeRound)
                         coord = [minLat, minLon, maxLat, maxLon]
                         return coord
         if (coord == None):
