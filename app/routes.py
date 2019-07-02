@@ -368,7 +368,7 @@ def city_coords(location):
                         minLon = round(city['longitude'] - .25, degreeRound)
                         maxLat = round(city['latitude'] + .25, degreeRound)
                         maxLon = round(city['longitude'] + .25, degreeRound)
-                        coord = [minLat, minLon, maxLat, maxLon]
+                        coord = [minLon, minLat, maxLon, maxLat]
                         return coord
         if (coord == None):
             print ("Please put a location that is supported")
@@ -391,11 +391,10 @@ def pipeline(location, level, cityName = None):
 
     #Checks input for name or list
     if cityName is not None :
-        location[0] = float(location[0]) #minLat
-        location[1] = float(location[1]) #minLon
-        location[2] = float(location[2]) #maxLat
-        location[3] = float(location[3]) #maxLon
-        print(location)
+        location[0] = float(location[0]) #minLon
+        location[1] = float(location[1]) #minLat
+        location[2] = float(location[2]) #maxLon
+        location[3] = float(location[3]) #maxLat
         dir = f"app/reduced_maps/cities/{cityName}/{level}"
         if (os.path.isfile(f"{dir}/map_data.json")):
             logging.info(f"{cityName} map has already been generated")
@@ -414,7 +413,7 @@ def pipeline(location, level, cityName = None):
         location[2] = float(location[2]) #maxLat
         location[3] = float(location[3]) #maxLon
 
-        # minLat / minLon / maxLat / maxLon
+        # minLon / minLat / maxLon / maxLat
         dir = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
         if (os.path.isfile(f"{dir}/map_data.json")):
             logging.info("The map was found in the servers map storage")
@@ -439,9 +438,9 @@ def pipeline(location, level, cityName = None):
 
 
         start_time = time.time() #timer to determine run time of osm_to_adj
-        test2 = osm_to_adj.main(filename, 4) #reduces the number of nodes in map file
+        test2 = osm_to_adj.main(filename, 4, cityName) #reduces the number of nodes in map file
         logging.info("OSM to Adj complete in: : %s" % (time.time() - start_time))
-        return json.dumps(test2, sort_keys = False, indent = 2)
+
         #Save map data to server storage
         os.makedirs(dir)
         with open(f"{dir}/map_data.json", 'w') as x:
