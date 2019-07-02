@@ -97,7 +97,7 @@ def coordsInput():
 def hashreturn():
     type = None
     try:
-        loc = str(request.args['location'])
+        loc = str(request.args['location']).lower()
         input_Value = city_coords(loc)
         type = "loc"
         logging.info(divider)
@@ -364,10 +364,10 @@ def city_coords(location):
             loaded = json.load(x)
             for city in loaded:
                 if (city["city"].lower() == location):
-                        minLat = round(city['latitude'] - .15, degreeRound)
-                        minLon = round(city['longitude'] - .15, degreeRound)
-                        maxLat = round(city['latitude'] + .15, degreeRound)
-                        maxLon = round(city['longitude'] + .15, degreeRound)
+                        minLat = round(city['latitude'] - .25, degreeRound)
+                        minLon = round(city['longitude'] - .25, degreeRound)
+                        maxLat = round(city['latitude'] + .25, degreeRound)
+                        maxLon = round(city['longitude'] + .25, degreeRound)
                         coord = [minLat, minLon, maxLat, maxLon]
                         return coord
         if (coord == None):
@@ -391,6 +391,10 @@ def pipeline(location, level, cityName = None):
 
     #Checks input for name or list
     if cityName is not None :
+        location[0] = float(location[0]) #minLat
+        location[1] = float(location[1]) #minLon
+        location[2] = float(location[2]) #maxLat
+        location[3] = float(location[3]) #maxLon
         dir = f"app/reduced_maps/cities/{cityName}/{level}"
         if (os.path.isfile(f"{dir}/map_data.json")):
             logging.info(f"{cityName} map has already been generated")
