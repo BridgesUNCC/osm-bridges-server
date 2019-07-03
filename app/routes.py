@@ -100,6 +100,7 @@ def coordsInput():
 @app.route('/hash')
 def hashreturn():
     type = None
+    loc = None
     try:
         loc = str(request.args['location']).lower()
         input_Value = city_coords(loc)
@@ -132,10 +133,8 @@ def hashreturn():
 
     if (type == "loc"):
         dir = f"app/reduced_maps/cities/{loc}/{level}"
-        lruUpdate(input_Value, level, loc)
     elif (type == "coord"):
         dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{level}"
-        lruUpdate(input_Value, level)
     else:
         return page_not_found()
 
@@ -145,6 +144,7 @@ def hashreturn():
         with open(f"{dir}/hash.txt", 'r') as f:
             re = f.readlines()
             app_log.info(f"Hash value found: {re[0]}")
+            lruUpdate(input_Value, level, loc)
             return re[0]
     except:
         print("No map hash found")
@@ -329,6 +329,8 @@ def update():
             shutil.rmtree("app/reduced_maps/cities")
             os.mkdir("app/reduced_maps/coords")
             os.mkdir("app/reduced_maps/cities")
+
+            os.remove("lru.txt")
 
             f = open("app/reduced_maps/coords/.gitkeep", 'w')
             f.close()
