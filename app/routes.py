@@ -416,7 +416,7 @@ def map_size(coords, level):
 
 def getFolderSize():
     size = 0
-    start_path = 'app/reduced_maps'  # To get size of current directory
+    start_path = 'app/reduced_maps'  # To get size of directory
     for path, dirs, files in os.walk(start_path):
         for f in files:
             fp = os.path.join(path, f)
@@ -425,18 +425,22 @@ def getFolderSize():
 
 def lruUpdate(location, level, name=None):
     if (name == None):
-        try:
+        try: # Removes the location requested by the API from the LRU list
             LRU.remove([location[0], location[1], location[2], location[3], level])
         except:
             pass
+        #Adds in the requested location into the front of the list
         LRU.insert(0, [location[0], location[1], location[2], location[3], level])
+        #Removes old maps from server while the map folder is larger than set limit
         while (getFolderSize() > maxMapFolderSize):
             re = LRU[-1]
             del LRU[-1]
+            #Removes map from server
             if (len(re) == 5):
                 shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
             elif(len(re) == 2):
                 shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
+        #updates the LRU file incase the server goes offline or restarts
         with open("lru.txt", "wb") as fp:   #Pickling
             pickle.dump(LRU, fp)
     elif(name != None):
