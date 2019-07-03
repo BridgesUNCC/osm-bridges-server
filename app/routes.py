@@ -13,10 +13,13 @@ import logging
 from logging.handlers import RotatingFileHandler
 import time
 import hashlib
+import pickle
 from apscheduler.schedulers.background import BackgroundScheduler
 
 memPercent = .85 # % of RAM allowed for osm_to_adj.py to use
 degreeRound = 4 #number of decimal places to round bounding box coords too
+maxMapFolderSize = 10000000000
+LRU = []
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
 map_convert_command = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
@@ -407,6 +410,40 @@ def map_size(coords, level):
         return True
     return False
 
+def getFolderSize():
+    size = 0
+    start_path = 'app/reduced_maps'  # To get size of current directory
+    for path, dirs, files in os.walk(start_path):
+        for f in files:
+            fp = os.path.join(path, f)
+            size += os.path.getsize(fp)
+    return size
+
+def lruUpdate(location, level, name=None):
+    if (name == None):
+        LRU.insert(0, [location[0], location[1], location[2], location[3], level])
+        while (getFolderSize() > maxMapFolderSize):
+            re = LRU[-1]
+            del LRU[-1]
+            if (len(re) == 5):
+                shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
+            elif(len(re) == 2):
+                shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
+            with open("lru.txt", "wb") as fp:   #Pickling
+                pickle.dump(LRU, fp)
+    elif(name != None):
+        LRU.insert(0, [name, level])
+        while (getFolderSize() > maxMapFolderSize):
+            re = LRU[-1]
+            del LRU[-1]
+            if (len(re) == 5):
+                shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
+            elif(len(re) == 2):
+                shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
+            with open("lru.txt", "wb") as fp:   #Pickling
+                pickle.dump(LRU, fp)
+    return
+
 def pipeline(location, level, cityName = None):
     '''The main method that pipelines the process of converting and shrinking map requests
 
@@ -529,3 +566,9 @@ app_log = logging.getLogger('root')
 app_log.setLevel(logging.DEBUG)
 
 app_log.addHandler(my_handler)
+
+try:
+    with open("lru.txt", "rb") as fp:
+        LRU = pickle.load(fp)
+except:
+    pass
