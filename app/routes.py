@@ -538,6 +538,8 @@ def pipeline(location, level, cityName = None):
     os.remove(o5m)
     os.remove(filename)
 
+    lruUpdate(location, level, cityName)
+
     ti = (time.time() - start_time)
     app_log.info(f"Map file created with bounds: {location} in {ti} seconds")
     response = json.dumps(test2, sort_keys = False, indent = 2)
