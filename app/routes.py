@@ -132,8 +132,10 @@ def hashreturn():
 
     if (type == "loc"):
         dir = f"app/reduced_maps/cities/{loc}/{level}"
+        lruUpdate(input_Value, level, loc)
     elif (type == "coord"):
         dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{level}"
+        lruUpdate(input_Value, level)
     else:
         return page_not_found()
 
@@ -421,6 +423,10 @@ def getFolderSize():
 
 def lruUpdate(location, level, name=None):
     if (name == None):
+        try:
+            LRU.remove([location[0], location[1], location[2], location[3], level])
+        except:
+            pass
         LRU.insert(0, [location[0], location[1], location[2], location[3], level])
         while (getFolderSize() > maxMapFolderSize):
             re = LRU[-1]
@@ -432,6 +438,10 @@ def lruUpdate(location, level, name=None):
         with open("lru.txt", "wb") as fp:   #Pickling
             pickle.dump(LRU, fp)
     elif(name != None):
+        try:
+            LRU.remove([name, level])
+        except:
+            pass
         LRU.insert(0, [name, level])
         while (getFolderSize() > maxMapFolderSize):
             re = LRU[-1]
@@ -538,7 +548,7 @@ def pipeline(location, level, cityName = None):
     os.remove(o5m)
     os.remove(filename)
 
-    lruUpdate(location, level, cityName)
+
 
     ti = (time.time() - start_time)
     app_log.info(f"Map file created with bounds: {location} in {ti} seconds")
