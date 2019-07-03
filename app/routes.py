@@ -429,8 +429,8 @@ def lruUpdate(location, level, name=None):
                 shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
             elif(len(re) == 2):
                 shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
-            with open("lru.txt", "wb") as fp:   #Pickling
-                pickle.dump(LRU, fp)
+        with open("lru.txt", "wb") as fp:   #Pickling
+            pickle.dump(LRU, fp)
     elif(name != None):
         LRU.insert(0, [name, level])
         while (getFolderSize() > maxMapFolderSize):
@@ -440,8 +440,8 @@ def lruUpdate(location, level, name=None):
                 shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
             elif(len(re) == 2):
                 shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
-            with open("lru.txt", "wb") as fp:   #Pickling
-                pickle.dump(LRU, fp)
+        with open("lru.txt", "wb") as fp:   #Pickling
+            pickle.dump(LRU, fp)
     return
 
 def pipeline(location, level, cityName = None):
