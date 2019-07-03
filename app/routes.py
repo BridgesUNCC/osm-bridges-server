@@ -421,6 +421,7 @@ def getFolderSize():
         for f in files:
             fp = os.path.join(path, f)
             size += os.path.getsize(fp)
+    print(size)
     return size
 
 def lruUpdate(location, level, name=None):
