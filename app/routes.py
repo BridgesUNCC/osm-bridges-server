@@ -144,7 +144,6 @@ def hashreturn():
         with open(f"{dir}/hash.txt", 'r') as f:
             re = f.readlines()
             app_log.info(f"Hash value found: {re[0]}")
-            lruUpdate(input_Value, level, loc)
             return re[0]
     except:
         print("No map hash found")
@@ -422,11 +421,9 @@ def getFolderSize():
             for f in files:
                 fp = os.path.join(str(path), str(f))
                 size = size + os.path.getsize(fp)
-                print(size)
-                print(maxMapFolderSize)
         return size
     except exception as e:
-        return ("error" + e)
+        return (e)
 
 def lruUpdate(location, level, name=None):
     if (name == None):
@@ -436,7 +433,6 @@ def lruUpdate(location, level, name=None):
             pass
         #Adds in the requested location into the front of the list
         LRU.insert(0, [location[0], location[1], location[2], location[3], level])
-        print(getFolderSize())
         #Removes old maps from server while the map folder is larger than set limit
         while (getFolderSize() > maxMapFolderSize):
             re = LRU[-1]
@@ -497,6 +493,7 @@ def pipeline(location, level, cityName = None):
             f = open(f"{dir}/map_data.json")
             data = json.load(f)
             f.close()
+            lruUpdate(location, level, cityName)
             return  json.dumps(data, sort_keys = False, indent = 2)
 
 
@@ -516,6 +513,7 @@ def pipeline(location, level, cityName = None):
             f = open(f'{dir}/map_data.json')
             data = json.load(f)
             f.close()
+            lruUpdate(location, level, cityName)
             return  json.dumps(data, sort_keys = False, indent = 2) #returns map data from storage
 
 
@@ -566,7 +564,7 @@ def pipeline(location, level, cityName = None):
     os.remove(o5m)
     os.remove(filename)
 
-
+    lruUpdate(location, level, cityName)
 
     ti = (time.time() - start_time)
     app_log.info(f"Map file created with bounds: {location} in {ti} seconds")
