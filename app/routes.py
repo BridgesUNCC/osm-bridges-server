@@ -18,7 +18,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 memPercent = .85 # % of RAM allowed for osm_to_adj.py to use
 degreeRound = 4 #number of decimal places to round bounding box coords too
-maxMapFolderSize = .5*1024*1024*1024  #change first value to set number of gigabits the map folder should be
+maxMapFolderSize = .1*1024*1024*1024  #change first value to set number of gigabits the map folder should be
 LRU = []
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
@@ -421,6 +421,7 @@ def getFolderSize():
         for f in files:
             fp = os.path.join(path, f)
             size += os.path.getsize(fp)
+    print(size + " : " + maxMapFolderSize)
     return size
 
 def lruUpdate(location, level, name=None):
@@ -522,7 +523,7 @@ def pipeline(location, level, cityName = None):
     try:
         #Sets memory constraints on the program to prevent memory crashes
         soft, hard = resource.getrlimit(resource.RLIMIT_AS)
-        resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
+        #resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
         app_log.info(f"Starting OSM to Adj Convert on {filename}")
 
 
