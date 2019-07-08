@@ -421,7 +421,7 @@ def getFolderSize():
         for path, dirs, files in os.walk(start_path):
             for f in files:
                 print("1")
-                fp = os.path.join(path, f)
+                fp = os.path.join(str(path), str(f))
                 print("2")
                 size = size + os.path.getsize(fp)
                 print("3")
