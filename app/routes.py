@@ -425,8 +425,7 @@ def getFolderSize():
         print(size + " : " + maxMapFolderSize)
         return size
     except exception as e:
-        print (e)
-        return
+        return ("error" + e)
 
 def lruUpdate(location, level, name=None):
     if (name == None):
@@ -437,7 +436,7 @@ def lruUpdate(location, level, name=None):
             pass
         #Adds in the requested location into the front of the list
         LRU.insert(0, [location[0], location[1], location[2], location[3], level])
-        print("1")
+        print(getFolderSize())
         #Removes old maps from server while the map folder is larger than set limit
         while (getFolderSize() > maxMapFolderSize):
             re = LRU[-1]
