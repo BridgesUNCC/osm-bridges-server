@@ -420,8 +420,11 @@ def getFolderSize():
         start_path = 'app/reduced_maps'  # To get size of directory
         for path, dirs, files in os.walk(start_path):
             for f in files:
+                print("1")
                 fp = os.path.join(path, f)
-                size += os.path.getsize(fp)
+                print("2")
+                size = size + os.path.getsize(fp)
+                print("3")
         print(size + " : " + maxMapFolderSize)
         return size
     except exception as e:
