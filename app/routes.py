@@ -426,37 +426,47 @@ def getFolderSize():
 
 def lruUpdate(location, level, name=None):
     if (name == None):
+        print("1")
         try: # Removes the location requested by the API from the LRU list
             LRU.remove([location[0], location[1], location[2], location[3], level])
         except:
             pass
         #Adds in the requested location into the front of the list
         LRU.insert(0, [location[0], location[1], location[2], location[3], level])
+        print("1")
         #Removes old maps from server while the map folder is larger than set limit
         while (getFolderSize() > maxMapFolderSize):
             re = LRU[-1]
             del LRU[-1]
             #Removes map from server
-            if (len(re) == 5):
-                shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
-            elif(len(re) == 2):
-                shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
+            try:
+                if (len(re) == 5 and os.path.isfile(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")):
+                    shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
+                elif(len(re) == 2 and os.path.isfile(f"app/reduced_maps/cities/{re[0]}/{re[1]}")):
+                    shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
+            except:
+                print("ERROR Deleteing map File")
         #updates the LRU file incase the server goes offline or restarts
         with open("lru.txt", "wb") as fp:   #Pickling
             pickle.dump(LRU, fp)
     elif(name != None):
+        print("2")
         try:
             LRU.remove([name, level])
         except:
             pass
         LRU.insert(0, [name, level])
+        print("2")
         while (getFolderSize() > maxMapFolderSize):
             re = LRU[-1]
             del LRU[-1]
-            if (len(re) == 5):
-                shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
-            elif(len(re) == 2):
-                shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
+            try:
+                if (len(re) == 5 and os.path.isfile(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")):
+                    shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
+                elif(len(re) == 2 and os.path.isfile(f"app/reduced_maps/cities/{re[0]}/{re[1]}")):
+                    shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
+            except:
+                print("ERROR Deleteing map File")
         with open("lru.txt", "wb") as fp:   #Pickling
             pickle.dump(LRU, fp)
     return
