@@ -422,14 +422,14 @@ def getFolderSize():
             for f in files:
                 fp = os.path.join(str(path), str(f))
                 size = size + os.path.getsize(fp)
-                print(size + " : " + maxMapFolderSize)
+                print(size)
+                print(maxMapFolderSize)
         return size
     except exception as e:
         return ("error" + e)
 
 def lruUpdate(location, level, name=None):
     if (name == None):
-        print("1")
         try: # Removes the location requested by the API from the LRU list
             LRU.remove([location[0], location[1], location[2], location[3], level])
         except:
@@ -453,13 +453,11 @@ def lruUpdate(location, level, name=None):
         with open("lru.txt", "wb") as fp:   #Pickling
             pickle.dump(LRU, fp)
     elif(name != None):
-        print("2")
         try:
             LRU.remove([name, level])
         except:
             pass
         LRU.insert(0, [name, level])
-        print("2")
         while (getFolderSize() > maxMapFolderSize):
             re = LRU[-1]
             del LRU[-1]
