@@ -415,14 +415,18 @@ def map_size(coords, level):
     return False
 
 def getFolderSize():
-    size = 0
-    start_path = 'app/reduced_maps'  # To get size of directory
-    for path, dirs, files in os.walk(start_path):
-        for f in files:
-            fp = os.path.join(path, f)
-            size += os.path.getsize(fp)
-    print(size + " : " + maxMapFolderSize)
-    return size
+    try:
+        size = 0
+        start_path = 'app/reduced_maps'  # To get size of directory
+        for path, dirs, files in os.walk(start_path):
+            for f in files:
+                fp = os.path.join(path, f)
+                size += os.path.getsize(fp)
+        print(size + " : " + maxMapFolderSize)
+        return size
+    except exception as e:
+        print (e)
+        return
 
 def lruUpdate(location, level, name=None):
     if (name == None):
