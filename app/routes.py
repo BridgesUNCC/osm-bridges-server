@@ -435,6 +435,7 @@ def lruUpdate(location, level, name=None):
         LRU.insert(0, [location[0], location[1], location[2], location[3], level])
         #Removes old maps from server while the map folder is larger than set limit
         while (getFolderSize() > maxMapFolderSize):
+            print(LRU)
             re = LRU[len(LRU)-1]
             del LRU[len(LRU)-1]
             #Removes map from server
