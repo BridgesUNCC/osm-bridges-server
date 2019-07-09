@@ -435,15 +435,15 @@ def lruUpdate(location, level, name=None):
         LRU.insert(0, [location[0], location[1], location[2], location[3], level])
         #Removes old maps from server while the map folder is larger than set limit
         while (getFolderSize() > maxMapFolderSize):
-            print(LRU)
-            re = LRU[len(LRU)-1]
-            del LRU[len(LRU)-1]
+            print(len(LRU))
             #Removes map from server
             try:
                 if (len(re) == 5 and os.path.isfile(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")):
                     shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
                 elif(len(re) == 2 and os.path.isfile(f"app/reduced_maps/cities/{re[0]}/{re[1]}")):
                     shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
+                re = LRU[len(LRU)-1]
+                del LRU[len(LRU)-1]
             except:
                 print("ERROR Deleteing map File")
         #updates the LRU file incase the server goes offline or restarts
@@ -456,13 +456,14 @@ def lruUpdate(location, level, name=None):
             pass
         LRU.insert(0, [name, level])
         while (getFolderSize() > maxMapFolderSize):
-            re = LRU[len(LRU)-1]
-            del LRU[len(LRU)-1]
+
             try:
                 if (len(re) == 5 and os.path.isfile(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")):
                     shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
                 elif(len(re) == 2 and os.path.isfile(f"app/reduced_maps/cities/{re[0]}/{re[1]}")):
                     shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
+                re = LRU[len(LRU)-1]
+                del LRU[len(LRU)-1]
             except:
                 print("ERROR Deleteing map File")
         with open("lru.txt", "wb") as fp:   #Pickling
