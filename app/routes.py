@@ -435,17 +435,12 @@ def lruUpdate(location, level, name=None):
         LRU.insert(0, [location[0], location[1], location[2], location[3], level])
         #Removes old maps from server while the map folder is larger than set limit
         while (getFolderSize() > maxMapFolderSize):
-            print(getFolderSize())
-            print(len(LRU))
             #Removes map from server
             try:
                 re = LRU[len(LRU)-1]
-                print(re)
-                print(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
                 if (os.path.isdir(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")):
                     shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
                     del LRU[len(LRU)-1]
-
                 elif(os.path.isdir(f"app/reduced_maps/cities/{re[0]}/{re[1]}")):
                     shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
                     del LRU[len(LRU)-1]
