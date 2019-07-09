@@ -441,6 +441,7 @@ def lruUpdate(location, level, name=None):
                 re = LRU[len(LRU)-1]
                 if (len(re) == 5 and os.path.isfile(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")):
                     shutil.rmtree(f"app/reduced_maps/coords/{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
+                    print(f"{re[0]}/{re[1]}/{re[2]}/{re[3]}/{re[4]}")
                 elif(len(re) == 2 and os.path.isfile(f"app/reduced_maps/cities/{re[0]}/{re[1]}")):
                     shutil.rmtree(f"app/reduced_maps/cities/{re[0]}/{re[1]}")
                 del LRU[len(LRU)-1]
