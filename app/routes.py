@@ -149,6 +149,12 @@ def hashreturn():
         print("No map hash found")
         return "false"
 
+@app.route('/cities')
+def cityNameReturns():
+
+    return
+
+
 @app.route('/')
 def noinput():
     return page_not_found()
@@ -341,37 +347,6 @@ def update():
             print("Maps are up-to-date")
     except Exception as e:
         app_log.exception("Update file read exception" + e)
-
-def city_gen():
-    '''Generates premade cities based on the namedList.json file'''
-
-    start_time = time.time()
-
-    with open('app/namedList.json', 'r') as x:
-        app_log.info("Checking for pre-defined cities")
-        loaded = json.load(x)
-        for city in loaded["named"]:
-            name = f"app/reduced_maps/cities/{city['city'].lower()}"
-            filename = "app/map_files/north-america-latest.osm.pbf"
-            try:
-                if (os.path.isfile(f"{name}/map_data.json")):
-                    continue
-                location = [city["minLon"], city["minLat"], city["maxLon"], city["maxLat"]]
-                o5m = call_convert(str(filename), location)
-                filename = call_filter(o5m)
-                osm_to_adj.main(filename, 0)
-                test2 = osm_to_adj.main(filename, 4)
-                os.makedirs(name)
-                with open(f"{name}/map_data.json", 'w') as x:
-                    json.dump(test2, x, indent=4)
-
-                os.remove("app/o5m_Temp.o5m")
-                os.remove("app/temp.o5m")
-
-            except:
-                app_log.exception(f"Error occured while updating pre-defined cities")
-    app_log.info("Pre-defined cities check complete in %s seconds" % (time.time() - start_time))
-    return
 
 def city_coords(location):
     coord = None
