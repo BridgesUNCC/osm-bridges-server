@@ -25,22 +25,23 @@ sudo python3.6 -m pip install virtualenv
 ```
 
 ## Launching Flask Server
+(Optional)
 The first step is to create a python virtual environment within your project the project folder
 ```bash
 python3.6 -m venv venv
 ```
-
+(Optional)
 After creating the python virtual environment run this line to launch the virtual environment
 ```bash
 source venv/bin/activate
 ```
 
-To launch the flask server first compile the web server
+Step 1: To launch the flask server first compile the web server
 ```bash
 export FLASK_APP=run.py
 ```
 
-Finally to launch the web server run 
+Step 2: Launch the web server 
 ```bash
 flask run --host=0.0.0.0 --port=8080
 ```
