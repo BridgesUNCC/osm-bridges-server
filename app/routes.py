@@ -18,7 +18,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 memPercent = .85 # % of RAM allowed for osm_to_adj.py to use
 degreeRound = 4 #number of decimal places to round bounding box coords too
-maxMapFolderSize = .1*1024*1024*1024  #change first value to set number of gigabits the map folder should be
+maxMapFolderSize = 1*1024*1024*1024  #change first value to set number of gigabits the map folder should be
 LRU = []
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
@@ -154,10 +154,13 @@ def cityNameReturns():
     outStr = ""
     with open('app/cities.json', 'r') as x:
         loaded = json.load(x)
-        for(city in loaded):
-            outStr = outStr + city['city'] + "\n"
+        for city in loaded:
+            outStr = outStr + city['city'] + "</br>"
     return outStr
 
+@app.route('/favicon.ico')
+def icon():
+    return ''
 
 @app.route('/')
 def noinput():
