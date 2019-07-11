@@ -151,8 +151,12 @@ def hashreturn():
 
 @app.route('/cities')
 def cityNameReturns():
-
-    return
+    outStr = ""
+    with open('app/cities.json', 'r') as x:
+        loaded = json.load(x)
+        for(city in loaded):
+            outStr = outStr + city['city'] + "\n"
+    return outStr
 
 
 @app.route('/')
