@@ -40,7 +40,7 @@ def namedInput():
         app_log.info(divider)
         app_log.info(f"Requester: {request.remote_addr}")
         app_log.info(f"Script started with {request.args['location']} parameters")
-        if not input_Value.isalpha():
+        if not all(x.isalpha() or x.isspace() for x in input_Value):
             raise ValueError()
     except:
         print("System arguments are invalid")
@@ -362,10 +362,10 @@ def city_coords(location):
             loaded = json.load(x)
             for city in loaded:
                 if (city["city"].lower() == location):
-                        minLat = round(city['latitude'] - .15, degreeRound)
-                        minLon = round(city['longitude'] - .15, degreeRound)
-                        maxLat = round(city['latitude'] + .15, degreeRound)
-                        maxLon = round(city['longitude'] + .15, degreeRound)
+                        minLat = round(city['latitude'] - .1, degreeRound)
+                        minLon = round(city['longitude'] - .1, degreeRound)
+                        maxLat = round(city['latitude'] + .1, degreeRound)
+                        maxLon = round(city['longitude'] + .1, degreeRound)
                         coord = [minLon, minLat, maxLon, maxLat]
                         return coord
         if (coord == None):
