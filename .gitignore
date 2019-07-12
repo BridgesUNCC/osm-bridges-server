@@ -1,0 +1,5 @@
+__pycache__/
+app/__pycache__/
+app/reduced_maps/coords
+app/reduced_maps/cities
+app/map_files

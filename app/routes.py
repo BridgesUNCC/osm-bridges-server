@@ -74,8 +74,8 @@ def namedInput():
 def coordsInput():
 
     try:
-        #rounds and converts the args to floats and rounds to a certain decimal
-        input_Value = [round(float(request.args['minLat']), round(float(request.args['minLon']), degreeRound), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
+        #rounds and converts the args to doubles and rounds to a certain decimal
+        input_Value = [round(double(request.args['minLat']), degreeRound), round(double(request.args['minLon']), degreeRound), round(double(request.args['maxLat']), degreeRound), round(double(request.args['maxLon']), degreeRound)]
         app_log.info(divider)
         app_log.info(f"Requester: {request.remote_addr}")
         app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds")
@@ -110,15 +110,15 @@ def hashreturn():
         app_log.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
     except:
         try:
-            #rounds and converts the args to floats and rounds to a certain decimal
-            input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
+            #rounds and converts the args to doubles and rounds to a certain decimal
+            input_Value = [round(double(request.args['minLat']), degreeRound), round(double(request.args['minLon']), degreeRound), round(double(request.args['maxLat']), degreeRound), round(double(request.args['maxLon']), degreeRound)]
             type = "coord"
             app_log.info(divider)
             app_log.info(f"Requester: {request.remote_addr}")
             app_log.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
         except:
             print("System arguements for hash check are invalid")
-            app_log.exception(f"System arguements for hash check invalid {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']}")
+            app_log.exception(f"System arguements for hash check invalid {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']}")
             return "Invalid arguements"
 
     try:
@@ -467,10 +467,10 @@ def pipeline(location, level, cityName = None):
 
     #Checks input for name or list
     if cityName is not None :
-        location[0] = float(location[0]) #minLat
-        location[1] = float(location[1]) #minLon
-        location[2] = float(location[2]) #maxLat
-        location[3] = float(location[3]) #maxLon
+        location[0] = double(location[0]) #minLat
+        location[1] = double(location[1]) #minLon
+        location[2] = double(location[2]) #maxLat
+        location[3] = double(location[3]) #maxLon
         dir = f"app/reduced_maps/cities/{cityName}/{level}"
         if (os.path.isfile(f"{dir}/map_data.json")):
             app_log.info(f"{cityName} map has already been generated")
@@ -485,10 +485,10 @@ def pipeline(location, level, cityName = None):
     elif cityName == None:
         #Used to remove extra trailing zeros to prevent duplicates
         #might be redundent
-        location[0] = float(location[0]) #minLat
-        location[1] = float(location[1]) #minLon
-        location[2] = float(location[2]) #maxLat
-        location[3] = float(location[3]) #maxLon
+        location[0] = double(location[0]) #minLat
+        location[1] = double(location[1]) #minLon
+        location[2] = double(location[2]) #maxLat
+        location[3] = double(location[3]) #maxLon
 
         # minLat / minLon / maxLat / maxLon
         dir = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
