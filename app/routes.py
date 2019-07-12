@@ -356,6 +356,14 @@ def update():
         app_log.exception("Update file read exception" + e)
 
 def city_coords(location):
+    ''' Calculates the bounding box for a given city
+
+        Parameters:
+            location(str): Name of the city the user requested
+
+        Returns:
+            list[floats]: bounding box for a given city name
+    '''
     coord = None
     try:
         with open('app/cities.json', 'r') as x:
@@ -375,6 +383,15 @@ def city_coords(location):
         app_log.info(e)
 
 def map_size(coords, level):
+    ''' Calculates whether a bounding box is within the size limits of a certain detail level
+
+        Parameters:
+            coords(list): Bounding box of map requested
+            level(str): detail level the user requested
+
+        Returns:
+            boolean: returns true if bounding box given is within size limit of detail level
+    '''
     if (level == "motorway"):
         limit = 2
     elif (level == "trunk"):
@@ -396,6 +413,11 @@ def map_size(coords, level):
     return False
 
 def getFolderSize():
+    ''' Calculates the size of the maps folder
+
+        Returns:
+            int: size of app/reduced_maps folder in bytes
+    '''
     try:
         size = 0
         start_path = 'app/reduced_maps'  # To get size of directory
@@ -408,6 +430,16 @@ def getFolderSize():
         return (e)
 
 def lruUpdate(location, level, name=None):
+    ''' Updates the LRU list and storage file
+
+        Parameters:
+            location(list[float]): a maps bounding box
+            level(string): the level of detail a map hash
+            name(string): the name of the city that the map represents
+
+        Return:
+            None
+    '''
     if (name == None):
         try: # Removes the location requested by the API from the LRU list
             LRU.remove([location[0], location[1], location[2], location[3], level])
@@ -456,10 +488,12 @@ def pipeline(location, level, cityName = None):
     '''The main method that pipelines the process of converting and shrinking map requests
 
     Parameters:
-    location(str or list): A string with a specific locations name, or a list of coordinates[minLon, minLat, maxLon, maxLat] of bounding box
-
+        location(list): A list of coordinates[minLat, minLon, maxLat, maxLon] of bounding box
+        level(string): The level of detail the map being requested should be
+        cityName(string): The name of a requested city if given, otherwise is set to None
+        
     Returns:
-    string: Directory location of new map json created
+        string: json data of the map requested with filters and sizing completed
     '''
 
     filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
