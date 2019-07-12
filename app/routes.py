@@ -75,10 +75,10 @@ def coordsInput():
 
     try:
         #rounds and converts the args to floats and rounds to a certain decimal
-        input_Value = [round(float(request.args['minLon']), degreeRound), round(float(request.args['minLat']), degreeRound), round(float(request.args['maxLon']), degreeRound), round(float(request.args['maxLat']), degreeRound)]
+        input_Value = [round(float(request.args['minLat']), round(float(request.args['minLon']), degreeRound), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
         app_log.info(divider)
         app_log.info(f"Requester: {request.remote_addr}")
-        app_log.info(f"Script started with Box: {request.args['minLon']}, {request.args['minLat']}, {request.args['maxLon']}, {request.args['maxLat']} bounds")
+        app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds")
     except:
         print("System arguements are invalid")
         app_log.exception(f"System arguements invalid {request.args}")
@@ -187,7 +187,7 @@ def call_convert(filename, box=[]):
     """
 
     try:
-        bbox = f"-b=\"{box[0]}, {box[1]}, {box[2]}, {box[3]}\""
+        bbox = f"-b=\"{box[1]}, {box[0]}, {box[3]}, {box[2]}\""
         command  = (f"app/osm_converts/osmconvert64 " + filename + " " +  bbox + f" -o=app/o5m_Temp.o5m")
     except:
         command  = (f"app/osm_converts/osmconvert64 " + filename + f" -o=app/o5m_Temp.o5m")
@@ -366,7 +366,7 @@ def city_coords(location):
                         minLon = round(city['longitude'] - .1, degreeRound)
                         maxLat = round(city['latitude'] + .1, degreeRound)
                         maxLon = round(city['longitude'] + .1, degreeRound)
-                        coord = [minLon, minLat, maxLon, maxLat]
+                        coord = [minLat, minLon, maxLat, maxLon]
                         return coord
         if (coord == None):
             print ("Please put a location that is supported")
@@ -467,10 +467,10 @@ def pipeline(location, level, cityName = None):
 
     #Checks input for name or list
     if cityName is not None :
-        location[0] = float(location[0]) #minLon
-        location[1] = float(location[1]) #minLat
-        location[2] = float(location[2]) #maxLon
-        location[3] = float(location[3]) #maxLat
+        location[0] = float(location[0]) #minLat
+        location[1] = float(location[1]) #minLon
+        location[2] = float(location[2]) #maxLat
+        location[3] = float(location[3]) #maxLon
         dir = f"app/reduced_maps/cities/{cityName}/{level}"
         if (os.path.isfile(f"{dir}/map_data.json")):
             app_log.info(f"{cityName} map has already been generated")
@@ -485,12 +485,12 @@ def pipeline(location, level, cityName = None):
     elif cityName == None:
         #Used to remove extra trailing zeros to prevent duplicates
         #might be redundent
-        location[0] = float(location[0]) #minLon
-        location[1] = float(location[1]) #minLat
-        location[2] = float(location[2]) #maxLon
-        location[3] = float(location[3]) #maxLat
+        location[0] = float(location[0]) #minLat
+        location[1] = float(location[1]) #minLon
+        location[2] = float(location[2]) #maxLat
+        location[3] = float(location[3]) #maxLon
 
-        # minLon / minLat / maxLon / maxLat
+        # minLat / minLon / maxLat / maxLon
         dir = f"app/reduced_maps/coords/{location[0]}/{location[1]}/{location[2]}/{location[3]}/{level}"
         if (os.path.isfile(f"{dir}/map_data.json")):
             app_log.info("The map was found in the servers map storage")
@@ -516,7 +516,7 @@ def pipeline(location, level, cityName = None):
     try:
         #Sets memory constraints on the program to prevent memory crashes
         soft, hard = resource.getrlimit(resource.RLIMIT_AS)
-        #resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
+        resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
         app_log.info(f"Starting OSM to Adj Convert on {filename}")
 
 
@@ -530,6 +530,10 @@ def pipeline(location, level, cityName = None):
             json.dump(test2, x, indent=4)
     except MemoryError:
         app_log.exception(f"Memory Exception occurred while processing: {dir}")
+
+    #Resets memory limit
+    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+    resource.setrlimit(resource.RLIMIT_AS, (soft, hard))
 
     #Generates hash file for recently created map
     try:
