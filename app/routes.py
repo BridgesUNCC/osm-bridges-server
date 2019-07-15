@@ -168,7 +168,7 @@ def noinput():
 
 @app.errorhandler(404)
 def page_not_found(e=''):
-    return 404
+    return "Not a valid URL"
 
 @app.errorhandler(500)
 def server_error(e=''):
@@ -491,7 +491,7 @@ def pipeline(location, level, cityName = None):
         location(list): A list of coordinates[minLat, minLon, maxLat, maxLon] of bounding box
         level(string): The level of detail the map being requested should be
         cityName(string): The name of a requested city if given, otherwise is set to None
-        
+
     Returns:
         string: json data of the map requested with filters and sizing completed
     '''
