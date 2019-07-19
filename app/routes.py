@@ -155,7 +155,7 @@ def cityNameReturns():
     with open('app/cities.json', 'r') as x:
         loaded = json.load(x)
         for city in loaded:
-            outStr = outStr + city['city'] + "</br>"
+            outStr = outStr + city['city'] + ", " + city['state'] + "</br>"
     return outStr
 
 @app.route('/favicon.ico')
