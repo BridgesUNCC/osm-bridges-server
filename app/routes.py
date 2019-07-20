@@ -393,19 +393,19 @@ def map_size(coords, level):
             boolean: returns true if bounding box given is within size limit of detail level
     '''
     if (level == "motorway"):
-        limit = 2
+        limit = 20
     elif (level == "trunk"):
-        limit = 1
+        limit = 10
     elif (level == "primary"):
-        limit = .8
+        limit = 5
     elif (level == "secondary"):
-        limit = .5
+        limit = 2
     elif (level == "tertiary"):
-        limit = .4
+        limit = 1.5
     elif (level == "unclassified"):
-        limit = .3
+        limit = 1
     else:
-        limit = .3
+        limit = 1
 
 
     if (abs(abs(coords[2]) - abs(coords[0])) > limit or abs(abs(coords[3]) - abs(coords[1])) > limit):
