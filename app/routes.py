@@ -319,13 +319,16 @@ def update():
 
                 #filters out info before saving
                 try:
+                    print("Converting maps... (step 1/3)")
                     file_name = sub["file_name"]
                     command  = (f"./app/osm_converts/osmconvert64 app/map_files/download/{file_name} -o=app/o5m_Temp.o5m")
                     subprocess.run([command], shell=True)
 
+                    print("Converting maps... (step 2/3)")
                     command = f"./app/osm_converts/osmfilter app/o5m_Temp.o5m " + map_convert_command + f" -o=app/temp.o5m"
                     subprocess.run([command], shell=True)
 
+                    print("Converting maps... (step 3/3)")
                     os.mkdir("app/map_files/download/temp")
                     os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/download/temp/" + sub["file_name"])
                     command  = (f"./app/osm_converts/osmconvert64 app/temp.o5m -o=app/map_files/download/{file_name}")
@@ -333,7 +336,7 @@ def update():
 
                     os.remove("app/o5m_Temp.o5m")
                     os.remove("app/temp.o5m")
-
+                    print("Map convertion done.")
                 except:
                     app_log.exception("Converting and filtering error")
 
@@ -345,8 +348,12 @@ def update():
             shutil.rmtree("app/map_files/download")
 
             #Clears the saved coordinate maps on update call
-            shutil.rmtree("app/reduced_maps/coords")
-            shutil.rmtree("app/reduced_maps/cities")
+            if os.path.isdir("app/reduced_maps/coords"):
+                shutil.rmtree("app/reduced_maps/coords")
+                
+            if os.path.isdir("app/reduced_maps/cities"):
+                shutil.rmtree("app/reduced_maps/cities")
+                
             os.mkdir("app/reduced_maps/coords")
             os.mkdir("app/reduced_maps/cities")
 
@@ -601,6 +608,13 @@ def pipeline(location, level, cityName = None):
     response = json.dumps(test2, sort_keys = False, indent = 2)
     return response
 
+# checks whether the map file is there, trigger immediate upadte otherwise
+def check_for_emergency_map_update():
+    filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
+    if not os.path.isfile(filename):
+        print("Map file not found. Emergency map update!")
+        update()
+    
 
 #Creates a background scheduled task for the map update method
 sched = BackgroundScheduler()
@@ -630,3 +644,5 @@ try:
         LRU = pickle.load(fp)
 except:
     pass
+
+check_for_emergency_map_update()
