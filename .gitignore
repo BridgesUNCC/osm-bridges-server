@@ -5,3 +5,4 @@ app/reduced_maps/cities
 app/map_files
 *.log
 lru.txt
+log.log

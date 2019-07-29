@@ -32,6 +32,14 @@ unclassified = ' =unclassified'
 
 divider = "-----------------------------------------------------------------"
 
+# This takes the output of the server and adds the appropriate headers to make the security team happy
+def harden_response(message_str):
+    response = app.make_response(message_str)
+    response.headers['Content-Security-Policy'] = "default-src 'self'"
+    response.headers['X-Frame-Options'] = 'SAMEORIGIN'
+    return response
+
+
 @app.route('/loc')
 def namedInput():
 
@@ -45,7 +53,7 @@ def namedInput():
     except:
         print("System arguments are invalid")
         app_log.exception(f"System arguements invalid {request.args['location']}")
-        return "Invalid arguements"
+        return harden_response("Invalid arguements")
 
     try:
         if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
@@ -63,12 +71,12 @@ def namedInput():
     try:
         coords = city_coords(input_Value)
         if (coords != 404):
-            return pipeline(coords, level, input_Value.lower())
+            return harden_response(pipeline(coords, level, input_Value.lower()))
         else:
-            return page_not_found()
+            return harden_response(page_not_found())
     except:
         app_log.info(f"Error occured while processing city: {input_Value}")
-        return server_error()
+        return harden(server_error())
 
 @app.route('/coords')
 def coordsInput():
@@ -82,7 +90,7 @@ def coordsInput():
     except:
         print("System arguements are invalid")
         app_log.exception(f"System arguements invalid {request.args}")
-        return "Invalid arguements"
+        return harden_response("Invalid arguements")
 
     try:
         if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
@@ -95,7 +103,7 @@ def coordsInput():
         level = "default"
         app_log.info(f"Script using street detail level of default (full detail)")
 
-    return pipeline(input_Value, level)
+    return harden_response(pipeline(input_Value, level))
 
 @app.route('/hash')
 def hashreturn():
@@ -119,7 +127,7 @@ def hashreturn():
         except:
             print("System arguements for hash check are invalid")
             app_log.exception(f"System arguements for hash check invalid {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']}")
-            return "Invalid arguements"
+            return harden_response("Invalid arguements")
 
     try:
         x = request.args['level'].lower()
@@ -136,7 +144,7 @@ def hashreturn():
     elif (type == "coord"):
         dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{level}"
     else:
-        return page_not_found()
+        return harden_response(page_not_found())
 
 
 
@@ -144,10 +152,10 @@ def hashreturn():
         with open(f"{dir}/hash.txt", 'r') as f:
             re = f.readlines()
             app_log.info(f"Hash value found: {re[0]}")
-            return re[0]
+            return harden_response(re[0])
     except:
         print("No map hash found")
-        return "false"
+        return harden_response("false")
 
 @app.route('/cities')
 def cityNameReturns():
@@ -156,7 +164,7 @@ def cityNameReturns():
         loaded = json.load(x)
         for city in loaded:
             outStr = outStr + city['city'] + ", " + city['state'] + "</br>"
-    return outStr
+    return harden_response(outStr)
 
 @app.route('/favicon.ico')
 def icon():
@@ -164,15 +172,15 @@ def icon():
 
 @app.route('/')
 def noinput():
-    return page_not_found()
+    return harden_response(page_not_found())
 
 @app.errorhandler(404)
 def page_not_found(e=''):
-    return "Not a valid URL"
+    return harden_response("Not a valid URL")
 
 @app.errorhandler(500)
 def server_error(e=''):
-    return "Server Error occured while attempting to process your request. Please try again..."
+    return harden_response("Server Error occured while attempting to process your request. Please try again...")
 
 def call_convert(filename, box=[]):
     """Creates a process of the osmconvert, to shrink the map file down to a bounding box as well as change the file type to .o5m
@@ -313,13 +321,16 @@ def update():
 
                 #filters out info before saving
                 try:
+                    print("Converting maps... (step 1/3)")
                     file_name = sub["file_name"]
                     command  = (f"./app/osm_converts/osmconvert64 app/map_files/download/{file_name} -o=app/o5m_Temp.o5m")
                     subprocess.run([command], shell=True)
 
+                    print("Converting maps... (step 2/3)")
                     command = f"./app/osm_converts/osmfilter app/o5m_Temp.o5m " + map_convert_command + f" -o=app/temp.o5m"
                     subprocess.run([command], shell=True)
 
+                    print("Converting maps... (step 3/3)")
                     os.mkdir("app/map_files/download/temp")
                     os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/download/temp/" + sub["file_name"])
                     command  = (f"./app/osm_converts/osmconvert64 app/temp.o5m -o=app/map_files/download/{file_name}")
@@ -327,7 +338,7 @@ def update():
 
                     os.remove("app/o5m_Temp.o5m")
                     os.remove("app/temp.o5m")
-
+                    print("Map convertion done.")
                 except:
                     app_log.exception("Converting and filtering error")
 
@@ -339,8 +350,12 @@ def update():
             shutil.rmtree("app/map_files/download")
 
             #Clears the saved coordinate maps on update call
-            shutil.rmtree("app/reduced_maps/coords")
-            shutil.rmtree("app/reduced_maps/cities")
+            if os.path.isdir("app/reduced_maps/coords"):
+                shutil.rmtree("app/reduced_maps/coords")
+                
+            if os.path.isdir("app/reduced_maps/cities"):
+                shutil.rmtree("app/reduced_maps/cities")
+                
             os.mkdir("app/reduced_maps/coords")
             os.mkdir("app/reduced_maps/cities")
 
@@ -595,6 +610,13 @@ def pipeline(location, level, cityName = None):
     response = json.dumps(test2, sort_keys = False, indent = 2)
     return response
 
+# checks whether the map file is there, trigger immediate upadte otherwise
+def check_for_emergency_map_update():
+    filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
+    if not os.path.isfile(filename):
+        print("Map file not found. Emergency map update!")
+        update()
+    
 
 #Creates a background scheduled task for the map update method
 sched = BackgroundScheduler()
@@ -624,3 +646,5 @@ try:
         LRU = pickle.load(fp)
 except:
     pass
+
+check_for_emergency_map_update()
