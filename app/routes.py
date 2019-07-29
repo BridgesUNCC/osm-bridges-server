@@ -289,6 +289,8 @@ def update():
     try:
         with open("app/update.json", "r") as f:
             print("Updating maps...")
+            app_log.info(f"{divider}")
+            app_log.info(f"Updating map...")
             loaded = json.load(f)
             os.mkdir("app/map_files/download")
             for sub in loaded["maps"]:
