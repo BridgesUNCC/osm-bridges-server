@@ -39,10 +39,25 @@ def harden_response(message_str):
     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
     return response
 
+@app.route('/amenity')
+def amenity():
+    try:
+        input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
+        app_log.info(divider)
+        app_log.info(f"Requester: {request.remote_addr}")
+        app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds")
+    except:
+        print("System arguments are invalid")
+        app_log.exception(f"System arguements invalid {request.args['location']}")
+        return harden_response("Invalid arguements")
+
+
+    o5m = call_convert("app/map_files/north-america-latest.osm.pbf", input_Value)
+    filename = call_filter(o5m, "food")
+    return filename
 
 @app.route('/loc')
 def namedInput():
-
     try:
         input_Value = request.args['location'].lower()
         app_log.info(divider)
@@ -258,6 +273,29 @@ def call_filter(o5m_filename, level):
 
     return f"app/{area}.xml"
 
+def callAmenityFilter(o5m_filename, filter):
+
+    para = "--keep=\"amenity"
+
+    if (filter == "food"):
+        para= para + " =fast_food =restraunt =cafe =ice_cream =bar"
+    elif(filter == "school"):
+        para = para + " =college =kindergarten =school =university"
+
+    para = para + "\" --drop-version"
+
+    command = f"app/osm_converts/osmfilter {o5m_filename} " + para + f" -o=app/{area}.xml"
+    try:
+        start_time = time.time()
+        app_log.info(f"Starting osmfilter on {o5m_filename} with filter command level {level}")
+        subprocess.run([command], shell=True)
+        app_log.info("Filtering Complete in: %s" % (time.time() - start_time))
+    except:
+        print("Error while filtering data")
+        app_log.exception(f"Exception while filtering data on map: {o5m_filename}")
+
+    return f"app/{area}.xml"
+
 def download_map(url):
     """Uses wget to attempt downloading a map url
 
@@ -352,10 +390,10 @@ def update():
             #Clears the saved coordinate maps on update call
             if os.path.isdir("app/reduced_maps/coords"):
                 shutil.rmtree("app/reduced_maps/coords")
-                
+
             if os.path.isdir("app/reduced_maps/cities"):
                 shutil.rmtree("app/reduced_maps/cities")
-                
+
             os.mkdir("app/reduced_maps/coords")
             os.mkdir("app/reduced_maps/cities")
 
@@ -616,7 +654,7 @@ def check_for_emergency_map_update():
     if not os.path.isfile(filename):
         print("Map file not found. Emergency map update!")
         update()
-    
+
 
 #Creates a background scheduled task for the map update method
 sched = BackgroundScheduler()
