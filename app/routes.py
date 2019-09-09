@@ -53,7 +53,7 @@ def amenity():
 
 
     o5m = call_convert("app/map_files/north-america-latest.osm.pbf", input_Value)
-    filename = call_filter(o5m, "food")
+    filename = callAmenityFilter(o5m, "food")
     return filename
 
 @app.route('/loc')
@@ -275,26 +275,30 @@ def call_filter(o5m_filename, level):
 
 def callAmenityFilter(o5m_filename, filter):
 
-    para = "--keep=\"amenity"
+    para = "--keep=\"all amenity"
 
     if (filter == "food"):
-        para= para + " =fast_food =restraunt =cafe =ice_cream =bar"
+        para= para + "=fast_food =restaurant =cafe =ice_cream =bar"
     elif(filter == "school"):
         para = para + " =college =kindergarten =school =university"
+    else:
+        para = para + "=fast_food =restaurant =cafe =ice_cream =bar"
 
     para = para + "\" --drop-version"
 
-    command = f"app/osm_converts/osmfilter {o5m_filename} " + para + f" -o=app/{area}.xml"
+
+
+    command = f"app/osm_converts/osmfilter {o5m_filename} " + para + " -o=app/temp2.xml"
     try:
         start_time = time.time()
-        app_log.info(f"Starting osmfilter on {o5m_filename} with filter command level {level}")
+        app_log.info(f"Starting osmfilter on {o5m_filename} with filter amenity")
         subprocess.run([command], shell=True)
         app_log.info("Filtering Complete in: %s" % (time.time() - start_time))
     except:
         print("Error while filtering data")
         app_log.exception(f"Exception while filtering data on map: {o5m_filename}")
 
-    return f"app/{area}.xml"
+    return f"app/temp.xml"
 
 def download_map(url):
     """Uses wget to attempt downloading a map url
