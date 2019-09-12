@@ -283,10 +283,8 @@ def callAmenityFilter(o5m_filename, filter):
         para = para + " =college =kindergarten =school =university"
     else:
         para = para + "=fast_food =restaurant =cafe =ice_cream =bar"
-
-    para = para + "\" --drop-version"
-
-
+        
+    para = para + "\" --drop-version --ignore-dependencies"
 
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + " -o=app/temp2.xml"
     try:
