@@ -14,6 +14,7 @@ from logging.handlers import RotatingFileHandler
 import time
 import hashlib
 import pickle
+import io
 from apscheduler.schedulers.background import BackgroundScheduler
 
 memPercent = .85 # % of RAM allowed for osm_to_adj.py to use
@@ -29,6 +30,9 @@ primary = ' =primary =primary_link'
 secondary = ' =secondary =secondary_link'
 tertiary = ' =tertiary =tertiary_link'
 unclassified = ' =unclassified'
+residential = ' =residential'
+living_street = ' =living_street'
+service = ' =service'
 
 divider = "-----------------------------------------------------------------"
 
@@ -54,7 +58,7 @@ def amenity():
 
     o5m = call_convert("app/map_files/north-america-latest.osm.pbf", input_Value)
     filename = callAmenityFilter(o5m, "food")
-    return filename
+    return io.open(filename,encoding='utf-8')  
 
 @app.route('/loc')
 def namedInput():
@@ -91,7 +95,7 @@ def namedInput():
             return harden_response(page_not_found())
     except:
         app_log.info(f"Error occured while processing city: {input_Value}")
-        return harden(server_error())
+        return harden_response(server_error())
 
 @app.route('/coords')
 def coordsInput():
@@ -255,6 +259,12 @@ def call_filter(o5m_filename, level):
         para = para + motorway + trunk + primary + secondary + tertiary
     elif (level == "unclassified"):
         para = para + motorway + trunk + primary + secondary + tertiary + unclassified
+    elif (level == "residential"):
+        para = para + motorway + trunk + primary + secondary + tertiary + unclassified + residential
+    elif (level == "living_street"):
+        para = para + motorway + trunk + primary + secondary + tertiary + unclassified + residential + living_street
+    elif (level == "service"):
+        para = para + motorway + trunk + primary + secondary + tertiary + unclassified + residential + living_street + service
 
     para = para + "\" --drop-version"
 
@@ -283,7 +293,7 @@ def callAmenityFilter(o5m_filename, filter):
         para = para + " =college =kindergarten =school =university"
     else:
         para = para + "=fast_food =restaurant =cafe =ice_cream =bar"
-        
+
     para = para + "\" --drop-version --ignore-dependencies"
 
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + " -o=app/temp2.xml"
@@ -483,7 +493,7 @@ def getFolderSize():
                 fp = os.path.join(str(path), str(f))
                 size = size + os.path.getsize(fp)
         return size
-    except exception as e:
+    except Exception as e:
         return (e)
 
 def lruUpdate(location, level, name=None):
