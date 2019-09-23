@@ -16,6 +16,7 @@ import hashlib
 import pickle
 import io
 from apscheduler.schedulers.background import BackgroundScheduler
+import xml.etree.ElementTree as ET
 
 memPercent = .85 # % of RAM allowed for osm_to_adj.py to use
 degreeRound = 4 #number of decimal places to round bounding box coords too
@@ -55,10 +56,48 @@ def amenity():
         app_log.exception(f"System arguements invalid {request.args['location']}")
         return harden_response("Invalid arguements")
 
-
-    o5m = call_convert("app/map_files/north-america-latest.osm.pbf", input_Value)
+    o5m = call_convert("app/map_files/amenity-north-america-latest.osm.pbf", input_Value)
     filename = callAmenityFilter(o5m, "food")
-    return io.open(filename,encoding='utf-8')  
+
+
+    tree = ET.parse(filename)
+    root = tree.getroot()
+
+    out_nodes = []
+    num_val = 0
+    for child in root:
+        if(child.get('id') == None or child.get('lat') == None or child.get('lon') == None):
+            continue
+        
+        id_val = int(child.get('id'))
+        lat = child.get('lat')
+        lon = child.get('lon')
+        for x in child:
+            if (x.attrib.get('k') == 'name'):
+                name = x.attrib.get('v') 
+            if (x.attrib.get('k') == 'amenity'):
+                amenity = x.attrib.get('v')
+
+        if (name == None or amenity == None):
+            continue
+        num_val += 1
+        out_nodes.append([id_val, lat, lon, name, amenity])
+    # http://127.0.0.1:5000/amenity?minLon=-80.97006&minLat=35.08092&maxLon=-80.6693&maxLat=35.3457
+
+
+    meta_data = {}
+    meta_data['count'] = num_val
+
+    node = {}
+    node['nodes'] = out_nodes
+    node['meta'] = meta_data 
+    
+    try:
+        os.remove(o5m)
+        os.remove(filename)
+    except:
+        pass
+    return json.dumps(node)
 
 @app.route('/loc')
 def namedInput():
@@ -285,14 +324,12 @@ def call_filter(o5m_filename, level):
 
 def callAmenityFilter(o5m_filename, filter):
 
-    para = "--keep=\"all amenity"
+    para = '--keep=\"all amenity'
 
     if (filter == "food"):
         para= para + "=fast_food =restaurant =cafe =ice_cream =bar"
     elif(filter == "school"):
         para = para + " =college =kindergarten =school =university"
-    else:
-        para = para + "=fast_food =restaurant =cafe =ice_cream =bar"
 
     para = para + "\" --drop-version --ignore-dependencies"
 
@@ -306,7 +343,7 @@ def callAmenityFilter(o5m_filename, filter):
         print("Error while filtering data")
         app_log.exception(f"Exception while filtering data on map: {o5m_filename}")
 
-    return f"app/temp.xml"
+    return f"app/temp2.xml"
 
 def download_map(url):
     """Uses wget to attempt downloading a map url
@@ -344,13 +381,20 @@ def get_memory():
 
 def update():
     '''Updates and reduces the root map file'''
+
+    filter_command = '--keep=\"all amenity\" --drop-version --ignore-dependencies'
+
     try:
         with open("app/update.json", "r") as f:
             print("Updating maps...")
             app_log.info(f"{divider}")
             app_log.info(f"Updating map...")
             loaded = json.load(f)
-            os.mkdir("app/map_files/download")
+            try:
+                os.mkdir("app/map_files/download")
+            except:
+                pass
+            
             for sub in loaded["maps"]:
                 d = datetime.today()
                 #if (d.weekday() == 1 and int(d.strftime("%d")) < 7 and int(d.strftime("%h")) > 1 and int(d.strftime("%h")) < 3):
@@ -358,7 +402,7 @@ def update():
                     map_title = sub["map"]
 
                     print(f"Downloading {map_title} map...")
-                    download_map(sub["url"])
+                    #download_map(sub["url"])
                     sub["last-updated"] = date.today().strftime("%Y%m%d")
 
                 except:
@@ -371,23 +415,34 @@ def update():
 
                 #filters out info before saving
                 try:
-                    print("Converting maps... (step 1/3)")
+                    print("Converting maps... (step 1/5)")
                     file_name = sub["file_name"]
                     command  = (f"./app/osm_converts/osmconvert64 app/map_files/download/{file_name} -o=app/o5m_Temp.o5m")
                     subprocess.run([command], shell=True)
 
-                    print("Converting maps... (step 2/3)")
+
+                    print("Converting amenity maps... (step 2/5)")
+                    command = f"./app/osm_converts/osmfilter app/o5m_Temp.o5m " + filter_command + f" -o=app/filteredTemp.o5m"
+                    subprocess.run([command], shell=True)
+
+                    print("Converting maps... (step 3/5)")
                     command = f"./app/osm_converts/osmfilter app/o5m_Temp.o5m " + map_convert_command + f" -o=app/temp.o5m"
                     subprocess.run([command], shell=True)
 
-                    print("Converting maps... (step 3/3)")
+                    print("Converting maps... (step 4/5)")
                     os.mkdir("app/map_files/download/temp")
                     os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/download/temp/" + sub["file_name"])
                     command  = (f"./app/osm_converts/osmconvert64 app/temp.o5m -o=app/map_files/download/{file_name}")
                     subprocess.run([command], shell=True)
 
+                    print("Converting maps... (step 5/5)")
+                    command  = (f"./app/osm_converts/osmconvert64 app/filteredTemp.o5m -o=app/map_files/download/amenity-{file_name}")
+                    subprocess.run([command], shell=True)
+
+
                     os.remove("app/o5m_Temp.o5m")
                     os.remove("app/temp.o5m")
+                    os.remove("app/filteredTemp.o5m")
                     print("Map convertion done.")
                 except:
                     app_log.exception("Converting and filtering error")
@@ -396,6 +451,7 @@ def update():
                 if (os.path.isfile("app/map_files/" + sub["file_name"])):
                     os.remove("app/map_files/" + sub["file_name"])
                 os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/" + sub["file_name"])
+                os.rename("app/map_files/download/amenity-" + sub["file_name"], "app/map_files/amenity-" + sub["file_name"])
 
             shutil.rmtree("app/map_files/download")
 
@@ -663,7 +719,9 @@ def pipeline(location, level, cityName = None):
 # checks whether the map file is there, trigger immediate upadte otherwise
 def check_for_emergency_map_update():
     filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
-    if not os.path.isfile(filename):
+    amenityFilename = "app/map_files/amenity-north-america-latest.osm.pbf" # NA map file directory
+
+    if (not os.path.isfile(filename)) and (not os.path.isfile(amenityFilename)):
         print("Map file not found. Emergency map update!")
         update()
 
