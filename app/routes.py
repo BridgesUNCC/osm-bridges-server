@@ -24,7 +24,7 @@ maxMapFolderSize = 1*1024*1024*1024  #change first value to set number of gigabi
 LRU = []
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
-map_convert_command = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
+map_convert_command = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =living_street =motorway_link =path =footway =cycleway \" --drop-version'
 motorway = '=motorway =motorway_link'
 trunk = ' =trunk =trunk_link'
 primary = ' =primary =primary_link'
@@ -34,8 +34,22 @@ unclassified = ' =unclassified'
 residential = ' =residential'
 living_street = ' =living_street'
 service = ' =service'
+trails = ' =path =footway'
+bicycle = ' =cycleway'
+walking = ' =pedestrian'
+
 
 divider = "-----------------------------------------------------------------"
+
+
+
+'''
+NOAA Grid Extraction URL
+
+https://gis.ngdc.noaa.gov/mapviewer-support/wcs-proxy/wcs.groovy?filename=etopo1.xyz&request=getcoverage&version=1.0.0&service=wcs&coverage=etopo1&CRS=EPSG:4326&format=xyz&resx=0.016666666666666667&resy=0.016666666666666667&bbox=-98.08593749997456,36.03133177632377,-88.94531249997696,41.508577297430456
+'''
+
+
 
 # This takes the output of the server and adds the appropriate headers to make the security team happy
 def harden_response(message_str):
@@ -46,15 +60,31 @@ def harden_response(message_str):
 
 @app.route('/amenity')
 def amenity():
-    try:
-        input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
-        app_log.info(divider)
-        app_log.info(f"Requester: {request.remote_addr}")
-        app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds")
-    except:
-        print("System arguments are invalid")
-        app_log.exception(f"System arguements invalid {request.args['location']}")
-        return harden_response("Invalid arguements")
+    if((request.args['minLat'] is not None) and (request.args['minLon'] is not None) and (request.args['maxLat'] is not None) and (request.args['maxLon'] is not None)):
+        try:
+            input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
+            app_log.info(divider)
+            app_log.info(f"Requester: {request.remote_addr}")
+            app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds")
+        except:
+            print("System arguments are invalid")
+            app_log.exception(f"System arguements invalid {request.args['location']}")
+            return harden_response("Invalid arguements")
+    
+    
+
+
+
+    #Check to see if amenity data has already been computed
+    dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}"
+    if (os.path.isfile(f"{dir}/amenity_data.json")):
+        app_log.info(f"Amenity data set already generated")
+        f = open(f"{dir}/amenity_data.json")
+        data = json.load(f)
+        f.close()
+        return  json.dumps(data, sort_keys = False, indent = 2)
+
+
 
     o5m = call_convert("app/map_files/amenity-north-america-latest.osm.pbf", input_Value)
     filename = callAmenityFilter(o5m, "food")
@@ -70,8 +100,8 @@ def amenity():
             continue
         
         id_val = int(child.get('id'))
-        lat = child.get('lat')
-        lon = child.get('lon')
+        lat = float(child.get('lat'))
+        lon = float(child.get('lon'))
         for x in child:
             if (x.attrib.get('k') == 'name'):
                 name = x.attrib.get('v') 
@@ -87,6 +117,11 @@ def amenity():
 
     meta_data = {}
     meta_data['count'] = num_val
+    if (len(input_Value) == 4):
+        meta_data['minlat'] = input_Value[0]
+        meta_data['minlon'] = input_Value[1]
+        meta_data['maxlat'] = input_Value[2]
+        meta_data['maxlon'] = input_Value[3]
 
     node = {}
     node['nodes'] = out_nodes
@@ -97,6 +132,17 @@ def amenity():
         os.remove(filename)
     except:
         pass
+
+    #Save map data to server storage
+    dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}"
+    
+    try:
+        os.makedirs(dir)
+    except:
+        pass
+
+    with open(f"{dir}/amenity_data.json", 'w') as x:
+        json.dump(node, x, indent=4)
     return json.dumps(node)
 
 @app.route('/loc')
@@ -151,9 +197,9 @@ def coordsInput():
         return harden_response("Invalid arguements")
 
     try:
-        if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
+        if (request.args['level'] is not None): #request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
             level = str(request.args['level'])
-            app_log.info(f"Script using street detail level of: {request.args['level']}")
+            app_log.info(f"Script attempting to use street detail level of: {request.args['level']}")
         else:
             level = "default"
             app_log.info(f"Script using street detail level of default (full detail)")
@@ -304,6 +350,14 @@ def call_filter(o5m_filename, level):
         para = para + motorway + trunk + primary + secondary + tertiary + unclassified + residential + living_street
     elif (level == "service"):
         para = para + motorway + trunk + primary + secondary + tertiary + unclassified + residential + living_street + service
+    elif (level == "trails"):
+        para = para + trails
+    elif (level == "walking"):
+        para = para + trails + walking
+    elif  (level == "bicycle"):
+        para = para + bicycle + tertiary + unclassified + residential + living_street
+    else:
+        para = default
 
     para = para + "\" --drop-version"
 
@@ -390,10 +444,8 @@ def update():
             app_log.info(f"{divider}")
             app_log.info(f"Updating map...")
             loaded = json.load(f)
-            try:
+            if not os.path.isdir("app/map_files/download"):
                 os.mkdir("app/map_files/download")
-            except:
-                pass
             
             for sub in loaded["maps"]:
                 d = datetime.today()
@@ -402,7 +454,7 @@ def update():
                     map_title = sub["map"]
 
                     print(f"Downloading {map_title} map...")
-                    #download_map(sub["url"])
+                    download_map(sub["url"])
                     sub["last-updated"] = date.today().strftime("%Y%m%d")
 
                 except:
@@ -416,32 +468,37 @@ def update():
                 #filters out info before saving
                 try:
                     print("Converting maps... (step 1/5)")
+                    app_log.info("Converting maps... (step 1/5)")
                     file_name = sub["file_name"]
-                    command  = (f"./app/osm_converts/osmconvert64 app/map_files/download/{file_name} -o=app/o5m_Temp.o5m")
+                    command  = (f"./app/osm_converts/osmconvert64 app/map_files/download/{file_name} -o=app/o5m_main.o5m")
                     subprocess.run([command], shell=True)
 
 
-                    print("Converting amenity maps... (step 2/5)")
-                    command = f"./app/osm_converts/osmfilter app/o5m_Temp.o5m " + filter_command + f" -o=app/filteredTemp.o5m"
+                    print("Filtering amenity maps... (step 2/5)")
+                    app_log.info("Filtering amenity maps... (step 2/5)")
+                    command = f"./app/osm_converts/osmfilter app/o5m_main.o5m " + filter_command + f" -o=app/filteredTemp.o5m"
                     subprocess.run([command], shell=True)
 
-                    print("Converting maps... (step 3/5)")
-                    command = f"./app/osm_converts/osmfilter app/o5m_Temp.o5m " + map_convert_command + f" -o=app/temp.o5m"
+                    print("Filtering main maps... (step 3/5)")
+                    app_log.info("Filtering main maps... (step 3/5)")
+                    command = f"./app/osm_converts/osmfilter app/o5m_main.o5m " + map_convert_command + f" -o=app/mainTemp.o5m"
                     subprocess.run([command], shell=True)
 
-                    print("Converting maps... (step 4/5)")
+                    print("Converting main maps... (step 4/5)")
+                    app_log.info("Converting main maps... (step 4/5)")
                     os.mkdir("app/map_files/download/temp")
                     os.rename("app/map_files/download/" + sub["file_name"], "app/map_files/download/temp/" + sub["file_name"])
-                    command  = (f"./app/osm_converts/osmconvert64 app/temp.o5m -o=app/map_files/download/{file_name}")
+                    command  = (f"./app/osm_converts/osmconvert64 app/mainTemp.o5m -o=app/map_files/download/{file_name}")
                     subprocess.run([command], shell=True)
 
-                    print("Converting maps... (step 5/5)")
+                    print("Converting amenity maps... (step 5/5)")
+                    app_log.info("Converting amenity maps... (step 5/5)")
                     command  = (f"./app/osm_converts/osmconvert64 app/filteredTemp.o5m -o=app/map_files/download/amenity-{file_name}")
                     subprocess.run([command], shell=True)
 
 
-                    os.remove("app/o5m_Temp.o5m")
-                    os.remove("app/temp.o5m")
+                    os.remove("app/o5m_main.o5m")
+                    os.remove("app/mainTemp.o5m")
                     os.remove("app/filteredTemp.o5m")
                     print("Map convertion done.")
                 except:
@@ -527,6 +584,10 @@ def map_size(coords, level):
         limit = 1.5
     elif (level == "unclassified"):
         limit = 1
+    elif (level == "living_street" or level == "residential" or level == "service"):
+        limit = .5
+    elif (level == "bicycle" or level == "trails"):
+        limit = 2
     else:
         limit = 1
 
@@ -662,6 +723,8 @@ def pipeline(location, level, cityName = None):
         app_log.info("Map bounds outside of max map size allowed")
         return "MAP BOUNDING SIZE IS TOO LARGE"
 
+    start_time = time.time() #timer to determine map process time
+
     #Map Convert Call, converts the large NA map to that of the bounding box
     o5m = call_convert(str(filename), location)
 
@@ -677,9 +740,9 @@ def pipeline(location, level, cityName = None):
         app_log.info(f"Starting OSM to Adj Convert on {filename}")
 
 
-        start_time = time.time() #timer to determine run time of osm_to_adj
+        adj_start_time = time.time() #timer to determine run time of osm_to_adj
         test2 = osm_to_adj.main(filename, 4, cityName) #reduces the number of nodes in map file
-        app_log.info("OSM to Adj complete in: : %s" % (time.time() - start_time))
+        app_log.info("OSM to Adj complete in: : %s" % (time.time() - adj_start_time))
 
         #Save map data to server storage
         os.makedirs(dir)
