@@ -68,8 +68,8 @@ def amenity():
             app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds")
         except:
             print("System arguments are invalid")
-            app_log.exception(f"System arguements invalid {request.args['location']}")
-            return harden_response("Invalid arguements")
+            app_log.exception(f"System arguments invalid {request.args['location']}")
+            return harden_response("Invalid arguments")
     
     
 
@@ -156,8 +156,8 @@ def namedInput():
             raise ValueError()
     except:
         print("System arguments are invalid")
-        app_log.exception(f"System arguements invalid {request.args['location']}")
-        return harden_response("Invalid arguements")
+        app_log.exception(f"System arguments invalid {request.args['location']}")
+        return harden_response("Invalid arguments")
 
     try:
         if (request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
@@ -192,9 +192,9 @@ def coordsInput():
         app_log.info(f"Requester: {request.remote_addr}")
         app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds")
     except:
-        print("System arguements are invalid")
-        app_log.exception(f"System arguements invalid {request.args}")
-        return harden_response("Invalid arguements")
+        print("System arguments are invalid")
+        app_log.exception(f"System arguments invalid {request.args}")
+        return harden_response("Invalid arguments")
 
     try:
         if (request.args['level'] is not None): #request.args['level'].lower() == 'motorway' or request.args['level'].lower() == 'trunk' or request.args['level'].lower() == 'primary' or request.args['level'].lower() == 'secondary' or request.args['level'].lower() == 'tertiary' or request.args['level'].lower() == 'unclassified'):
@@ -229,9 +229,9 @@ def hashreturn():
             app_log.info(f"Requester: {request.remote_addr}")
             app_log.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
         except:
-            print("System arguements for hash check are invalid")
-            app_log.exception(f"System arguements for hash check invalid {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']}")
-            return harden_response("Invalid arguements")
+            print("System arguments for hash check are invalid")
+            app_log.exception(f"System arguments for hash check invalid {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']}")
+            return harden_response("Invalid arguments")
 
     try:
         x = request.args['level'].lower()
