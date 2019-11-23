@@ -148,11 +148,11 @@ def amenity():
 @app.route('/loc')
 def namedInput():
     try:
-        input_Value = request.args['location'].lower()
+        input_Value = request.args['location'].lower().replace(",", "").replace(" ", "")
         app_log.info(divider)
         app_log.info(f"Requester: {request.remote_addr}")
         app_log.info(f"Script started with {request.args['location']} parameters")
-        if not all(x.isalpha() or x.isspace() for x in input_Value):
+        if not all(x.isalpha() or x == "'" for x in input_Value):
             raise ValueError()
     except:
         print("System arguments are invalid")
@@ -175,7 +175,7 @@ def namedInput():
     try:
         coords = city_coords(input_Value)
         if (coords != 404):
-            return harden_response(pipeline(coords, level, input_Value.lower()))
+            return harden_response(pipeline(coords, level, input_Value))
         else:
             return harden_response(page_not_found())
     except:
@@ -214,7 +214,7 @@ def hashreturn():
     type = None
     loc = None
     try:
-        loc = str(request.args['location']).lower()
+        loc = str(request.args['location']).lower().replace(",", "").replace(" ", "")
         input_Value = city_coords(loc)
         type = "loc"
         app_log.info(divider)
@@ -549,7 +549,8 @@ def city_coords(location):
         with open('app/cities.json', 'r') as x:
             loaded = json.load(x)
             for city in loaded:
-                if (city["city"].lower() == location):
+                cityState = (city['city'] + city['state']).replace(" ", "")
+                if (cityState.lower() == location):
                         minLat = round(city['latitude'] - .1, degreeRound)
                         minLon = round(city['longitude'] - .1, degreeRound)
                         maxLat = round(city['latitude'] + .1, degreeRound)
