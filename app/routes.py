@@ -42,15 +42,6 @@ walking = ' =pedestrian'
 divider = "-----------------------------------------------------------------"
 
 
-
-'''
-NOAA Grid Extraction URL
-
-https://gis.ngdc.noaa.gov/mapviewer-support/wcs-proxy/wcs.groovy?filename=etopo1.xyz&request=getcoverage&version=1.0.0&service=wcs&coverage=etopo1&CRS=EPSG:4326&format=xyz&resx=0.016666666666666667&resy=0.016666666666666667&bbox=-98.08593749997456,36.03133177632377,-88.94531249997696,41.508577297430456
-'''
-
-
-
 # This takes the output of the server and adds the appropriate headers to make the security team happy
 def harden_response(message_str):
     response = app.make_response(message_str)
@@ -378,13 +369,16 @@ def call_filter(o5m_filename, level):
 
 def callAmenityFilter(o5m_filename, filter):
 
-    para = '--keep=\"all amenity'
+    para = '--keep=\"'
 
     if (filter == "food"):
-        para= para + "=fast_food =restaurant =cafe =ice_cream =bar"
+        para= para + "amenity =fast_food =restaurant =cafe =ice_cream =bar"
     elif(filter == "school"):
-        para = para + " =college =kindergarten =school =university"
-
+        para = para + "amentity =college =kindergarten =school =university"
+    elif (filter == "firestation"):
+        para = para + "amenity =fire_station"
+    elif (filter == "airport"):    
+        para = para + "aeroway=aerodrome"
     para = para + "\" --drop-version --ignore-dependencies"
 
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + " -o=app/temp2.xml"
