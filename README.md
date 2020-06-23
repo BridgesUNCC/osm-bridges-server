@@ -92,8 +92,14 @@ To view a list of possible cities visit and the format they should be in visit
 If no filter value is given a default value will be used, this default is equivalent to 'unclassified'
 
 ### Amenity Queries
-```
 
+Query with Bounding Box
+```
+http://cci-bridges-osm.uncc.edu/amenity?minLon=23.6435&minLat=32.4532&maxLon=64.231&maxLat=34.2344&amenity=food
+```
+Query with City, State
+```
+Not yet implimented
 ```
 
 * Possible Filtering Values
