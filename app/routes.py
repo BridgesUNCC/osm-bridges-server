@@ -51,23 +51,21 @@ def harden_response(message_str):
 
 @app.route('/amenity')
 def amenity():
-    if((request.args['minLat'] is not None) and (request.args['minLon'] is not None) and (request.args['maxLat'] is not None) and (request.args['maxLon'] is not None)):
+    if((request.args['minLat'] is not None) and (request.args['minLon'] is not None) and (request.args['maxLat'] is not None) and (request.args['maxLon'] is not None) and (request.args['amenity'] is not None)):
         try:
             input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
+            amenity_type = request.args['amenity']
             app_log.info(divider)
             app_log.info(f"Requester: {request.remote_addr}")
-            app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds")
+            app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
         except:
             print("System arguments are invalid")
             app_log.exception(f"System arguments invalid {request.args['location']}")
             return harden_response("Invalid arguments")
     
     
-
-
-
     #Check to see if amenity data has already been computed
-    dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}"
+    dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{amenity_type}"
     if (os.path.isfile(f"{dir}/amenity_data.json")):
         app_log.info(f"Amenity data set already generated")
         f = open(f"{dir}/amenity_data.json")
@@ -78,7 +76,7 @@ def amenity():
 
 
     o5m = call_convert("app/map_files/amenity-north-america-latest.osm.pbf", input_Value)
-    filename = callAmenityFilter(o5m, "food")
+    filename = callAmenityFilter(o5m, amenity_type)
 
 
     tree = ET.parse(filename)
@@ -125,7 +123,7 @@ def amenity():
         pass
 
     #Save map data to server storage
-    dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}"
+    dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{amenity_type}"
     
     try:
         os.makedirs(dir)
@@ -373,12 +371,14 @@ def callAmenityFilter(o5m_filename, filter):
 
     if (filter == "food"):
         para= para + "amenity =fast_food =restaurant =cafe =ice_cream =bar"
-    elif(filter == "school"):
+    elif(filter == "school"):   
         para = para + "amentity =college =kindergarten =school =university"
     elif (filter == "firestation"):
         para = para + "amenity =fire_station"
     elif (filter == "airport"):    
         para = para + "aeroway=aerodrome"
+    elif (filter == "heli"):
+        para = para + "aeroway=helipad"
     para = para + "\" --drop-version --ignore-dependencies"
 
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + " -o=app/temp2.xml"
@@ -430,7 +430,7 @@ def get_memory():
 def update():
     '''Updates and reduces the root map file'''
 
-    filter_command = '--keep=\"all amenity\" --drop-version --ignore-dependencies'
+    filter_command = '--keep=\"all amenity aeroway\" --drop-version --ignore-dependencies'
 
     try:
         with open("app/update.json", "r") as f:
@@ -487,7 +487,7 @@ def update():
 
                     print("Converting amenity maps... (step 5/5)")
                     app_log.info("Converting amenity maps... (step 5/5)")
-                    command  = (f"./app/osm_converts/osmconvert64 app/filteredTemp.o5m -o=app/map_files/download/amenity-{file_name}")
+                    command  = (f"./app/osm_converts/osmconvert64 app/filteredTemp.o5m --all-to-nodes -o=app/map_files/download/amenity-{file_name}")
                     subprocess.run([command], shell=True)
 
 
