@@ -289,7 +289,7 @@ def call_convert(filename, box=[]):
 
     try:
         bbox = f"-b=\"{box[1]}, {box[0]}, {box[3]}, {box[2]}\""
-        command  = (f"app/osm_converts/osmconvert64 " + filename + " " +  bbox + f" -o=app/o5m_Temp.o5m")
+        command  = (f"app/osm_converts/osmconvert64 " + filename + " --all-to-nodes " +  bbox + f" -o=app/o5m_Temp.o5m")
     except:
         command  = (f"app/osm_converts/osmconvert64 " + filename + f" -o=app/o5m_Temp.o5m")
 
@@ -370,11 +370,11 @@ def callAmenityFilter(o5m_filename, filter):
     para = '--keep=\"'
 
     if (filter == "food"):
-        para= para + "amenity =fast_food =restaurant =cafe =ice_cream =bar"
+        para= para + "amenity=fast_food =restaurant =cafe =ice_cream =bar"
     elif(filter == "school"):   
-        para = para + "amentity =college =kindergarten =school =university"
+        para = para + "amenity=college =kindergarten =school =university"
     elif (filter == "firestation"):
-        para = para + "amenity =fire_station"
+        para = para + "amenity=fire_station"
     elif (filter == "airport"):    
         para = para + "aeroway=aerodrome"
     elif (filter == "heli"):
@@ -384,7 +384,7 @@ def callAmenityFilter(o5m_filename, filter):
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + " -o=app/temp2.xml"
     try:
         start_time = time.time()
-        app_log.info(f"Starting osmfilter on {o5m_filename} with filter amenity")
+        app_log.info(f"Starting amenity filter on {o5m_filename} with filter f{filter}")
         subprocess.run([command], shell=True)
         app_log.info("Filtering Complete in: %s" % (time.time() - start_time))
     except:
@@ -430,7 +430,7 @@ def get_memory():
 def update():
     '''Updates and reduces the root map file'''
 
-    filter_command = '--keep=\"all amenity aeroway\" --drop-version --ignore-dependencies'
+    filter_command = '--keep=\"amenity aeroway\" --drop-version --ignore-dependencies'
 
     try:
         with open("app/update.json", "r") as f:
@@ -487,7 +487,7 @@ def update():
 
                     print("Converting amenity maps... (step 5/5)")
                     app_log.info("Converting amenity maps... (step 5/5)")
-                    command  = (f"./app/osm_converts/osmconvert64 app/filteredTemp.o5m --all-to-nodes -o=app/map_files/download/amenity-{file_name}")
+                    command  = (f"./app/osm_converts/osmconvert64 app/filteredTemp.o5m -o=app/map_files/download/amenity-{file_name}")
                     subprocess.run([command], shell=True)
 
 
@@ -792,6 +792,7 @@ sched.start()
 sched.add_job(update, 'cron', day='1st tue', hour='2', misfire_grace_time=None)
 
 sched.print_jobs()
+
 
 #logging.basicConfig(filename='log.log',format='%(asctime)s %(message)s', level=logging.DEBUG)
 
