@@ -2,6 +2,7 @@
 Repository for the backend processing and handling of OSM data requests for the BRIDGES project
 
 ## Setup
+This is a UNIX based server and can only run on such systems due to UNIX only dependencies.
 If running on Centos 7 execute the python_setup.sh file.
 ```bash
 sudo ./python_setup
