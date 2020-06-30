@@ -87,7 +87,7 @@ def amenity():
     for child in root:
         if(child.get('id') == None or child.get('lat') == None or child.get('lon') == None):
             continue
-        
+        amenity = None
         id_val = int(child.get('id'))
         lat = float(child.get('lat'))
         lon = float(child.get('lon'))
@@ -527,7 +527,7 @@ def update():
 
             print("Maps are up-to-date")
     except Exception as e:
-        app_log.exception("Update file read exception" + e)
+        app_log.exception(e)
 
 def city_coords(location):
     ''' Calculates the bounding box for a given city
