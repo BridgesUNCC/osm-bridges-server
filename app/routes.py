@@ -103,7 +103,7 @@ def amenity():
         out_nodes.append([id_val, lat, lon, name, amenity])
     # http://127.0.0.1:5000/amenity?minLon=-80.97006&minLat=35.08092&maxLon=-80.6693&maxLat=35.3457
 
-
+    app_log.info(f"Number of Nodes found: {num_val}")
     meta_data = {}
     meta_data['count'] = num_val
     if (len(input_Value) == 4):
@@ -289,7 +289,7 @@ def call_convert(filename, box=[]):
 
     try:
         bbox = f"-b=\"{box[1]}, {box[0]}, {box[3]}, {box[2]}\""
-        command  = (f"app/osm_converts/osmconvert64 " + filename + " --all-to-nodes " +  bbox + f" -o=app/o5m_Temp.o5m")
+        command  = (f"app/osm_converts/osmconvert64 " + filename + bbox + f" --all-to-nodes -o=app/o5m_Temp.o5m")
     except:
         command  = (f"app/osm_converts/osmconvert64 " + filename + f" -o=app/o5m_Temp.o5m")
 
