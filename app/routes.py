@@ -430,7 +430,7 @@ def get_memory():
 def update():
     '''Updates and reduces the root map file'''
 
-    filter_command = '--keep=\"amenity aeroway\" --drop-version --ignore-dependencies'
+    filter_command = '--keep=\"amenity= or aeroway=\" --drop-version --ignore-dependencies'
 
     try:
         with open("app/update.json", "r") as f:
