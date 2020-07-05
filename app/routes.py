@@ -290,12 +290,10 @@ def call_convert(filename, box=[]):
     try:
         bbox = f"-b=\"{box[1]}, {box[0]}, {box[3]}, {box[2]}\""
         command  = (f"app/osm_converts/osmconvert64 " + filename + bbox + f" --all-to-nodes -o=app/o5m_Temp.o5m")
+        app_log.info(f"Converting {box[0]}, {box[1]}, {box[2]}, {box[3]} map to .o5m with only nodes")
     except:
         command  = (f"app/osm_converts/osmconvert64 " + filename + f" -o=app/o5m_Temp.o5m")
-
-
-    app_log.info(f"Converting {box[0]}, {box[1]}, {box[2]}, {box[3]} map to .o5m")
-
+        app_log.info(f"Converting {box[0]}, {box[1]}, {box[2]}, {box[3]} map to .o5m")
 
     try:
         start_time = time.time()
