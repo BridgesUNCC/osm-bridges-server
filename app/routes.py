@@ -88,19 +88,46 @@ def amenity():
         if(child.get('id') == None or child.get('lat') == None or child.get('lon') == None):
             continue
         amenity = None
+        aero = None
+        faa = None
+        iata = None
+        icao = None
         id_val = int(child.get('id'))
         lat = float(child.get('lat'))
         lon = float(child.get('lon'))
-        for x in child:
-            if (x.attrib.get('k') == 'name'):
-                name = x.attrib.get('v') 
-            if (x.attrib.get('k') == 'amenity'):
-                amenity = x.attrib.get('v')
+        if (amenity_type != "airport" or amenity_type != "heli"): #searches for amenities
+            for x in child:
+                if (x.attrib.get('k') == 'name'):
+                    name = x.attrib.get('v') 
+                if (x.attrib.get('k') == 'amenity'):  
+                    amenity = x.attrib.get('v')
 
-        if (name == None or amenity == None):
-            continue
-        num_val += 1
-        out_nodes.append([id_val, lat, lon, name, amenity])
+            if (name == None or amenity == None):
+                continue
+
+            num_val += 1
+            out_nodes.append([id_val, lat, lon, name, amenity])
+
+        else: # Searches for aeroway values
+            for x in child:
+                if (x.attrib.get('k') == 'name'):
+                    name = x.attrib.get('v') 
+                if (x.attrib.get('k') == 'aeroway'):  
+                    aero = x.attrib.get('v')
+                if (x.attrib.get('k') == 'faa'):  
+                    faa = x.attrib.get('v')
+                if (x.attrib.get('k') == 'iata'):  
+                    iata = x.attrib.get('v')
+                if (x.attrib.get('k') == 'icao'):  
+                    icao = x.attrib.get('v')
+
+            if (name == None or aero == None):
+                continue
+
+            num_val += 1
+            out_nodes.append([id_val, lat, lon, name, aero, faa, iata, icao])
+
+        
     # http://127.0.0.1:5000/amenity?minLon=-80.97006&minLat=35.08092&maxLon=-80.6693&maxLat=35.3457
 
     app_log.info(f"Number of Nodes found: {num_val}")
@@ -380,6 +407,8 @@ def callAmenityFilter(o5m_filename, filter):
     para = para + "\" --drop-version --ignore-dependencies"
 
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + " -o=app/temp2.xml"
+
+    app_log.info(command)
     try:
         start_time = time.time()
         app_log.info(f"Starting amenity filter on {o5m_filename} with filter {filter}")
