@@ -95,7 +95,7 @@ def amenity():
         id_val = int(child.get('id'))
         lat = float(child.get('lat'))
         lon = float(child.get('lon'))
-        if (amenity_type != "airport" or amenity_type != "heli"): #searches for amenities
+        if (amenity_type != "airport" and amenity_type != "heli"): #searches for amenities
             for x in child:
                 if (x.attrib.get('k') == 'name'):
                     name = x.attrib.get('v') 
