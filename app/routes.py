@@ -408,7 +408,6 @@ def callAmenityFilter(o5m_filename, filter):
 
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + " -o=app/temp2.xml"
 
-    app_log.info(command)
     try:
         start_time = time.time()
         app_log.info(f"Starting amenity filter on {o5m_filename} with filter {filter}")
