@@ -102,6 +102,7 @@ Query with City, State
 ```
 http://cci-bridges-osm.uncc.edu/amenity?city=Chicago,%20Illinois&amenity=food
 ```
+(Note) The '%20' is used to represent a space
 
 * Possible Filtering Values
   * food
