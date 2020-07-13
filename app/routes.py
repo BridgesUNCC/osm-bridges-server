@@ -51,30 +51,35 @@ def harden_response(message_str):
 
 @app.route('/amenity')
 def amenity():
-    if((request.args['minLat'] is not None) and (request.args['minLon'] is not None) and (request.args['maxLat'] is not None) and (request.args['maxLon'] is not None) and (request.args['amenity'] is not None)):
+    try:
         try:
-            input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
-            amenity_type = request.args['amenity']
-            app_log.info(divider)
-            app_log.info(f"Requester: {request.remote_addr}")
-            app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
+            if((request.args['minLat'] is not None) and (request.args['minLon'] is not None) and (request.args['maxLat'] is not None) and (request.args['maxLon'] is not None) and (request.args['amenity'] is not None)):    
+                input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
+                amenity_type = request.args['amenity']
+                app_log.info(divider)
+                app_log.info(f"Requester: {request.remote_addr}")
+                app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
         except:
+            pass
+        
+        try:
+            if((request.args['city'] is not None) and (request.args['amenity'] is not None)):
+                input_Value = city_coords(request.args['city'].lower().replace(",", "").replace(" ", ""))
+                amenity_type = request.args['amenity']
+                app_log.info(divider)
+                app_log.info(f"Requester: {request.remote_addr}")
+                app_log.info(f"Script started with City: {request.args['city']} Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
+        except:
+            pass
+
+        if(amenity_type is None):
+            raise
+
+    except:
             print("System arguments are invalid")
-            app_log.exception(f"System arguments invalid {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
+            app_log.exception(f"System arguments invalid {request.args}")
             return harden_response("Invalid arguments")
     
-
-    elif((request.args['city'] is not None) and (request.args['amenity'] is not None)):
-        try:
-            input_Value = city_coords(request.args['city'].lower().replace(",", "").replace(" ", ""))
-            amenity_type = request.args['amenity']
-            app_log.info(divider)
-            app_log.info(f"Requester: {request.remote_addr}")
-            app_log.info(f"Script started with City: {request.args['city']} Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
-        except:
-            print("System arguments are invalid")
-            app_log.exception(f"System arguments invalid {request.args['city']}")
-            return harden_response("Invalid arguments")
 
     
     #Check to see if amenity data has already been computed
