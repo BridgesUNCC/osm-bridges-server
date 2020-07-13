@@ -60,13 +60,13 @@ def amenity():
             app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
         except:
             print("System arguments are invalid")
-            app_log.exception(f"System arguments invalid {request.args['minLat']}")
+            app_log.exception(f"System arguments invalid {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
             return harden_response("Invalid arguments")
     
 
     elif((request.args['city'] is not None) and (request.args['amenity'] is not None)):
         try:
-            input_Value = city_coords(request.args['city'])
+            input_Value = city_coords(request.args['city'].lower().replace(",", "").replace(" ", ""))
             amenity_type = request.args['amenity']
             app_log.info(divider)
             app_log.info(f"Requester: {request.remote_addr}")
