@@ -60,9 +60,22 @@ def amenity():
             app_log.info(f"Script started with Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
         except:
             print("System arguments are invalid")
-            app_log.exception(f"System arguments invalid {request.args['location']}")
+            app_log.exception(f"System arguments invalid {request.args['minLat']}")
             return harden_response("Invalid arguments")
     
+
+    elif((request.args['city'] is not None) and (request.args['amenity'] is not None)):
+        try:
+            input_Value = city_coords(request.args['city'])
+            amenity_type = request.args['amenity']
+            app_log.info(divider)
+            app_log.info(f"Requester: {request.remote_addr}")
+            app_log.info(f"Script started with City: {request.args['city']} Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
+        except:
+            print("System arguments are invalid")
+            app_log.exception(f"System arguments invalid {request.args['city']}")
+            return harden_response("Invalid arguments")
+
     
     #Check to see if amenity data has already been computed
     dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{amenity_type}"
