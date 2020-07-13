@@ -100,7 +100,7 @@ http://cci-bridges-osm.uncc.edu/amenity?minLon=23.6435&minLat=32.4532&maxLon=64.
 ```
 Query with City, State
 ```
-Not yet implimented
+http://cci-bridges-osm.uncc.edu/amenity?city=Chicago,%20Illinois&amenity=food
 ```
 
 * Possible Filtering Values
@@ -108,3 +108,4 @@ Not yet implimented
   * school
   * firestation
   * airport
+  * heli
