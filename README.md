@@ -110,3 +110,60 @@ http://cci-bridges-osm.uncc.edu/amenity?city=Chicago,%20Illinois&amenity=food
   * firestation
   * airport
   * heli
+  
+## Data Format Returned
+### OSM
+```
+
+```
+
+### Amenities
+node format
+```
+[
+   id
+   lat
+   lon
+   name
+   amenity
+   FAA (Airport Only)
+   IATA (Airport Only)
+   ICAO (Airport Only)
+]
+
+```
+______________________________
+```
+{
+    "nodes": [
+        [
+            368381033,
+            39.9502553,
+            -80.7593715,
+            "Glendale Fokker Field",
+            "aerodrome",
+            null,
+            "GWV",
+            null
+        ],
+        [
+            368381053,
+            39.8811867,
+            -80.7356412,
+            "Marshall County Airport",
+            "aerodrome",
+            "MPG",
+            null,
+            "KMPG"
+        ],
+        [ ... ]
+    ],
+    "meta": {
+        "count": 127,
+        "minlat": 39.0611,
+        "minlon": -84.6151,
+        "maxlat": 41.8525,
+        "maxlon": -80.6106
+    }
+}
+```
