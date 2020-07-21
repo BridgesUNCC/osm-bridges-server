@@ -413,16 +413,24 @@ def callAmenityFilter(o5m_filename, filter):
     para = '--keep=\"'
 
     if (filter == "food"):
-        para= para + "amenity=fast_food =restaurant =cafe =ice_cream =bar"
+        para= para + "amenity=fast_food =restaurant =cafe =ice_cream =bar "
     elif(filter == "school"):   
-        para = para + "amenity=college =kindergarten =school =university"
+        para = para + "amenity=college =kindergarten =school =university "
     elif (filter == "firestation"):
-        para = para + "amenity=fire_station"
+        para = para + "amenity=fire_station "
     elif (filter == "airport"):    
-        para = para + "aeroway=aerodrome"
+        para = para + "aeroway=aerodrome "
     elif (filter == "heli"):
-        para = para + "aeroway=helipad"
-    para = para + "\" --drop-version --ignore-dependencies"
+        para = para + "aeroway=helipad "
+    else:
+        #TODO: Parse custom filter
+        filters = filter.split(',').replace(" ", "")
+        para = para + "amenity"
+        for f in filters:
+            para = para + f"={f} "
+        pass
+
+    para = para + "\"--drop-version --ignore-dependencies"
 
     command = f"app/osm_converts/osmfilter {o5m_filename} " + para + " -o=app/temp2.xml"
 
@@ -432,7 +440,7 @@ def callAmenityFilter(o5m_filename, filter):
         subprocess.run([command], shell=True)
         app_log.info("Filtering Complete in: %s" % (time.time() - start_time))
     except:
-        print("Error while filtering data")
+        print("Error with filtering parameters")
         app_log.exception(f"Exception while filtering data on map: {o5m_filename}")
 
     return f"app/temp2.xml"
