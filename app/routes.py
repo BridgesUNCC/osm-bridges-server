@@ -424,7 +424,7 @@ def callAmenityFilter(o5m_filename, filter):
         para = para + "aeroway=helipad "
     else:
         #TODO: Parse custom filter
-        filters = filter.split(',').replace(" ", "")
+        filters = filter.replace(" ", "").split(',')
         para = para + "amenity"
         for f in filters:
             para = para + f"={f} "
