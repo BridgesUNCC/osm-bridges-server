@@ -268,13 +268,14 @@ def hashreturn():
             return harden_response("Invalid arguments")
 
     try:
-        x = request.args['level'].lower()
-        if (x == 'motorway' or x == 'trunk' or x == 'primary' or x == 'secondary' or x == 'tertiary' or rx == 'unclassified'):
-            level = str(x)
-        else:
-            level = "default"
+        level = request.args['level'].lower()
     except:
         level = "default"
+
+    try:
+        amen = request.args['amenity'].lower()
+    except:
+        return harden_response(page_not_found())
 
 
     if (type == "loc"):
