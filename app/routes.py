@@ -265,8 +265,8 @@ def hashreturn():
     type = None
     loc = None
 
-    amenity = request.args.get('amenity').lower()
-    level = request.args.get('level').lower()
+    amenity = request.args.get('amenity')
+    level = request.args.get('level')
     if (level != None):
         try:
             loc = str(request.args['location']).lower().replace(",", "").replace(" ", "")
