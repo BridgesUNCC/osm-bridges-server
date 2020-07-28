@@ -305,7 +305,8 @@ def hashreturn():
             else:
                 input_Value = city_coords(city)
             dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{amenity}"
-
+        except:
+            return harden_response(page_not_found)
 
     try:
         with open(f"{dir}/hash.txt", 'r') as f:
