@@ -303,7 +303,7 @@ def hashreturn():
             if (city == None):
                 input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
             else:
-                input_Value = city_coords(city)
+                input_Value = city_coords(request.args['location'].lower().replace(",", "").replace(" ", ""))
             dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{amenity}"
         except:
             return harden_response(page_not_found)
