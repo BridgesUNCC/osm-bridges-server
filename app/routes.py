@@ -177,6 +177,23 @@ def amenity():
 
     with open(f"{dir}/amenity_data.json", 'w') as x:
         json.dump(node, x, indent=4)
+
+
+
+    try:
+        md5_hash = hashlib.md5()
+        with open(f"{dir}/amenity_data.json","rb") as f:
+            # Read and update hash string value in blocks of 4K
+            for byte_block in iter(lambda: f.read(4096),b""):
+                md5_hash.update(byte_block)
+            app_log.info("Hash: " + md5_hash.hexdigest())
+        with open(f"{dir}/hash.txt", "w") as h:
+            h.write(md5_hash.hexdigest())
+    except:
+        app_log.exception("Hashing error occured")
+
+
+
     return json.dumps(node)
 
 @app.route('/loc')
@@ -247,44 +264,47 @@ def coordsInput():
 def hashreturn():
     type = None
     loc = None
-    try:
-        loc = str(request.args['location']).lower().replace(",", "").replace(" ", "")
-        input_Value = city_coords(loc)
-        type = "loc"
-        app_log.info(divider)
-        app_log.info(f"Requester: {request.remote_addr}")
-        app_log.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
-    except:
+
+    amenity = request.args.get('amenity').lower()
+    level = request.args.get('level').lower()
+    if (level != None):
         try:
-            #rounds and converts the args to floats and rounds to a certain decimal
-            input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
-            type = "coord"
+            loc = str(request.args['location']).lower().replace(",", "").replace(" ", "")
+            input_Value = city_coords(loc)
+            type = "loc"
             app_log.info(divider)
             app_log.info(f"Requester: {request.remote_addr}")
             app_log.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
         except:
-            print("System arguments for hash check are invalid")
-            app_log.exception(f"System arguments for hash check invalid {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']}")
-            return harden_response("Invalid arguments")
+            try:
+                #rounds and converts the args to floats and rounds to a certain decimal
+                input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
+                type = "coord"
+                app_log.info(divider)
+                app_log.info(f"Requester: {request.remote_addr}")
+                app_log.info(f"Hash checking for map with bounds: {input_Value[0]}, {input_Value[1]}, {input_Value[2]}, {input_Value[3]}")
+            except:
+                print("System arguments for hash check are invalid")
+                app_log.exception(f"System arguments for hash check invalid {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']}")
+                return harden_response("Invalid arguments")
 
-    try:
-        level = request.args['level'].lower()
-    except:
-        level = "default"
-
-    try:
-        amen = request.args['amenity'].lower()
-    except:
-        return harden_response(page_not_found())
+        if (type == "loc"):
+            dir = f"app/reduced_maps/cities/{loc}/{level}"
+        elif (type == "coord"):
+            dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{level}"
+        else:
+            return harden_response(page_not_found())
 
 
-    if (type == "loc"):
-        dir = f"app/reduced_maps/cities/{loc}/{level}"
-    elif (type == "coord"):
-        dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{level}"
-    else:
-        return harden_response(page_not_found())
-
+    elif (amenity != None):
+        
+        try:
+            city = request.args.get('location')
+            if (city == None):
+                input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
+            else:
+                input_Value = city_coords(city)
+            dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{amenity}"
 
 
     try:
