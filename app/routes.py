@@ -63,12 +63,12 @@ def amenity():
             pass
         
         try:
-            if((request.args['city'] is not None) and (request.args['amenity'] is not None)):
-                input_Value = city_coords(request.args['city'].lower().replace(",", "").replace(" ", ""))
+            if((request.args['location'] is not None) and (request.args['amenity'] is not None)):
+                input_Value = city_coords(request.args['location'].lower().replace(",", "").replace(" ", ""))
                 amenity_type = request.args['amenity']
                 app_log.info(divider)
                 app_log.info(f"Requester: {request.remote_addr}")
-                app_log.info(f"Script started with City: {request.args['city']} Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
+                app_log.info(f"Script started with City: {request.args['location']} Box: {request.args['minLat']}, {request.args['minLon']}, {request.args['maxLat']}, {request.args['maxLon']} bounds and the amenity: {request.args['amenity']}")
         except:
             pass
 
