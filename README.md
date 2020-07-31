@@ -209,3 +209,16 @@ ______________________________
     }
 }
 ```
+
+## Examples Parameters
+
+### OSM
+- "Chicago, Illinois", "default"
+- -77.055, 39.121, -76.805, 39.208, "default"
+- -73.9225, 40.7866, -74.0625, 40.6809, "default"
+
+### Amenities
+- "Chicago, Illinois", "bar,atm,school"
+- "-80.97006, 35.08092, -80.6693, 35.3457, "food"
+- "-111.6869, 33.6906, -112.2718, 33.3213, "school"
+
