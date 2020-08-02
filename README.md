@@ -66,7 +66,7 @@ To make queries with the server you require two pieces of information, first the
 
 Map with Bounding Box
 ```
-http://cci-bridges-osm.uncc.edu/coords?minLon=23.6435&minLat=32.4532&maxLon=64.231&maxLat=34.2344&level=default
+http://cci-bridges-osm.uncc.edu/coords?minLon=-80.5&minLat=35&maxLon=-80&maxLat=35.5&level=default
 ```
 
 Map with City Name
@@ -96,7 +96,7 @@ If no filter value is given a default value will be used, this default is equiva
 
 Query with Bounding Box
 ```
-http://cci-bridges-osm.uncc.edu/amenity?minLon=23.6435&minLat=32.4532&maxLon=64.231&maxLat=34.2344&amenity=food
+http://cci-bridges-osm.uncc.edu/amenity?minLon=-80.5&minLat=35&maxLon=-80&maxLat=35.5&amenity=food
 ```
 Query with City, State
 ```
