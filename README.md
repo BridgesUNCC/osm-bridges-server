@@ -100,7 +100,7 @@ http://cci-bridges-osm.uncc.edu/amenity?minLon=-80.5&minLat=35&maxLon=-80&maxLat
 ```
 Query with City, State
 ```
-http://cci-bridges-osm.uncc.edu/amenity?city=Chicago,%20Illinois&amenity=food
+http://cci-bridges-osm.uncc.edu/amenity?location=Chicago,%20Illinois&amenity=food
 ```
 *(Note) The '%20' is used to represent a space*
 
