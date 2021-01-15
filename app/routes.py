@@ -93,7 +93,7 @@ def amenity():
 
 
 
-    o5m = call_convert("app/map_files/amenity-north-america-latest.osm.pbf", input_Value)
+    o5m = call_convert1("app/map_files/amenity-north-america-latest.osm.pbf", input_Value)
     filename = callAmenityFilter(o5m, amenity_type)
 
 
@@ -342,7 +342,7 @@ def page_not_found(e=''):
 def server_error(e=''):
     return harden_response("Server Error occured while attempting to process your request. Please try again...")
 
-def call_convert(filename, box=[]):
+def call_convert1(filename, box=[]):
     """Creates a process of the osmconvert, to shrink the map file down to a bounding box as well as change the file type to .o5m
 
     Parameters:
@@ -371,6 +371,37 @@ def call_convert(filename, box=[]):
         app_log.exception(f"Exception occurred while converting bounds: {box[0]}, {box[1]}, {box[2]}, {box[3]}")
 
     return f"app/o5m_Temp.o5m"
+
+def call_convert2(filename, box=[]):
+    """Creates a process of the osmconvert, to shrink the map file down to a bounding box as well as change the file type to .o5m
+
+    Parameters:
+    filename(str): String of the file path to the map
+    box(list): list of longitude and latitude coordinates
+
+    Returns:
+    string: String of the directory that the o5m file was generated in
+
+    """
+
+    try:
+        bbox = f" -b=\"{box[1]},{box[0]},{box[3]},{box[2]}\""
+        command  = (f"app/osm_converts/osmconvert64 " + filename + bbox + f" -o=app/o5m_Temp.o5m")
+        app_log.info(f"Converting {box[0]}, {box[1]}, {box[2]}, {box[3]} map to .o5m with only nodes using : "+command)
+    except:
+        command  = (f"app/osm_converts/osmconvert64 " + filename + f" -o=app/o5m_Temp.o5m")
+        app_log.info(f"Converting {box[0]}, {box[1]}, {box[2]}, {box[3]} map to .o5m using : "+command)
+
+    try:
+        start_time = time.time()
+        subprocess.run([command], shell=True)
+        app_log.info("Map Successfully Converted to .o5m in: %s" % (time.time() - start_time))
+    except:
+        print("Error converting file to .o5m")
+        app_log.exception(f"Exception occurred while converting bounds: {box[0]}, {box[1]}, {box[2]}, {box[3]}")
+
+    return f"app/o5m_Temp.o5m"
+
 
 def call_filter(o5m_filename, level):
     """Creates a process of the osmfilter to remove any info that we dont need
@@ -795,7 +826,7 @@ def pipeline(location, level, cityName = None):
     start_time = time.time() #timer to determine map process time
 
     #Map Convert Call, converts the large NA map to that of the bounding box
-    o5m = call_convert(str(filename), location)
+    o5m = call_convert2(str(filename), location)
 
     #Map Filter Call, filters out any data that is not required withing the level requested
     filename = call_filter(o5m, level)
