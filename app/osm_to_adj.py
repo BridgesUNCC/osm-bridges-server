@@ -231,7 +231,7 @@ def main(input_filename, shrink=0, name=None):
         oneway = get_one_way_from(all_attrib)
         last = 0                                        # one node will point to other
         for nd in way.findall('nd'):                    # get all links on each way
-            if last is 0:                               # this is first node
+            if last == 0:                               # this is first node
                 last = int(nd.get('ref'))               # initialize and forget
                 if last not in d_nodes:
                     last = 0
