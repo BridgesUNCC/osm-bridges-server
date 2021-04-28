@@ -18,9 +18,9 @@ import io
 from apscheduler.schedulers.background import BackgroundScheduler
 import xml.etree.ElementTree as ET
 
-memPercent = .85 # % of RAM allowed for osm_to_adj.py to use
+memPercent = None # % of RAM allowed for osm_to_adj.py to use
 degreeRound = 4 #number of decimal places to round bounding box coords too
-maxMapFolderSize = 1*1024*1024*1024  #change first value to set number of gigabits the map folder should be
+maxMapFolderSize = None  #change first value to set number of gigabits the map folder should be
 LRU = []
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
@@ -260,6 +260,33 @@ def coordsInput():
 
     return harden_response(pipeline(input_Value, level))
 
+
+#Updated route to handle both bbox and city
+@app.route('/map')
+def map_request():
+    minLat = request.args.get("minLat")
+    minLon = request.args.get("minLon")
+    maxLat = request.args.get("maxLat")
+    maxLon = request.args.get("maxLon")
+    city = request.args.get("city")
+    level = request.args.get("level")
+
+    if ((minLat != None) and (minLon != None) and (maxLat != None) and (maxLon != None)):
+        bbox = [round(float(minLat), degreeRound), round(float(minLon), degreeRound), round(float(maxLat), degreeRound), round(float(maxLon), degreeRound)]
+    elif (city != None):
+        city = city.lower().replace(",", "").replace(" ", "")
+        bbox = city_coords(city)
+    else:
+         return harden_response("Invalid arguments")
+
+    if level is None:
+        level = "default"
+
+
+    return harden_response(updated_pipeline(bbox, level))
+
+
+
 @app.route('/hash')
 def hashreturn():
     type = None
@@ -321,10 +348,8 @@ def hashreturn():
 def cityNameReturns():
     outStr = ""
     with open('app/cities.json', 'r') as x:
-        loaded = json.load(x)
-        for city in loaded:
-            outStr = outStr + city['city'] + ", " + city['state'] + "</br>"
-    return harden_response(outStr)
+        city_json = json.load(x)
+        return harden_response(json.dumps(city_json))
 
 @app.route('/favicon.ico')
 def icon():
@@ -619,10 +644,10 @@ def city_coords(location):
             for city in loaded:
                 cityState = (city['city'] + city['state']).replace(" ", "")
                 if (cityState.lower() == location):
-                        minLat = round(city['latitude'] - .1, degreeRound)
-                        minLon = round(city['longitude'] - .1, degreeRound)
-                        maxLat = round(city['latitude'] + .1, degreeRound)
-                        maxLon = round(city['longitude'] + .1, degreeRound)
+                        minLat = round(float(city['latitude']) - .1, degreeRound)
+                        minLon = round(float(city['longitude']) - .1, degreeRound)
+                        maxLat = round(float(city['latitude']) + .1, degreeRound)
+                        maxLon = round(float(city['longitude']) + .1, degreeRound)
                         coord = [minLat, minLon, maxLat, maxLon]
                         return coord
         if (coord == None):
@@ -848,6 +873,90 @@ def pipeline(location, level, cityName = None):
     response = json.dumps(test2, sort_keys = False, indent = 2)
     return response
 
+
+
+
+
+
+
+def updated_pipeline(bbox, level):
+    map_dir = f"app/reduced_maps/{bbox[0]}/{bbox[1]}/{bbox[2]}/{bbox[3]}/{level}"
+    filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
+
+    # Checks if map is already generated
+    if (os.path.isfile(f"{map_dir}/map_data.json")):
+            app_log.info(f"Map has already been generated")
+            f = open(f"{map_dir}/map_data.json")
+            data = json.load(f)
+            f.close()
+            lruUpdate(bbox, level)
+            return  json.dumps(data, sort_keys = False, indent = 2)
+
+
+    # If map does not exsist
+
+    # Checks Bounds for too large maps
+    if (map_size(bbox, level)):
+        app_log.info("Map bounds outside of max map size allowed")
+        return "MAP BOUNDING SIZE IS TOO LARGE"
+
+
+
+    #CONVERT MAPS
+
+    #Map Convert Call, converts the large NA map to that of the bounding box
+    start_time = time.time()
+    o5m = call_convert(str(filename), bbox)
+    filename = call_filter(o5m, level)
+
+    #Starts using osm_to_adj.py
+    try:
+        #Sets memory constraints on the program to prevent memory crashes
+        soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+        resource.setrlimit(resource.RLIMIT_AS, (get_memory() * 1024 * memPercent, hard))
+        app_log.info(f"Starting OSM to Adj Convert on {filename}")
+
+
+        adj_start_time = time.time() #timer to determine run time of osm_to_adj
+        test2 = osm_to_adj.main(filename, 4) #reduces the number of nodes in map file
+        app_log.info("OSM to Adj complete in: : %s" % (time.time() - adj_start_time))
+
+        #Save map data to server storage
+        os.makedirs(map_dir)
+        with open(f"{map_dir}/map_data.json", 'w') as x:
+            json.dump(test2, x, indent=4)
+    except MemoryError:
+        app_log.exception(f"Memory Exception occurred while processing: {dir}")
+
+    #Resets memory limit
+    soft, hard = resource.getrlimit(resource.RLIMIT_AS)
+    resource.setrlimit(resource.RLIMIT_AS, (soft, hard))
+
+
+    #Generates hash file for recently created map
+    try:
+        md5_hash = hashlib.md5()
+        with open(f"{map_dir}/map_data.json","rb") as f:
+            # Read and update hash string value in blocks of 4K
+            for byte_block in iter(lambda: f.read(4096),b""):
+                md5_hash.update(byte_block)
+            app_log.info("Hash: " + md5_hash.hexdigest())
+        with open(f"{map_dir}/hash.txt", "w") as h:
+            h.write(md5_hash.hexdigest())
+    except:
+        app_log.exception("Hashing error occured")
+
+    #removes temporary files generated while generating map
+    os.remove(o5m)
+    os.remove(filename)
+
+    lruUpdate(bbox, level)
+
+    ti = (time.time() - start_time)
+    app_log.info(f"Map file created with bounds: {bbox} in {ti} seconds")
+    response = json.dumps(test2, sort_keys = False, indent = 2)
+    return response
+
 # checks whether the map file is there, trigger immediate upadte otherwise
 def check_for_emergency_map_update():
     filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
@@ -857,6 +966,24 @@ def check_for_emergency_map_update():
         print("Map file not found. Emergency map update!")
         update()
 
+@app.cli.command('wipe')
+def wipe_cache():
+    try: 
+        shutil.rmtree('app/reduced_maps')
+        os.remove('lru.txt')
+        os.mkdir('app/reduced_maps')
+        os.mkdir('app/reduced_maps/cities')
+        os.mkdir('app/reduced_maps/coords')
+    except:
+        pass
+
+@app.cli.command('update') #TODO
+def redownload_primary_maps():
+    try:
+        shutil.rmtree('app/map_files')
+        os.mkdir('app/map_files')
+    except:
+        pass
 
 #Creates a background scheduled task for the map update method
 sched = BackgroundScheduler()
@@ -887,5 +1014,19 @@ try:
         LRU = pickle.load(fp)
 except:
     pass
+
+
+
+
+#default folder size (GB)
+maxMapFolderSize = (os.getenv('FOLDER_SIZE'))
+if maxMapFolderSize is None:
+    maxMapFolderSize = 1*1024*1024*1024
+else:
+    maxMapFolderSize = maxMapFolderSize  * 1024 * 1024 * 1024
+#default memory limit
+memPercent = os.getenv('MEMORY_LIMIT')
+if memPercent is None:
+    memPercent = .85
 
 check_for_emergency_map_update()
