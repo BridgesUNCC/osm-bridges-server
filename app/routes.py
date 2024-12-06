@@ -993,7 +993,7 @@ def check_for_emergency_map_update():
     filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
     amenityFilename = "app/map_files/amenity-north-america-latest.osm.pbf" # NA map file directory
 
-    if (not os.path.isfile(filename)) and (not os.path.isfile(amenityFilename)):
+    if (not os.path.isfile(filename)) or (not os.path.isfile(amenityFilename)):
         print("Map file not found. Emergency map update!")
         update()
 
