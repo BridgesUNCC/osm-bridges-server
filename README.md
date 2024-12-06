@@ -201,3 +201,15 @@ ______________________________
 - 35.0809, -80.9700, 35.3457, -80.6693, "food"
 - 33.6906, -111.6869, 33.3213, -112.2718, "school"
 
+
+# How big is the data?
+
+(stats on dec6 2024)
+
+The download of the .pbf file is about 15 GB
+
+The extracted o5m_main.o5m file is bigger over 25GB
+
+the final amenity file is about 130MB
+
+the final map file is about 1.5GB
