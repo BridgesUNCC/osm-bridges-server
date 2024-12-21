@@ -51,7 +51,7 @@ def harden_response(message_str):
 
 def sanitize_location_name(name: str):
     new_name = str(name)
-    new_name = new_name.lower().replace(",", "").replace(" ", "").replace(".","")
+    new_name = new_name.lower().replace(",", "").replace(" ", "").replace(".","").replace("-","").replace("(","").replace(")","").replace("'","")
     return new_name
 
 @app.route('/amenity')
