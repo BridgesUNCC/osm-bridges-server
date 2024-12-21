@@ -49,6 +49,11 @@ def harden_response(message_str):
     response.headers['X-Frame-Options'] = 'SAMEORIGIN'
     return response
 
+def sanitize_location_name(name: str):
+    new_name = str(name)
+    new_name = new_name.lower().replace(",", "").replace(" ", "").replace(".","")
+    return new_name
+
 @app.route('/amenity')
 def amenity():
     try:
@@ -64,7 +69,7 @@ def amenity():
         
         try:
             if((request.args['location'] is not None) and (request.args['amenity'] is not None)):
-                input_Value = city_coords(request.args['location'].lower().replace(",", "").replace(" ", ""))
+                input_Value = city_coords(sanitize_location_name(request.args['location']))
                 amenity_type = request.args['amenity']
                 app_log.info(divider)
                 app_log.info(f"Requester: {request.remote_addr}")
@@ -199,7 +204,7 @@ def amenity():
 @app.route('/loc')
 def namedInput():
     try:
-        input_Value = request.args['location'].lower().replace(",", "").replace(" ", "")
+        input_Value = sanitize_location_name(request.args['location'])
         app_log.info(divider)
         app_log.info(f"Requester: {request.remote_addr}")
         app_log.info(f"Script started with {request.args['location']} parameters")
@@ -274,7 +279,7 @@ def map_request():
     if ((minLat != None) and (minLon != None) and (maxLat != None) and (maxLon != None)):
         bbox = [round(float(minLat), degreeRound), round(float(minLon), degreeRound), round(float(maxLat), degreeRound), round(float(maxLon), degreeRound)]
     elif (city != None):
-        city = city.lower().replace(",", "").replace(" ", "")
+        city = sanitize_location_name(city)
         bbox = city_coords(city)
     else:
          return harden_response("Invalid arguments")
@@ -296,7 +301,7 @@ def hashreturn():
     level = request.args.get('level')
     if (level != None):
         try:
-            loc = str(request.args['location']).lower().replace(",", "").replace(" ", "")
+            loc = sanitize_location_name(request.args['location'])
             input_Value = city_coords(loc)
             type = "loc"
             app_log.info(divider)
@@ -330,7 +335,7 @@ def hashreturn():
             if (city == None):
                 input_Value = [round(float(request.args['minLat']), degreeRound), round(float(request.args['minLon']), degreeRound), round(float(request.args['maxLat']), degreeRound), round(float(request.args['maxLon']), degreeRound)]
             else:
-                input_Value = city_coords(request.args['location'].lower().replace(",", "").replace(" ", ""))
+                input_Value = city_coords(sanitize_location_name(request.args['location']))
             dir = f"app/reduced_maps/coords/{input_Value[0]}/{input_Value[1]}/{input_Value[2]}/{input_Value[3]}/{amenity}"
         except:
             return harden_response(page_not_found)
@@ -673,7 +678,7 @@ def city_coords(location):
         with open('app/cities.json', 'r') as x:
             loaded = json.load(x)
             for city in loaded:
-                cityState = (city['city'] + city['state']).replace(" ", "")
+                cityState = sanitize_location_name(city['city'] + city['state'])
                 if (cityState.lower() == location):
                         minLat = round(float(city['latitude']) - .1, degreeRound)
                         minLon = round(float(city['longitude']) - .1, degreeRound)
