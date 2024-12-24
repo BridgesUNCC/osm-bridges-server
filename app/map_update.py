@@ -57,6 +57,15 @@ def flush_map_cache():
     f.close()
 
 
+def install_file(src: str, dest: str):
+    '''Install file at path src into path dest.
+    This function creates the directory for dest if necessary.
+    This function moves the src file to path dest.
+    If there is already a file called dest, that file is overwritten.
+    '''
+    os.makedirs(os.path.dirname(dest), exist_ok=True)
+    shutil.move(src, dest)
+    
 def update():
     '''Updates and reduces the root map file'''
 
@@ -79,67 +88,59 @@ def update():
                 try:
                     map_title = sub["map"]
 
-                    app_log.info(f"Downloading {map_title} map...")
+                    app_log.info(f"Downloading {map_title} map... (Step 1/7)")
                     download_map(sub["url"], tempfolder)
-                    sub["last-updated"] = date.today().strftime("%Y%m%d")
 
-                except:
-                    print("Error Downloading Map")
-                    app_log.exception(f"Exception occured while downloading map {map_title}")
-                    break
-
-                with open("app/update.json", 'w') as f:
-                    json.dump(loaded, f, indent=4)
-
-                #filters out info before saving
-                try:
-                    print("Converting maps... (step 1/5)")
-                    app_log.info("Converting maps... (step 1/5)")
                     file_name = sub["file_name"]
-                    command  = (f"./app/osm_converts/osmconvert64 {tempfolder}/{file_name} -o=app/o5m_main.o5m")
+                    og_map_path = f"{tempfolder}/{file_name}"
+                    uncompressed_map_path = f"{tempfolder}/o5m_main.o5m"
+                    uncompressed_amenity_path = f"{tempfolder}/filteredTemp.o5m"
+                    uncompressed_filtered_map_path = f"{tempfolder}/mainTemp.o5m"
+
+                    app_log.info("Converting maps... (step 2/7)")
+                    command  = (f"./app/osm_converts/osmconvert64 {og_map_path} -o={uncompressed_map_path}")
                     subprocess.run([command], shell=True)
                     
-                    print("Filtering amenity maps... (step 2/5)")
-                    app_log.info("Filtering amenity maps... (step 2/5)")
-                    command = f"./app/osm_converts/osmfilter app/o5m_main.o5m {filter_command} -o=app/filteredTemp.o5m"
-                    subprocess.run([command], shell=True)
-
-
-                    print("Filtering main maps... (step 3/5)")
-                    app_log.info("Filtering main maps... (step 3/5)")
-                    command = f"./app/osm_converts/osmfilter app/o5m_main.o5m " + map_convert_command + f" -o=app/mainTemp.o5m"
-                    subprocess.run([command], shell=True)
-
-                    print("Converting main maps... (step 4/5)")
-                    app_log.info("Converting main maps... (step 4/5)")
 
                     # #saving downloaded maps
                     # We don't need to
                     # os.mkdir(f"{tempfolder}/temp")
                     # os.rename(f"{tempfolder}/" + sub["file_name"], "{tempfolder}/temp/" + sub["file_name"])
-                    command  = (f"./app/osm_converts/osmconvert64 app/mainTemp.o5m -o={tempfolder}/{file_name}")
+
+                    app_log.info("Filtering amenity maps... (step 3/7)")
+                    command = f"./app/osm_converts/osmfilter {uncompressed_map_path} {filter_command} -o={uncompressed_amenity_path}"
                     subprocess.run([command], shell=True)
 
-                    print("Converting amenity maps... (step 5/5)")
-                    app_log.info("Converting amenity maps... (step 5/5)")
-                    command  = (f"./app/osm_converts/osmconvert64 app/filteredTemp.o5m -o={tempfolder}/amenity-{file_name}")
+
+                    app_log.info("Filtering main maps... (step 4/7)")
+                    command = f"./app/osm_converts/osmfilter {uncompressed_map_path} {map_convert_command} -o={uncompressed_filtered_map_path}"
                     subprocess.run([command], shell=True)
 
-                    os.remove("app/o5m_main.o5m")
-                    os.remove("app/mainTemp.o5m")
-                    os.remove("app/filteredTemp.o5m")
-                    print("Map convertion done.")
-                except:
-                    app_log.exception("Converting and filtering error")
+                    app_log.info("Converting main maps... (step 5/7)")
+                    command  = (f"./app/osm_converts/osmconvert64 {uncompressed_filtered_map_path} -o={tempfolder}/{file_name}")
+                    subprocess.run([command], shell=True)
 
-                app_log.info("installing maps")
+                    app_log.info("Converting amenity maps... (step 6/7)")
+                    command  = (f"./app/osm_converts/osmconvert64 {uncompressed_amenity_path} -o={tempfolder}/amenity-{file_name}")
+                    subprocess.run([command], shell=True)
 
-                if (os.path.isfile("app/map_files/" + sub["file_name"])):
-                    os.remove("app/map_files/" + sub["file_name"])
-                os.rename(f"{tempfolder}/{file_name}", "app/map_files/" + sub["file_name"])
-                os.rename(f"{tempfolder}/amenity-{file_name}", "app/map_files/amenity-" + sub["file_name"])
+                    #os.remove("app/o5m_main.o5m")
+                    #os.remove("app/mainTemp.o5m")
+                    #os.remove("app/filteredTemp.o5m")
 
-            app_log.info("clearing out temp files")
+                    app_log.info("Installing maps 7/7")
+                    install_file(f"{tempfolder}/{file_name}", f"app/map_files/{sub['file_name']}")
+                    install_file(f"{tempfolder}/amenity-{file_name}", f"app/map_files/amenity-{sub['file_name']}")
+
+                    with open("app/update.json", 'w') as f:
+                        sub["last-updated"] = date.today().strftime("%Y%m%d")
+                        json.dump(loaded, f, indent=4)
+
+                except Exception as e:
+                    app_log.exception(f"Exception occured while updating map {map_title}")
+                    app_log.exception(e)
+                
+            app_log.info("Clearing out temp files")
             shutil.rmtree(f"{tempfolder}")
 
             try:
@@ -148,7 +149,6 @@ def update():
                 app_log.exception("Error flushing map cache. Probably non critical:")
                 app_log.exception(e)                
             
-            print("Maps are up-to-date")
     except Exception as e:
         app_log.exception(e)
 

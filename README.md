@@ -212,7 +212,7 @@ The extracted o5m_main.o5m file is 35GB (and takes not quite an hour on the VM)
 
 The intermediate amenity file filteredTemp.o5m is 268MB (take about 85min)
 
-The intermediate map file mainTemp.o5m is 
+The intermediate map file mainTemp.o5m is over 4.6GB (and takes over 4 hours; note that generating this file is generated in burst)
 
 the final amenity file is about 130MB
 
