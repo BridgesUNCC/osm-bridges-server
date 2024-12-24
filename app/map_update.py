@@ -98,7 +98,7 @@ def update():
 
                     app_log.info("Converting maps... (step 2/7)")
                     command  = (f"./app/osm_converts/osmconvert64 {og_map_path} -o={uncompressed_map_path}")
-                    subprocess.run([command], shell=True)
+                    subprocess.run([command], shell=True, check=True)
                     
 
                     # #saving downloaded maps
@@ -108,20 +108,20 @@ def update():
 
                     app_log.info("Filtering amenity maps... (step 3/7)")
                     command = f"./app/osm_converts/osmfilter {uncompressed_map_path} {filter_command} -o={uncompressed_amenity_path}"
-                    subprocess.run([command], shell=True)
+                    subprocess.run([command], shell=True, check=True)
 
 
                     app_log.info("Filtering main maps... (step 4/7)")
                     command = f"./app/osm_converts/osmfilter {uncompressed_map_path} {map_convert_command} -o={uncompressed_filtered_map_path}"
-                    subprocess.run([command], shell=True)
+                    subprocess.run([command], shell=True, check=True)
 
                     app_log.info("Converting main maps... (step 5/7)")
                     command  = (f"./app/osm_converts/osmconvert64 {uncompressed_filtered_map_path} -o={tempfolder}/{file_name}")
-                    subprocess.run([command], shell=True)
+                    subprocess.run([command], shell=True, check=True)
 
                     app_log.info("Converting amenity maps... (step 6/7)")
                     command  = (f"./app/osm_converts/osmconvert64 {uncompressed_amenity_path} -o={tempfolder}/amenity-{file_name}")
-                    subprocess.run([command], shell=True)
+                    subprocess.run([command], shell=True, check=True)
 
                     #os.remove("app/o5m_main.o5m")
                     #os.remove("app/mainTemp.o5m")
