@@ -127,7 +127,7 @@ def update():
                     #os.remove("app/mainTemp.o5m")
                     #os.remove("app/filteredTemp.o5m")
 
-                    app_log.info("Installing maps 7/7")
+                    app_log.info("Installing maps (Step 7/7)")
                     install_file(f"{tempfolder}/{file_name}", f"app/map_files/{sub['file_name']}")
                     install_file(f"{tempfolder}/amenity-{file_name}", f"app/map_files/amenity-{sub['file_name']}")
 
