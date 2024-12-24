@@ -13,6 +13,10 @@ divider = "-----------------------------------------------------------------"
 app_log = None
 
 def init(al):
+    ''' initialize the map_update module
+    Param:
+      al: app logger
+    '''
     global app_log
     app_log = al
     
@@ -50,6 +54,7 @@ def flush_map_cache():
     except:
         pass #If the file did not already exist, an eexception is raised, but is benign
 
+# with new install code, this no longer seem necessary
 #    f = open("app/reduced_maps/coords/.gitkeep", 'w')
 #    f.close()
 #    f = open("app/reduced_maps/cities/.gitkeep", 'w')
@@ -72,6 +77,13 @@ def update():
     map_convert_command = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =residential =primary_link =secondary_link =tertiary_link =trunk_link =living_street =motorway_link =path =footway =cycleway \" --drop-version'
     
     tempfolder = "app/map_files/download" #This folder will be both created AND destroyed
+
+    try:
+        flush_map_cache()
+    except Exception as e:
+        app_log.exception("Error flushing map cache. Probably non critical:")
+        app_log.exception(e)                
+
     
     try:
         with open("app/update.json", "r") as f:
@@ -142,11 +154,6 @@ def update():
             app_log.info("Clearing out temp files")
             shutil.rmtree(f"{tempfolder}")
 
-            try:
-                flush_map_cache()
-            except Exception as e:
-                app_log.exception("Error flushing map cache. Probably non critical:")
-                app_log.exception(e)                
             
     except Exception as e:
         app_log.exception(e)
