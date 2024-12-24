@@ -875,23 +875,14 @@ def updated_pipeline(bbox, level):
     return response
 
 
-@app.cli.command('wipe')
+@app.cli.command('wipe', help='Wipe the cache (but not the maps)')
 def wipe_cache():
-    try: 
-        shutil.rmtree('app/reduced_maps')
-        os.remove('lru.txt')
-        os.mkdir('app/reduced_maps')
-        os.mkdir('app/reduced_maps/cities')
-        os.mkdir('app/reduced_maps/coords')
-    except:
-        pass
+    map_update.flush_map_cache()
 
-@app.cli.command('update') #TODO
+@app.cli.command('update', help='Force the update of the maps (and flush the cache)') 
 def redownload_primary_maps():
     try:
-        app_log.info("Forcing map updates")
-        shutil.rmtree('app/map_files')
-        os.mkdir('app/map_files')
+        map_update.force_map_update()
     except:
         pass
 

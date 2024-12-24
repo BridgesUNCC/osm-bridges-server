@@ -38,23 +38,22 @@ def download_map(url, outfolder):
 
 
 def flush_map_cache():
-    
     #Clears the saved coordinate maps on update call
-    if os.path.isdir("app/reduced_maps/coords"):
-        shutil.rmtree("app/reduced_maps/coords")
-        
-    if os.path.isdir("app/reduced_maps/cities"):
-        shutil.rmtree("app/reduced_maps/cities")
+    if os.path.isdir("app/reduced_maps"):
+        shutil.rmtree("app/reduced_maps")
             
-    os.mkdir("app/reduced_maps/coords")
-    os.mkdir("app/reduced_maps/cities")
-            
-    os.remove("lru.txt")
+    os.makedirs("app/reduced_maps/coords", exist_ok=True)
+    os.makedirs("app/reduced_maps/cities", exist_ok=True)
 
-    f = open("app/reduced_maps/coords/.gitkeep", 'w')
-    f.close()
-    f = open("app/reduced_maps/cities/.gitkeep", 'w')
-    f.close()
+    try:
+        os.remove("lru.txt")
+    except:
+        pass #If the file did not already exist, an eexception is raised, but is benign
+
+#    f = open("app/reduced_maps/coords/.gitkeep", 'w')
+#    f.close()
+#    f = open("app/reduced_maps/cities/.gitkeep", 'w')
+#    f.close()
 
 
 def install_file(src: str, dest: str):
@@ -157,10 +156,22 @@ def update():
 
 # checks whether the map file is there, trigger immediate upadte otherwise
 def check_for_emergency_map_update():
-    filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
-    amenityFilename = "app/map_files/amenity-north-america-latest.osm.pbf" # NA map file directory
+    with open("app/update.json", "r") as f:
+        app_log.info(f"Updating map...")
+        loaded = json.load(f)
 
-    if (not os.path.isfile(filename)) or (not os.path.isfile(amenityFilename)):
-        print("Map file not found. Emergency map update!")
-        update()
+        for sub in loaded["maps"]:
+            map_title = sub["map"]
 
+            mapFilename = f"app/map_files/{sub['file_name']}" 
+            amenityFilename = f"app/map_files/amenity-{sub['file_name']}" 
+
+            if (not os.path.isfile(mapFilename)) or (not os.path.isfile(amenityFilename)):
+                print("Map file not found. Emergency map update!")
+                update()
+
+def force_map_update():
+    app_log.info("Forcing map updates")
+    shutil.rmtree('app/map_files')
+    os.mkdir('app/map_files')
+    update()
