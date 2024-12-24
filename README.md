@@ -204,11 +204,15 @@ ______________________________
 
 # How big is the data?
 
-(stats on dec6 2024)
+(stats in Dec 2024)
 
-The download of the .pbf file is about 15 GB
+The download of the .pbf file is 16 GB (download is about 30 minutes)
 
-The extracted o5m_main.o5m file is bigger over 25GB
+The extracted o5m_main.o5m file is 35GB (and takes not quite an hour on the VM)
+
+The intermediate amenity file filteredTemp.o5m is 268MB (take about 85min)
+
+The intermediate map file mainTemp.o5m is 
 
 the final amenity file is about 130MB
 
