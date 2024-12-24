@@ -54,6 +54,18 @@ def sanitize_location_name(name: str):
 
 @app.route('/amenity')
 def amenity():
+    '''
+    Query Parameter:
+    where:
+    -minLat: a float
+    -minLon: a float
+    -maxLat: a float
+    -maxLon: a float
+    -location: a string that contains a city name as returned as part of /cities
+
+    what:
+    -amenity: a type of amenity
+    '''
     try:
         try:
             if((request.args['minLat'] is not None) and (request.args['minLon'] is not None) and (request.args['maxLat'] is not None) and (request.args['maxLon'] is not None) and (request.args['amenity'] is not None)):    
@@ -201,6 +213,17 @@ def amenity():
 
 @app.route('/loc')
 def namedInput():
+    '''
+    Query Param:
+    Where:
+    -minLon: a float
+    -maxLon: a float
+    -minLat: a float
+    -maxLat: a float
+    -location: A string mapping to a city as returned by /cities
+    What:
+    -level:
+    '''
     try:
         input_Value = sanitize_location_name(request.args['location'])
         app_log.info(divider)
