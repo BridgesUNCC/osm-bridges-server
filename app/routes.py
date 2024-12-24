@@ -23,7 +23,6 @@ maxMapFolderSize = None  #change first value to set number of gigabits the map f
 LRU = []
 
 default = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =primary_link =secondary_link =tertiary_link =trunk_link =motorway_link\" --drop-version'
-map_convert_command = '--keep=\"highway=motorway =trunk =primary =secondary =tertiary =unclassified =residential =primary_link =secondary_link =tertiary_link =trunk_link =living_street =motorway_link =path =footway =cycleway \" --drop-version'
 motorway = '=motorway =motorway_link'
 trunk = ' =trunk =trunk_link'
 primary = ' =primary =primary_link'
@@ -890,6 +889,7 @@ def wipe_cache():
 @app.cli.command('update') #TODO
 def redownload_primary_maps():
     try:
+        app_log.info("Forcing map updates")
         shutil.rmtree('app/map_files')
         os.mkdir('app/map_files')
     except:
