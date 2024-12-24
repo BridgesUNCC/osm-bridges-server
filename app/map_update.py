@@ -11,6 +11,15 @@ divider = "-----------------------------------------------------------------"
 
 
 app_log = None
+path_to_mapfile=None
+path_to_amenityfile=None
+
+def mapfile():
+    return path_to_mapfile
+
+def amenityfile():
+    return path_to_amenityfile
+
 
 def init(al):
     ''' initialize the map_update module
@@ -19,6 +28,20 @@ def init(al):
     '''
     global app_log
     app_log = al
+
+    global path_to_amenityfile
+    global path_to_mapfile
+    
+    #figuring out the correct map location
+    with open("app/update.json", "r") as f:
+        loaded = json.load(f)
+        
+        for sub in loaded["maps"]:
+            map_title = sub["map"]
+
+            path_to_mapfile = f"app/map_files/{sub['file_name']}" 
+            path_to_amenityfile = f"app/map_files/amenity-{sub['file_name']}" 
+
     
 
 def download_map(url, outfolder):
@@ -161,7 +184,7 @@ def update():
 
 
 
-# checks whether the map file is there, trigger immediate upadte otherwise
+# checks whether the map file is there, trigger immediate update otherwise
 def check_for_emergency_map_update():
     with open("app/update.json", "r") as f:
         app_log.info(f"Updating map...")

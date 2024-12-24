@@ -108,7 +108,7 @@ def amenity():
 
 
 
-    o5m = call_convert1("app/map_files/amenity-north-america-latest.osm.pbf", input_Value)
+    o5m = call_convert1(map_update.amenityfile(), input_Value)
     filename = callAmenityFilter(o5m, amenity_type)
 
 
@@ -714,7 +714,7 @@ def pipeline(location, level, cityName = None):
         string: json data of the map requested with filters and sizing completed
     '''
 
-    filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
+    filename = map_update.mapfile()
 
 
     #Checks input for name or list
@@ -821,7 +821,7 @@ def pipeline(location, level, cityName = None):
 
 def updated_pipeline(bbox, level):
     map_dir = f"app/reduced_maps/{bbox[0]}/{bbox[1]}/{bbox[2]}/{bbox[3]}/{level}"
-    filename = "app/map_files/north-america-latest.osm.pbf" # NA map file directory
+    filename = map_update.mapfile()
 
     # Checks if map is already generated
     if (os.path.isfile(f"{map_dir}/map_data.json")):
