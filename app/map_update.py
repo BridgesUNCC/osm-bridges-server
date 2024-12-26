@@ -187,7 +187,6 @@ def update():
 # checks whether the map file is there, trigger immediate update otherwise
 def check_for_emergency_map_update():
     with open("app/update.json", "r") as f:
-        app_log.info(f"Updating map...")
         loaded = json.load(f)
 
         for sub in loaded["maps"]:
